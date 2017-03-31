@@ -23,6 +23,7 @@ public class Buildast extends MplusBaseListener{
     ParseTreeProperty<Node> AstNode = new ParseTreeProperty<>();
     Type functiontype;
     RootNode root;
+    int aref_num;
     int idcnt = 0, id = 0, now_class_id = 0, Error_num = 0, row = 0, col = 0;
     public Buildast(Map<Pair<String, Integer>, Type> a1, Map<Pair<String, Integer>, Type> a2, Map<String, Integer> b1, Map<Pair<String, Integer>, List<Type>> a3) {
         FunctionMap = a1;
@@ -275,15 +276,29 @@ public class Buildast extends MplusBaseListener{
         AstNode.put(ctx, tmp);
     }
 
-    @Override public void enterAref_expr(MplusParser.Aref_exprContext ctx) { }
+    @Override public void enterAref_expr(MplusParser.Aref_exprContext ctx) {aref_num = 1; }
 
     @Override public void exitAref_expr(MplusParser.Aref_exprContext ctx) {
-        
+        ArefNode tmp;
+        Node son_left = AstNode.get(ctx.getChild(0));
+        tmp = new ArefNode((ExprNode)son_left);
+        if(ctx.getChildCount() == 3) {
+            if(aref_num == 0) {
+                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            } else {
+                aref_num = 0;
+            }
+        }
+        AstNode.put(ctx, tmp);
     }
 
-    @Override public void enterMember_expr(MplusParser.Member_exprContext ctx) { }
+    @Override public void enterMember_expr(MplusParser.Member_exprContext ctx) {
 
-    @Override public void exitMember_expr(MplusParser.Member_exprContext ctx) { }
+    }
+
+    @Override public void exitMember_expr(MplusParser.Member_exprContext ctx) {
+
+    }
 
     @Override public void enterConstant_expr(MplusParser.Constant_exprContext ctx) { }
 
