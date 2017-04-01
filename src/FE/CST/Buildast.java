@@ -8,6 +8,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
+import java.security.spec.ECField;
 import java.util.*;
 
 import Exception.CompliationError;
@@ -23,7 +24,7 @@ public class Buildast extends MplusBaseListener{
     ParseTreeProperty<Node> AstNode = new ParseTreeProperty<>();
     Type functiontype;
     RootNode root;
-    int aref_num;
+    String classname;
     int idcnt = 0, id = 0, now_class_id = 0, Error_num = 0, row = 0, col = 0;
     public Buildast(Map<Pair<String, Integer>, Type> a1, Map<Pair<String, Integer>, Type> a2, Map<String, Integer> b1, Map<Pair<String, Integer>, List<Type>> a3) {
         FunctionMap = a1;
@@ -39,7 +40,8 @@ public class Buildast extends MplusBaseListener{
     }
 
     private void Out() {
-        id = (Integer)id_stack.pop();
+        id_stack.pop();
+        id = (Integer)id_stack.peek();
     }
 
     Pair<Type, Integer> get_type(String name) {
@@ -49,7 +51,7 @@ public class Buildast extends MplusBaseListener{
                 return new Pair<Type, Integer>(type, (Integer)id_stack.get(i));
             }
         }
-        return new Pair<Type, Integer>(new Type("!*!"), -1);
+        return new Pair<Type, Integer>(new Type("!+!", 1000000), -1);
     }
 
     Type get(String name, int tmp) {
@@ -84,9 +86,14 @@ public class Buildast extends MplusBaseListener{
     @Override public void enterClasspart(MplusParser.ClasspartContext ctx) {
         In();
         now_class_id = id;
+        classname = ctx.Name().getText();
     }
 
     @Override public void exitClasspart(MplusParser.ClasspartContext ctx) {
+        ExprNode son = (ExprNode) AstNode.get(ctx.getChild(1));
+        if(!(son instanceof SpaceNode) && son.type.type.compareTo("!+!") == 0) {
+            Error_num--;
+        }
         Out();
         int n = ctx.getChildCount();
         ClassNode tmp = new ClassNode();
@@ -102,6 +109,10 @@ public class Buildast extends MplusBaseListener{
     }
 
     @Override public void exitFunctionpart(MplusParser.FunctionpartContext ctx) {
+        ExprNode son = (ExprNode) AstNode.get(ctx.getChild(1));
+        if(!(son instanceof SpaceNode) && son.type.type.compareTo("!+!") == 0) {
+            Error_num--;
+        }
         int n = ctx.getChildCount();
         FunctionNode tmp = new FunctionNode();
         for(int i = 0; i < n; i++) {
@@ -111,7 +122,20 @@ public class Buildast extends MplusBaseListener{
         AstNode.put(ctx, tmp);
     }
 
-    @Override public void enterParameter(MplusParser.ParameterContext ctx) { }
+    @Override public void enterParameter(MplusParser.ParameterContext ctx) {
+        List<TerminalNode> ListName = ctx.Name();
+        List<MplusParser.TypeContext> typeName = ctx.type();
+        List<Type> type_list = new ArrayList();
+        for(int i = 0; i < ListName.size(); i++) {
+            String name = ListName.get(i).getSymbol().getText();
+            String ttype = typeName.get(i).getText();
+            Type type = new Checkconflict().trans(ttype);
+            type_list.add(type);
+            Pair<String, Integer> pair = new Pair<String, Integer>(name, id);
+            pair = new Pair<String, Integer>(name, idcnt + 1);
+            NameMap.put(pair, type);
+        }
+    }
 
     @Override public void exitParameter(MplusParser.ParameterContext ctx) {
         ParaNode t = new ParaNode();
@@ -125,9 +149,15 @@ public class Buildast extends MplusBaseListener{
     @Override public void enterDifinition(MplusParser.DifinitionContext ctx) { }
 
     @Override public void exitDifinition(MplusParser.DifinitionContext ctx) {
+        Type t = new Checkconflict().trans(ctx.type().getText());
+
+        ExprNode son = (ExprNode) AstNode.get(ctx.getChild(1));
+        if(!(son instanceof SpaceNode) && son.type.type.compareTo("!+!") == 0) {
+            Error_num--;
+        }
+
         DifiNode tmp = new DifiNode();
         AstNode.put(ctx, tmp);
-        Type t = new Checkconflict().trans(ctx.type().getText());
         String name = ctx.Name().getText();
         NameMap.put(new Pair<String, Integer>(name, id), t);
         if(ctx.getChildCount() != 3) {
@@ -260,6 +290,13 @@ public class Buildast extends MplusBaseListener{
         AstNode.put(ctx, returnnode);
     }
 
+    @Override public void enterSelfpart(MplusParser.SelfpartContext ctx) {}
+
+    @Override public void exitSelfpart(MplusParser.SelfpartContext ctx) {
+        SelfNode tmp = new SelfNode((StmtNode)AstNode.get(ctx.getChild(3)));
+        AstNode.put(ctx, tmp);
+    }
+
     @Override public void enterUnary_expr(MplusParser.Unary_exprContext ctx) {
 
     }
@@ -276,18 +313,14 @@ public class Buildast extends MplusBaseListener{
         AstNode.put(ctx, tmp);
     }
 
-    @Override public void enterAref_expr(MplusParser.Aref_exprContext ctx) {aref_num = 1; }
+    @Override public void enterAref_expr(MplusParser.Aref_exprContext ctx) { }
 
     @Override public void exitAref_expr(MplusParser.Aref_exprContext ctx) {
         ArefNode tmp;
         Node son_left = AstNode.get(ctx.getChild(0));
         tmp = new ArefNode((ExprNode)son_left);
-        if(ctx.getChildCount() == 3) {
-            if(aref_num == 0) {
-                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
-            } else {
-                aref_num = 0;
-            }
+        if(tmp.type.len < 0) {
+            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
         }
         AstNode.put(ctx, tmp);
     }
@@ -297,7 +330,32 @@ public class Buildast extends MplusBaseListener{
     }
 
     @Override public void exitMember_expr(MplusParser.Member_exprContext ctx) {
-
+        ExprNode left = (ExprNode)AstNode.get(ctx.getChild(0));
+        ExprNode right = (ExprNode)AstNode.get(ctx.getChild(2));
+        if(left.type.type.compareTo("!+!") == 0) {
+            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+        }
+        Integer classid = ClassMap.get(left.type.type);
+        if(classid == 0) {
+            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+        }
+        MemNode tmp = new MemNode(left, right);
+        BasicNode tmp1 = (BasicNode)right;
+        if(ClassNameMap.containsKey(new Pair<String, Integer>(tmp1.name, classid))
+                && !FunctionMap.containsKey(new Pair<String, Integer>(tmp1.name, classid))) {
+            Type type = ClassNameMap.get(new Pair<String, Integer>(tmp1.name, classid));
+            tmp.type = type;
+            if(right.type.type.compareTo("!+!") == 0) {
+                Error_num--;
+            }
+            int fbh;
+        } else {
+            tmp.type = new Type("!+!", 1000000);
+            if(right.type.type.compareTo("!+!") != 0) {
+                Error_num++;
+            }
+        }
+        AstNode.put(ctx, tmp);
     }
 
     @Override public void enterConstant_expr(MplusParser.Constant_exprContext ctx) { }
@@ -306,22 +364,128 @@ public class Buildast extends MplusBaseListener{
         AstNode.put(ctx, AstNode.get(ctx.getChild(0)));
         ExprNode e = (ExprNode)AstNode.get(ctx.getChild(0));
     }
+    @Override public void enterThis_expr(MplusParser.This_exprContext ctx) {
+    }
+
+    @Override public void exitThis_expr(MplusParser.This_exprContext ctx) {
+        ThisNode tmp = new ThisNode(AstNode.get(ctx.getChild(0)));
+        if(now_class_id == 0) {
+            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+        }
+        Node left = AstNode.get(ctx.getChild(0));
+        ExprNode right = (ExprNode)AstNode.get(ctx.getChild(2));
+        BasicNode tmp1 = (BasicNode)right;
+        if(ClassNameMap.containsKey(new Pair<String, Integer>(tmp1.name, now_class_id))
+                && !FunctionMap.containsKey(new Pair<String, Integer>(tmp1.name, now_class_id))) {
+            Type type = ClassNameMap.get(new Pair<String, Integer>(tmp1.name, now_class_id));
+            tmp.type = type;
+            int yjc;
+            if(right.type.type.compareTo("!+!") == 0) {
+                Error_num--;
+            }
+        } else {
+            tmp.type = new Type("!+!", 1000000);
+            if(right.type.type.compareTo("!+!") != 0) {
+                Error_num++;
+            }
+        }
+        AstNode.put(ctx, tmp);
+    }
 
     @Override public void enterBinary_expr(MplusParser.Binary_exprContext ctx) { }
 
-    @Override public void exitBinary_expr(MplusParser.Binary_exprContext ctx) { }
+    @Override public void exitBinary_expr(MplusParser.Binary_exprContext ctx) {
+        ExprNode left = (ExprNode)AstNode.get(ctx.getChild(0));
+        ExprNode right = (ExprNode)AstNode.get(ctx.getChild(2));
+        String t = ctx.getChild(1).getText();
+        BinaryOpNode tmp;
+        try {
+            tmp = new BinaryOpNode(left, t , right);
+        } catch (CompliationError e) {
+            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+        }
+        AstNode.put(ctx, tmp);
+    }
 
     @Override public void enterSuffix_expr(MplusParser.Suffix_exprContext ctx) { }
 
-    @Override public void exitSuffix_expr(MplusParser.Suffix_exprContext ctx) { }
+    @Override public void exitSuffix_expr(MplusParser.Suffix_exprContext ctx) {
+        ExprNode left = (ExprNode)AstNode.get(ctx.getChild(0));
+        if(left.type.type.compareTo("int") != 0) {
+            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+        }
+        OperaNode op = new OperaNode(ctx.getChild(1).getText());
+        SufNode tmp = new SufNode(left, op);
+        AstNode.put(ctx, tmp);
+    }
+
+    @Override public void enterMy_type(MplusParser.My_typeContext ctx) { }
+
+    @Override public void exitMy_type(MplusParser.My_typeContext ctx) {
+        BasicNode t = (BasicNode)AstNode.get(ctx.getChild(0));
+        AstNode.put(ctx, t);
+        if(t.type.type.compareTo("!+!") == 0) {
+            Error_num--;
+            if(ClassMap.containsKey(t.name) == false) {
+                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            }
+        }
+    }
 
     @Override public void enterNew_expr(MplusParser.New_exprContext ctx) { }
 
-    @Override public void exitNew_expr(MplusParser.New_exprContext ctx) { }
+    @Override public void exitNew_expr(MplusParser.New_exprContext ctx) {
+        int n = ctx.getChildCount();
+        String str = ctx.type().getText();
+        Type type = new Checkconflict().trans(str);
+        Boolean flag = true;
+        Integer num = 0;
+        for(int i = 2, j; i < n; i = j + 1) {
+            j = i;
+            num++;
+            while(true) {
+                Node son = AstNode.get(ctx.getChild(j));
+                if(son instanceof SpaceNode) {
+                    break;
+                }
+                j++;
+                if(j >= n) {
+                    break;
+                }
+            }
+            if(j - i == 2) {
+                if(flag == true) {
+                    flag = false;
+                }
+            }
+            if(j - i == 3) {
+                if(flag == false) {
+                    throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                }
+            }
+        }
+        type.len = num;
+        NewNode tmp = new NewNode();
+        tmp.type = type;
+        AstNode.put(ctx, tmp);
+    }
 
     @Override public void enterAssign_expr(MplusParser.Assign_exprContext ctx) { }
 
-    @Override public void exitAssign_expr(MplusParser.Assign_exprContext ctx) { }
+    @Override public void exitAssign_expr(MplusParser.Assign_exprContext ctx) {
+        Node left = AstNode.get(ctx.getChild(0));
+        Node right = AstNode.get(ctx.getChild(2));
+        if(!(left instanceof BasicNode) && !(left instanceof ArefNode) && !(left instanceof MemNode)) {
+            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+        }
+        AssiNode tmp;
+        try {
+            tmp = new AssiNode((ExprNode) left, (ExprNode) right);
+        } catch (CompliationError t) {
+            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+        }
+        AstNode.put(ctx, tmp);
+    }
 
     @Override public void enterName_expr(MplusParser.Name_exprContext ctx) { }
 
@@ -331,11 +495,65 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void enterFunction_expr(MplusParser.Function_exprContext ctx) { }
 
-    @Override public void exitFunction_expr(MplusParser.Function_exprContext ctx) { }
+    @Override public void exitFunction_expr(MplusParser.Function_exprContext ctx) {
+        Node left = AstNode.get(ctx.getChild(0));
+        List<Type> list = new ArrayList();
+        int n = ctx.getChildCount();
+        for(int i = 2; i < n - 1; i += 2) {
+            ExprNode son = (ExprNode)AstNode.get(ctx.getChild(i));
+            Type CC = son.type;
+            list.add(CC);
+        }
+        if(left instanceof ConstNode || left instanceof ArefNode) {
+            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+        }
+        int classid = 1;
+        BasicNode tmp1;
+
+        if(!(left instanceof BasicNode)) {
+            tmp1 = (BasicNode)AstNode.get(ctx.getChild(0).getChild(2));
+            ExprNode tmp = (ExprNode) AstNode.get(ctx.getChild(0).getChild(0));
+            if(tmp.type.type.compareTo("!+!") == 0) {
+                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            } else {
+                classid = ClassMap.get(tmp.type.type);
+            }
+            if(tmp.type.len > 0) {
+                BasicNode rr = (BasicNode) AstNode.get(ctx.getChild(0).getChild(2));
+                if(rr.name.compareTo("size") == 0) {
+                    SizeNode ttmp = new SizeNode(new Type("int"));
+                    if(rr.type.type.compareTo("!+!") == 0) {
+                        Error_num--;
+                    }
+                    AstNode.put(ctx, ttmp);
+                    return ;
+                }
+            }
+        } else {
+            tmp1 = (BasicNode)left;
+        }
+        List<Type> list2;
+        if(!FunctionMap.containsKey(new Pair<String, Integer>(tmp1.name, classid))) {
+            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+        } else {
+            list2 = ParaMap.get(new Pair<String, Integer>(tmp1.name, classid));
+            if(!list.containsAll(list2) || !list2.containsAll(list)) {
+                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            }
+        }
+        if(tmp1.type.type.compareTo("!+!") == 0) {
+            Error_num--;
+        }
+        Type type = FunctionMap.get(new Pair<String, Integer>(tmp1.name, classid));
+        FuncallNode ttmp = new FuncallNode(list2, type);
+        AstNode.put(ctx, ttmp);
+    }
 
     @Override public void enterBracket_expr(MplusParser.Bracket_exprContext ctx) { }
 
-    @Override public void exitBracket_expr(MplusParser.Bracket_exprContext ctx) { }
+    @Override public void exitBracket_expr(MplusParser.Bracket_exprContext ctx) {
+        AstNode.put(ctx, AstNode.get(ctx.getChild(1)));
+    }
 
     @Override public void enterBool(MplusParser.BoolContext ctx) { }
 
@@ -372,14 +590,16 @@ public class Buildast extends MplusBaseListener{
     @Override public void enterTrue_type(MplusParser.True_typeContext ctx) { }
 
     @Override public void exitTrue_type(MplusParser.True_typeContext ctx) {
-        AstNode.put(ctx, new SpaceNode());
+        AstNode.put(ctx, AstNode.get(ctx.getChild(0)));
     }
 
     @Override public void enterArray_type(MplusParser.Array_typeContext ctx) {
 
     }
 
-    @Override public void exitArray_type(MplusParser.Array_typeContext ctx) { }
+    @Override public void exitArray_type(MplusParser.Array_typeContext ctx) {
+        AstNode.put(ctx, AstNode.get(ctx.getChild(0)));
+    }
 
     @Override public void enterEveryRule(ParserRuleContext ctx) {
         row = ctx.getStart().getLine();
@@ -420,12 +640,22 @@ public class Buildast extends MplusBaseListener{
             AstNode.put(node, new SpaceNode());
             return ;
         }
+        if(t.equals("this")) {
+            if(now_class_id == 0) {
+                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            } else {
+                Type type = new Type(classname);
+                NameMap.put(new Pair<String, Integer>("this", now_class_id), type);
+                AstNode.put(node, new BasicNode(type, "this"));
+            }
+        }
         char c = t.charAt(0);
         if(Character.isLetter(c)) {
             Type tt = get(t, now_class_id);
             if(tt.type.equals("!+!") == true) {
                 Error_num++;
             }
+
             BasicNode tmp = new BasicNode(tt, t);
             AstNode.put(node, tmp);
         }

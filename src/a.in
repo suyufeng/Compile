@@ -1,4 +1,9 @@
-int main() {
-    int[][][] a = new int[3][][];
-    a[1] = ;
-}
+// Target: qsort
+// Possible optimization: Dead code elimination, common expression, strength reduction
+// REMARKS: nothing.
+//
+//
+
+//int a[10100];
+int[] a = new int[10100];
+int n = 10000;

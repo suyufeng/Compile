@@ -28,6 +28,16 @@ public interface MplusListener extends ParseTreeListener {
 	 */
 	void exitClasspart(MplusParser.ClasspartContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link MplusParser#selfpart}.
+	 * @param ctx the parse tree
+	 */
+	void enterSelfpart(MplusParser.SelfpartContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MplusParser#selfpart}.
+	 * @param ctx the parse tree
+	 */
+	void exitSelfpart(MplusParser.SelfpartContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link MplusParser#functionpart}.
 	 * @param ctx the parse tree
 	 */
@@ -369,4 +379,16 @@ public interface MplusListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitArray_type(MplusParser.Array_typeContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code my_type}
+	 * labeled alternative in {@link MplusParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void enterMy_type(MplusParser.My_typeContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code my_type}
+	 * labeled alternative in {@link MplusParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void exitMy_type(MplusParser.My_typeContext ctx);
 }

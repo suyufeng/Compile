@@ -8,7 +8,7 @@ public class FunctionNode extends BigNode{
     public FunctionNode () {
 
     }
-    FunctionNode(Type tmp) {
+    public FunctionNode(Type tmp) {
         type = tmp;
     }
 

@@ -45,7 +45,6 @@ public class Main {
         ClassMap.put("int", 0);
         ClassMap.put("bool", 0);
         ClassMap.put("string", 0);
-
         Buildast second_result = new Buildast(FunctionMap, NameMap, ClassMap, ParaMap);
         try {
             walker.walk(second_result, tree);
@@ -55,6 +54,6 @@ public class Main {
         }
 
         // print LISP-style tree
-        System.out.println(tree.toStringTree(parser));
+       // System.out.println(tree.toStringTree(parser));
     }
 }

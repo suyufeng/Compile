@@ -1,6 +1,5 @@
 // Generated from Mplus.g4 by ANTLR 4.6
 package FE.CST;
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -35,6 +34,18 @@ public class MplusBaseListener implements MplusListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitClasspart(MplusParser.ClasspartContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSelfpart(MplusParser.SelfpartContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSelfpart(MplusParser.SelfpartContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -395,6 +406,18 @@ public class MplusBaseListener implements MplusListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitArray_type(MplusParser.Array_typeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMy_type(MplusParser.My_typeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMy_type(MplusParser.My_typeContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

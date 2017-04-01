@@ -14,24 +14,11 @@ public class BinaryOpNode extends ExprNode{
     OperaNode op;
 
     BinaryOpNode() {}
-    BinaryOpNode(ExprNode x, String ope, ExprNode y) {
+    public BinaryOpNode(ExprNode x, String ope, ExprNode y) {
         left = x;
         op = new OperaNode(ope);
         right = y;
 
-        if(op.s.equals("<") || op.s.equals(">") || op.s.equals("<=") || op.s.equals(">=") || op.s.equals("==") || op.s.equals("!="))
-            type = new Type("bool");
-        else
-            type = left.type;
-        if(Check() == false) {
-            throw new CompliationError("!");
-        }
-    }
-    BinaryOpNode(Stack T) {
-        right = (ExprNode) T.pop();
-        op = (OperaNode) T.pop();
-        left = (ExprNode) T.pop();
-        
         if(op.s.equals("<") || op.s.equals(">") || op.s.equals("<=") || op.s.equals(">=") || op.s.equals("==") || op.s.equals("!="))
             type = new Type("bool");
         else
@@ -49,16 +36,21 @@ public class BinaryOpNode extends ExprNode{
     }
 
     Boolean Check() {
-        if(left.type.flag == false || right.type.flag == false) {
-            return false;
-        }
         if(left.type.Compareto(right.type) == false) {
             return false;
         }
         if(left.type.len != 0) {
             return false;
         }
-        if(op.s.equals("<") || op.s.equals(">") || op.s.equals("<=") || op.s.equals(">=")) {
+        if(both("!+!")) {
+            return false;
+        }
+        if(op.s.equals("<")) {
+            if(!both("int") && !both("string")) {
+                return false;
+            }
+        }
+        if(op.s.equals(">") || op.s.equals("<=") || op.s.equals(">=")) {
             if(!both("int"))
                 return false;
         }

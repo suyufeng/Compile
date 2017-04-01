@@ -2,7 +2,9 @@ grammar Mplus;
 
 program: (classpart | functionpart | difinition)+;
 
-classpart: 'class' Name '{' (functionpart | difinition)+ '}' ';';
+classpart: 'class' Name '{' (functionpart | difinition | selfpart )* '}' ;
+
+selfpart:  Name '('')' blockpart;
 
 functionpart: type Name '(' parameter ')' blockpart;
 
@@ -66,11 +68,11 @@ type: 'void'                                        #true_type
 	| 'int'                                         #true_type
 	| 'bool'                                        #true_type
 	| 'string'                                      #true_type
-	| Name                                          #true_type
+	| Name                                          #my_type
 	| type '['']'                                   #array_type
 ;
 
-Comment: '//' .*? ->  skip;
+Comment : '//' ~[\r\n]* -> skip;
 
 This: 'this';
 

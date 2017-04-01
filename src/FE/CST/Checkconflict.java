@@ -27,13 +27,19 @@ public class Checkconflict extends MplusBaseListener {
         id = idcnt;
     }
     private void Out() {
-        id = (Integer)id_stack.pop();
+        id_stack.pop();
+        id = (Integer)id_stack.peek();
     }
 
     private boolean check(String name) {
         Pair<String, Integer> pair1 = new Pair <String, Integer>(name, id);
-        if(NameMap.containsKey(pair1) || ClassMap.containsKey(name)) {
+        if(NameMap.containsKey(pair1)) {
             return false;
+        }
+        if(id == 1) {
+             if(ClassMap.containsKey(name)) {
+                 return false;
+             }
         }
         return true;
     }
@@ -110,11 +116,13 @@ public class Checkconflict extends MplusBaseListener {
             String ttype = typeName.get(i).getText();
             Type type = trans(ttype);
             type_list.add(type);
+            int tmp_id = id;
+            id = idcnt + 1;
             if(check(name) == false) {
                 throw new CompliationError("CompliationError on line:" + row + " column:" + col + " !");
             }
+            id= tmp_id;
             Pair<String, Integer> pair = new Pair<String, Integer>(name, id);
-            NameMap.put(pair, type);
             pair = new Pair<String, Integer>(name, idcnt + 1);
             NameMap.put(pair, type);
         }
