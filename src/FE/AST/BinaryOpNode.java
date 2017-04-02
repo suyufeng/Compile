@@ -36,6 +36,9 @@ public class BinaryOpNode extends ExprNode{
     }
 
     Boolean Check() {
+        if(op.s.equals("==") || op.s.equals("!=")) {
+            return true;
+        }
         if(left.type.Compareto(right.type) == false) {
             return false;
         }

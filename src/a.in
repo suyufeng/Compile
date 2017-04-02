@@ -1,8 +1,16 @@
-class node {
-    string t;
+class A {
+    int x;
 }
+
+class B {
+    int x;
+}
+
 int main() {
-    node tmp = new node;
-    tmp.t = "1111";
-    int a = tmp.t.length();
+    A a = new A;
+    a.x = 20;
+    B b = new B;
+    b.x = 16;
+    if (a != b) {}
+    return 0;
 }
