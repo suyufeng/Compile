@@ -173,7 +173,10 @@ public class Buildast extends MplusBaseListener{
             ExprNode checktype = (ExprNode) AstNode.get(ctx.getChild(3));
             if(checktype.type.type.compareTo("null") == 0) {
                 if(t.len == 0) {
-                    throw new CompliationError("187CompliationError on line: " + row + " column: " + col + " !");
+                    int tmpp = ClassMap.get(t.type);
+                    if(tmpp <= 2) {
+                        throw new CompliationError("187CompliationError on line: " + row + " column: " + col + " !");
+                    }
                 }
             } else if(checktype.type.Compareto(t) == false) {
                 throw new CompliationError("170CompliationError on line: " + row + " column: " + col + " !");
@@ -530,7 +533,10 @@ public class Buildast extends MplusBaseListener{
         Node left = AstNode.get(ctx.getChild(0));
         List<Type> list = new ArrayList();
         int n = ctx.getChildCount();
-        for(int i = 2; i < n - 1; i += 2) {
+        for(int i = 2; i < n; i += 2) {
+            if(i == n - 1) {
+                break;
+            }
             ExprNode son = (ExprNode)AstNode.get(ctx.getChild(i));
             Type CC = son.type;
             list.add(CC);
@@ -559,6 +565,8 @@ public class Buildast extends MplusBaseListener{
                     AstNode.put(ctx, ttmp);
                     return ;
                 }
+            } else {
+                throw new CompliationError("568CompliationError on line: " + row + " column: " + col + " !");
             }
         } else {
             tmp1 = (BasicNode)left;
@@ -575,6 +583,15 @@ public class Buildast extends MplusBaseListener{
             }
             for(int i = 0; i < c; i++) {
                 if(!list.get(i).Compareto(list2.get(i))) {
+                    if(list.get(i).type.compareTo("null") == 0) {
+                        if(list2.get(i).len > 0) {
+                            continue;
+                        }
+                        int t = ClassMap.get(list2.get(i).type);
+                        if(t > 2) {
+                            continue;
+                        }
+                    }
                     throw new CompliationError("557CompliationError on line: " + row + " column: " + col + " !");
                 }
             }
