@@ -79,7 +79,7 @@ public class Buildast extends MplusBaseListener{
         AstNode.put(ctx, tmp);
         root = tmp;
         if(Error_num > 0) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("82CompliationError on line: " + row + " column: " + col + " !");
         }
     }
 
@@ -134,6 +134,7 @@ public class Buildast extends MplusBaseListener{
             Pair<String, Integer> pair = new Pair<String, Integer>(name, id);
             pair = new Pair<String, Integer>(name, idcnt + 1);
             NameMap.put(pair, type);
+            Error_num--;
         }
     }
 
@@ -164,10 +165,10 @@ public class Buildast extends MplusBaseListener{
             ExprNode checktype = (ExprNode) AstNode.get(ctx.getChild(3));
             if(checktype.type.type.compareTo("null") == 0) {
                 if(t.len == 0) {
-                    throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                    throw new CompliationError("187CompliationError on line: " + row + " column: " + col + " !");
                 }
             } else if(checktype.type.Compareto(t) == false) {
-                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                throw new CompliationError("170CompliationError on line: " + row + " column: " + col + " !");
             }
         }
     }
@@ -217,7 +218,7 @@ public class Buildast extends MplusBaseListener{
             tmp = new IfNode(t1, t2, t3);
         }
         if(tmp.condition.type.Compareto(new Type("bool")) == false) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("220CompliationError on line: " + row + " column: " + col + " !");
         }
         AstNode.put(ctx, tmp);
     }
@@ -231,7 +232,7 @@ public class Buildast extends MplusBaseListener{
         StmtNode t2 = (StmtNode)AstNode.get(ctx.getChild(4));
         WhileNode tmp = new WhileNode(t1, t2);
         if(tmp.condition.type.Compareto(new Type("bool")) == false) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("234CompliationError on line: " + row + " column: " + col + " !");
         }
         AstNode.put(ctx, tmp);
     }
@@ -254,7 +255,7 @@ public class Buildast extends MplusBaseListener{
         }
         if(a[1] != null) {
             if(a[1].type.type.compareTo("bool") != 0) {
-                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                throw new CompliationError("257CompliationError on line: " + row + " column: " + col + " !");
             }
         }
         StmtNode tmp1 = (StmtNode)AstNode.get(ctx.getChild(n - 1));
@@ -279,14 +280,13 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void exitReturn(MplusParser.ReturnContext ctx) {
         ReturnNode returnnode;
-
         if(ctx.getChildCount() == 3) {
             returnnode = new ReturnNode(AstNode.get(ctx.getChild(1)));
         } else {
             returnnode = new ReturnNode(new ExprNode(new Type("void")));
         }
         if(returnnode.check(functiontype) == false) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("288CompliationError on line: " + row + " column: " + col + " !");
         }
         AstNode.put(ctx, returnnode);
     }
@@ -301,7 +301,7 @@ public class Buildast extends MplusBaseListener{
         if(ClassNameMap.containsKey(classnamep)) {
             int t = ClassMap.get(classnamep);
             if(t != now_class_id) {
-                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                throw new CompliationError("303CompliationError on line: " + row + " column: " + col + " !");
             }
         }
         AstNode.put(ctx, tmp);
@@ -318,7 +318,7 @@ public class Buildast extends MplusBaseListener{
             ExprNode son = (ExprNode)(AstNode.get(ctx.getChild(1)));
             tmp = new UnaryNode(t, son);
         } catch (CompliationError ff) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("320CompliationError on line: " + row + " column: " + col + " !");
         }
         AstNode.put(ctx, tmp);
     }
@@ -330,7 +330,7 @@ public class Buildast extends MplusBaseListener{
         Node son_left = AstNode.get(ctx.getChild(0));
         tmp = new ArefNode((ExprNode)son_left);
         if(tmp.type.len < 0) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("332CompliationError on line: " + row + " column: " + col + " !");
         }
         AstNode.put(ctx, tmp);
     }
@@ -343,11 +343,11 @@ public class Buildast extends MplusBaseListener{
         ExprNode left = (ExprNode)AstNode.get(ctx.getChild(0));
         ExprNode right = (ExprNode)AstNode.get(ctx.getChild(2));
         if(left.type.type.compareTo("!+!") == 0) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("345CompliationError on line: " + row + " column: " + col + " !");
         }
         Integer classid = ClassMap.get(left.type.type);
         if(classid == 0 && (left.type.len == 0 && left.type.type.equals("string") == false)) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("349CompliationError on line: " + row + " column: " + col + " !");
         }
         MemNode tmp = new MemNode(left, right);
         BasicNode tmp1 = (BasicNode)right;
@@ -380,7 +380,7 @@ public class Buildast extends MplusBaseListener{
     @Override public void exitThis_expr(MplusParser.This_exprContext ctx) {
         ThisNode tmp = new ThisNode(AstNode.get(ctx.getChild(0)));
         if(now_class_id == 2) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("382CompliationError on line: " + row + " column: " + col + " !");
         }
         Node left = AstNode.get(ctx.getChild(0));
         ExprNode right = (ExprNode)AstNode.get(ctx.getChild(2));
@@ -412,7 +412,7 @@ public class Buildast extends MplusBaseListener{
         try {
             tmp = new BinaryOpNode(left, t , right);
         } catch (CompliationError e) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("414CompliationError on line: " + row + " column: " + col + " !");
         }
         AstNode.put(ctx, tmp);
     }
@@ -422,7 +422,7 @@ public class Buildast extends MplusBaseListener{
     @Override public void exitSuffix_expr(MplusParser.Suffix_exprContext ctx) {
         ExprNode left = (ExprNode)AstNode.get(ctx.getChild(0));
         if(left.type.type.compareTo("int") != 0) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("423CompliationError on line: " + row + " column: " + col + " !");
         }
         OperaNode op = new OperaNode(ctx.getChild(1).getText());
         SufNode tmp = new SufNode(left, op);
@@ -437,7 +437,7 @@ public class Buildast extends MplusBaseListener{
         if(t.type.type.compareTo("!+!") == 0) {
             Error_num--;
             if(ClassMap.containsKey(t.name) == false) {
-                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                throw new CompliationError("439CompliationError on line: " + row + " column: " + col + " !");
             }
         }
     }
@@ -486,13 +486,13 @@ public class Buildast extends MplusBaseListener{
         Node left = AstNode.get(ctx.getChild(0));
         Node right = AstNode.get(ctx.getChild(2));
         if(!(left instanceof BasicNode) && !(left instanceof ArefNode) && !(left instanceof MemNode)) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("488CompliationError on line: " + row + " column: " + col + " !");
         }
         AssiNode tmp;
         try {
             tmp = new AssiNode((ExprNode) left, (ExprNode) right);
         } catch (CompliationError t) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("494CompliationError on line: " + row + " column: " + col + " !");
         }
         AstNode.put(ctx, tmp);
     }
@@ -515,7 +515,7 @@ public class Buildast extends MplusBaseListener{
             list.add(CC);
         }
         if(left instanceof ConstNode || left instanceof ArefNode) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("517CompliationError on line: " + row + " column: " + col + " !");
         }
         int classid = 2;
         BasicNode tmp1;
@@ -524,7 +524,7 @@ public class Buildast extends MplusBaseListener{
             tmp1 = (BasicNode)AstNode.get(ctx.getChild(0).getChild(2));
             ExprNode tmp = (ExprNode) AstNode.get(ctx.getChild(0).getChild(0));
             if(tmp.type.type.compareTo("!+!") == 0) {
-                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                throw new CompliationError("526CompliationError on line: " + row + " column: " + col + " !");
             } else {
                 classid = ClassMap.get(tmp.type.type);
             }
@@ -543,19 +543,18 @@ public class Buildast extends MplusBaseListener{
             tmp1 = (BasicNode)left;
         }
         List<Type> list2;
-
         if(!FunctionMap.containsKey(new Pair<String, Integer>(tmp1.name, classid))) {
-            throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
-        } else {
 
+            throw new CompliationError("547CompliationError on line: " + row + " column: " + col + " !");
+        } else {
             list2 = ParaMap.get(new Pair<String, Integer>(tmp1.name, classid));
             int c = list.size();
             if(c != list2.size()) {
-                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                throw new CompliationError("552CompliationError on line: " + row + " column: " + col + " !");
             }
             for(int i = 0; i < c; i++) {
                 if(!list.get(i).Compareto(list2.get(i))) {
-                    throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                    throw new CompliationError("557CompliationError on line: " + row + " column: " + col + " !");
                 }
             }
         }
@@ -648,7 +647,7 @@ public class Buildast extends MplusBaseListener{
             AstNode.put(node, new SpaceNode());
             return ;
         }
-        if(t.equals("new") || t.equals("class") || t.equals("main")) {
+        if(t.equals("new") || t.equals("class") || t.equals("main") || t.equals("else")) {
             AstNode.put(node, new SpaceNode());
             return ;
         }
@@ -659,7 +658,7 @@ public class Buildast extends MplusBaseListener{
         }
         if(t.equals("this")) {
             if(now_class_id == 2) {
-                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                throw new CompliationError("660CompliationError on line: " + row + " column: " + col + " !");
             } else {
                 Type type = new Type(classname);
                 NameMap.put(new Pair<String, Integer>("this", now_class_id), type);
@@ -670,6 +669,8 @@ public class Buildast extends MplusBaseListener{
         if(Character.isLetter(c)) {
             Type tt = get(t, now_class_id);
             if(tt.type.equals("!+!") == true) {
+
+          //      System.out.println(t);
                 Error_num++;
             }
 
