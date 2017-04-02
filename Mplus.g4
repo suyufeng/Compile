@@ -19,9 +19,8 @@ statement: blockpart
 		 | while_statement
 		 | skip_statement
 		 | difinition
-		 | ';'
 ;
-expr_statement: expr ';';
+expr_statement: expr? ';';
 
 blockpart: '{' statement* '}';
 
@@ -57,7 +56,7 @@ expr : constant                                          #constant_expr
 	 | expr op = ('<'|'>'|'<='|'>='|'=='|'!=') expr      #binary_expr
 	 | expr op = '&&' expr                               #binary_expr
 	 | expr op = '||' expr                               #binary_expr
-	 | expr op = '=' expr                                #assign_expr
+	 | <asso = right> expr op = '=' expr                 #assign_expr
 ;
 
 constant: ('true'|'false')                          #bool

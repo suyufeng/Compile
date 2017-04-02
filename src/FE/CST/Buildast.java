@@ -1,6 +1,7 @@
 package FE.CST;
 
 import FE.AST.*;
+import com.sun.xml.internal.ws.api.pipe.NextAction;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.Pair;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -194,8 +195,14 @@ public class Buildast extends MplusBaseListener{
     @Override public void enterExpr_statement(MplusParser.Expr_statementContext ctx) { }
 
     @Override public void exitExpr_statement(MplusParser.Expr_statementContext ctx) {
-        ExprstmtNode tmp = new ExprstmtNode();
-        AstNode.put(ctx, tmp);
+        if (ctx.getChildCount() == 2) {
+            Node tmp = AstNode.get(ctx.getChild(0));
+            ExprstmtNode tmp1 = new ExprstmtNode((ExprNode)tmp);
+            AstNode.put(ctx, tmp1);
+        } else {
+            ExprstmtNode tmp1 = new ExprstmtNode((ExprNode)AstNode.get(ctx.getChild(0)));
+            AstNode.put(ctx, tmp1);
+        }
     }
 
     @Override public void enterBlockpart(MplusParser.BlockpartContext ctx) {
