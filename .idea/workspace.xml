@@ -5,41 +5,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/FE/AST/Expr/ParaNode.java" line="10" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/AST/UnaryNode.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/CST/MplusBaseListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/CST/MplusLexer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/CST/MplusListener.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/ArefNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/ArefNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/AssiNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/AssiNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/BasicNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/BasicNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/BinaryOpNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/BreakNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/BreakNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/ConstNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/ConstNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/ContinueNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/ContinueNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/DifiNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/DifiNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/ExprNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/ExprNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/ExprstmtNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/ExprstmtNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/ForNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/ForNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/FuncallNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/FuncallNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/IfNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/IfNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/MemNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/MemNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/NewNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/NewNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/OperaNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/OperaNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/ParaNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/ParaNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/ReturnNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/ReturnNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/SelfNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/SelfNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/SizeNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/SizeNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/SpaceNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/SpaceNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/StmtNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/StmtNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/SufNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/SufNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/ThisNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/ThisNode.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/FE/AST/WhileNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/WhileNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Mplus.g4" afterPath="$PROJECT_DIR$/Mplus.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/AST/BigNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/BigNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/CST/Buildast.java" afterPath="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
-    </list>
+    <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -928,12 +894,12 @@
       <workItem from="1491062903967" duration="1495000" />
       <workItem from="1491064912229" duration="2094000" />
       <workItem from="1491100673526" duration="20177000" />
-      <workItem from="1491125238715" duration="2463000" />
+      <workItem from="1491125238715" duration="2515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136629000" />
+    <option name="totallyTimeSpent" value="136681000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
