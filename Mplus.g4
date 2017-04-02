@@ -85,8 +85,8 @@ Integer: [0-9]+;
 String: '\"' Char* '\"';
 
 fragment
-Char: ~["\\\r\n]
-	| '\\' ["nt]
+Char	:	~["\\\r\n]
+		|	'\\' ["nt\\]
 ;
 
 Space: [ \t\r\n]+ -> skip;

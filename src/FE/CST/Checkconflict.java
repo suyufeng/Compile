@@ -17,7 +17,6 @@ public class Checkconflict extends MplusBaseListener {
     private int id = 1, idcnt = 1, now_class_id = 0;
     Stack id_stack = new Stack();
     boolean canreturn = false;
-    boolean needreturn = false;
     int canbreak = 0, row, col;
     String FunctionName;
     public Map<String, Integer> ClassMap = new HashMap<>();
@@ -92,9 +91,6 @@ public class Checkconflict extends MplusBaseListener {
         }
         String Nowtype = ctx.type().getText();
         Type nowtype = trans(Nowtype);
-        if(nowtype.type.compareTo("void") != 0) {
-            needreturn = true;
-        }
         FunctionMap.put(pair1, nowtype);
         NameMap.put(pair1, nowtype);
         pair1 = new Pair<String, Integer>(name, idcnt + 1);
@@ -108,9 +104,6 @@ public class Checkconflict extends MplusBaseListener {
     public void exitFunctionpart(MplusParser.FunctionpartContext ctx) {
 
         canreturn = false;
-        if(needreturn == true) {
-            throw new CompliationError("CompliationError on line:" + row + " column:" + col + " !");
-        }
     }
 
     @Override
@@ -207,7 +200,6 @@ public class Checkconflict extends MplusBaseListener {
         if(!canreturn) {
             throw new CompliationError("CompliationError on line:" + row + " column:" + col + " !");
         }
-        needreturn = false;
     }
 
     @Override

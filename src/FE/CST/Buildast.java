@@ -475,7 +475,6 @@ public class Buildast extends MplusBaseListener{
             }
         }
         type.len = num / 2;
-
         NewNode tmp = new NewNode();
         tmp.type = type;
         AstNode.put(ctx, tmp);
