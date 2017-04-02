@@ -7,6 +7,6 @@
 
 set -e
 cd "$(dirname "$0")"
-export CCHK="java -classpath ./lib/antlr-4.6-complete.jar:./bin cn.edu.sjtu.acm.compiler2017.demo.Semantic"
+export CCHK="java -classpath ./lib/antlr-4.6-complete.jar:./bin Main"
 cat > a.in   # save everything in stdin to program.txt
 $CCHK
