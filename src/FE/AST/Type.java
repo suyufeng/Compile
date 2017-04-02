@@ -7,20 +7,35 @@ import java.util.List;
  */
 public class Type {
     public String type;
-    public int len, have;
-    public Type() {}
+    public int len = 0, have = 0;
+    public Boolean flag;
+    public Type() {
+        flag = false;
+    }
     public Type(String a_type, Integer a) {
         type = a_type;
+        flag = false;
+        if(a_type.equals("int") || a_type.equals("string") || a_type.equals("bool")) {
+            flag = true;
+        }
         len = a;
         have = 0;
     }
     public Type(String a_type, Integer a, Integer b) {
         type = a_type;
+        flag = false;
+        if(a_type.equals("int") || a_type.equals("string") || a_type.equals("bool")) {
+            flag = true;
+        }
         len = a;
         have = b;
     }
     public Type(String a_type) {
         type = a_type;
+        flag = false;
+        if(a_type.equals("int") || a_type.equals("string") || a_type.equals("bool")) {
+            flag = true;
+        }
         have = len = 0;
     }
     public void print() {

@@ -17,9 +17,10 @@ public class AssiNode extends ExprNode {
     }
     Boolean check() {
         if(right.type.type.compareTo("null") == 0) {
-            if(left.type.len == 0) {
+            if(left.type.len == 0 && left.type.flag == true) {
                 return false;
             }
+            return true;
         }
         if(!left.type.Compareto(right.type)) {
             return false;

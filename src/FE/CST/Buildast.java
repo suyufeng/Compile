@@ -669,7 +669,7 @@ public class Buildast extends MplusBaseListener{
             AstNode.put(node, new SpaceNode());
             return ;
         }
-        if(t.equals(";") || t.equals(",")) {
+        if(t.equals(";") || t.equals(",") || t.equals("null")) {
             AstNode.put(node, new SpaceNode());
             return ;
         }

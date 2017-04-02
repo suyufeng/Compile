@@ -45,18 +45,18 @@ public class Checkconflict extends MplusBaseListener {
     }
 
     public Type trans(String s) {
-        Type ans = new Type();
-        ans.type = "";
+        String type = "";
+        int num = 0;
         for(int i = 0; i < s.length(); i++) {
             Character t = s.charAt(i);
             if(t == '[' || t == ']') {
-                ans.len++;
+                num++;
             } else {
-                ans.type = ans.type + t;
+                type = type + t;
             }
         }
-        ans.len /= 2;
-        ans.have = 0;
+        num /= 2;
+        Type ans = new Type(type, num);
         return ans;
     }
 

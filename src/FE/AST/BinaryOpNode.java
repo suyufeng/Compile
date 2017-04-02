@@ -36,16 +36,26 @@ public class BinaryOpNode extends ExprNode{
     }
 
     Boolean Check() {
+        if(left.type.type.compareTo("null") == 0 || right.type.type.compareTo("null") == 0) {
+            if(left.type.len > 0 || right.type.len > 0) {
+                return true;
+            }
+            if(left.type.flag || right.type.flag) {
+                return false;
+            }
+            return true;
+        }
         if(left.type.Compareto(right.type) == false) {
             return false;
+        }
+        if(!op.s.equals("==") && !op.s.equals("!=")) {
+            if (!both("int") && !both("bool") && !both("string")) {
+                return false;
+            }
         }
         if(left.type.len != 0) {
             return false;
         }
-        if(!op.s.equals("==") && !op.s.equals("!="))
-            if(!both("int") && !both("bool") && !both("string")) {
-                return false;
-            }
         if(op.s.equals("<")) {
             if(!both("int") && !both("string")) {
                 return false;
