@@ -56,7 +56,7 @@ expr : constant                                          #constant_expr
 	 | expr op = ('<'|'>'|'<='|'>='|'=='|'!=') expr      #binary_expr
 	 | expr op = '&&' expr                               #binary_expr
 	 | expr op = '||' expr                               #binary_expr
-	 | <asso = right> expr op = '=' expr                 #assign_expr
+	 | expr op = '=' expr                                #assign_expr
 ;
 
 constant: ('true'|'false')                          #bool

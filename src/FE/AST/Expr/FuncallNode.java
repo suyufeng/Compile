@@ -1,4 +1,6 @@
-package FE.AST;
+package FE.AST.Expr;
+
+import FE.AST.Type;
 
 import java.util.ArrayList;
 import java.util.List;

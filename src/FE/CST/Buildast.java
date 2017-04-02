@@ -1,6 +1,8 @@
 package FE.CST;
 
 import FE.AST.*;
+import FE.AST.Expr.*;
+import FE.AST.Stmt.*;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.Pair;
 import org.antlr.v4.runtime.tree.ErrorNode;

@@ -1,4 +1,6 @@
-package FE.AST;
+package FE.AST.Expr;
+
+import FE.AST.Node;
 
 /**
  * Created by suyufeng on 17-4-1.

@@ -1,4 +1,4 @@
-package FE.AST;
+package FE.AST.Stmt;
 
 /**
  * Created by suyufeng on 17-3-29.

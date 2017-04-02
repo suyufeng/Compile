@@ -1,10 +1,11 @@
-package FE.AST;
+package FE.AST.Expr;
 
 /**
  * Created by suyufeng on 17-3-29.
  */
 
 import Exception.CompliationError;
+import FE.AST.Type;
 
 public class BinaryOpNode extends ExprNode{
     ExprNode left, right;

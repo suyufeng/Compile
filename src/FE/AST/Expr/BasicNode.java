@@ -1,6 +1,6 @@
-package FE.AST;
+package FE.AST.Expr;
 
-import java.util.BitSet;
+import FE.AST.Type;
 
 /**
  * Created by suyufeng on 17-3-29.
