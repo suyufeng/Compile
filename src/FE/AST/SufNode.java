@@ -13,5 +13,6 @@ public class SufNode extends ExprNode {
     public SufNode(ExprNode a1, OperaNode a2) {
         left = a1;
         op = a2;
+        type = left.type;
     }
 }

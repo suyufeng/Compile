@@ -13,6 +13,7 @@ public class AssiNode extends ExprNode {
         if(check() == false) {
             throw new CompliationError();
         }
+        this.type = left.type;
     }
     Boolean check() {
         if(right.type.type.compareTo("null") == 0) {

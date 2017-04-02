@@ -106,6 +106,11 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void enterFunctionpart(MplusParser.FunctionpartContext ctx) {
         functiontype = new Checkconflict().trans(ctx.type().getText());
+        if(ctx.getChild(1).getText().compareTo("main") == 0) {
+            if(ctx.getChild(0).getText().compareTo("int") != 0) {
+                throw new CompliationError("111CompliationError on line: " + row + " column: " + col + " !");
+            }
+        }
     }
 
     @Override public void exitFunctionpart(MplusParser.FunctionpartContext ctx) {
@@ -517,7 +522,9 @@ public class Buildast extends MplusBaseListener{
         AstNode.put(ctx, AstNode.get(ctx.getChild(0)));
     }
 
-    @Override public void enterFunction_expr(MplusParser.Function_exprContext ctx) { }
+    @Override public void enterFunction_expr(MplusParser.Function_exprContext ctx) {
+
+    }
 
     @Override public void exitFunction_expr(MplusParser.Function_exprContext ctx) {
         Node left = AstNode.get(ctx.getChild(0));

@@ -6,55 +6,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/CST/MplusBaseListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/CST/MplusLexer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/CST/MplusListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/CST/MplusParser.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MplusBaseListener.class" afterPath="$PROJECT_DIR$/MplusBaseListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MplusListener.class" afterPath="$PROJECT_DIR$/MplusListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MplusParser.class" afterPath="$PROJECT_DIR$/MplusParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/AST/BinaryOpNode.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/AST/BinaryOpNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/Buildast.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/Buildast.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/Checkconflict.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/Checkconflict.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusBaseListener.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusBaseListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusLexer.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusLexer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusListener.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Aref_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Aref_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Array_typeContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Array_typeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Assign_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Assign_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Binary_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Binary_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$BoolContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$BoolContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Bracket_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Bracket_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$BreakContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$BreakContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ConstantContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ConstantContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Constant_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Constant_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ContinueContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ContinueContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ExprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ExprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$For_statementContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$For_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Function_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Function_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$If_statementContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$If_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$IntContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$IntContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Member_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Member_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$My_typeContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$My_typeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Name_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Name_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$New_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$New_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$NullContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$NullContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ReturnContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ReturnContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Skip_statementContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Skip_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$StringContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$StringContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Suffix_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Suffix_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$This_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$This_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$True_typeContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$True_typeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$TypeContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$TypeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Unary_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Unary_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$While_statementContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$While_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/AST/AssiNode.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/AST/AssiNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/AST/SufNode.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/AST/SufNode.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Mplus.g4" afterPath="$PROJECT_DIR$/Mplus.g4" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/a.in" afterPath="$PROJECT_DIR$/out/production/Compiler/a.in" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/AST/AssiNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/AssiNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/AST/SufNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/SufNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/CST/Buildast.java" afterPath="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/CST/Checkconflict.java" afterPath="$PROJECT_DIR$/src/FE/CST/Checkconflict.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/a.in" afterPath="$PROJECT_DIR$/src/a.in" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -74,21 +32,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Buildast.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Buildast.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="502" column="43" lean-forward="false" selection-start-line="502" selection-start-column="43" selection-end-line="502" selection-end-column="43" />
+            <state relative-caret-position="296">
+              <caret line="110" column="47" lean-forward="false" selection-start-line="110" selection-start-column="47" selection-end-line="110" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2453#2454#0" expanded="true" />
                 <element signature="e#2473#2474#0" expanded="true" />
-                <element signature="e#8447#8448#0" expanded="true" />
-                <element signature="e#8473#8474#0" expanded="true" />
-                <element signature="e#9042#9043#0" expanded="true" />
-                <element signature="e#9068#9069#0" expanded="true" />
-                <element signature="e#9979#9980#0" expanded="true" />
-                <element signature="e#9999#10000#0" expanded="true" />
+                <element signature="e#8710#8711#0" expanded="true" />
+                <element signature="e#8736#8737#0" expanded="true" />
+                <element signature="e#9305#9306#0" expanded="true" />
+                <element signature="e#9331#9332#0" expanded="true" />
+                <element signature="e#10242#10243#0" expanded="true" />
+                <element signature="e#10262#10263#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MplusParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FE/CST/MplusParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="206">
+              <caret line="1257" column="0" lean-forward="false" selection-start-line="1257" selection-start-column="0" selection-end-line="1257" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,8 +111,8 @@
       <file leaf-file-name="Mplus.g4" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Mplus.g4">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+            <state relative-caret-position="392">
+              <caret line="59" column="26" lean-forward="true" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -163,7 +133,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
+            <state relative-caret-position="390">
               <caret line="84" column="44" lean-forward="false" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -172,11 +142,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="a.in" pinned="false" current-in-tab="true">
+      <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="28">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SufNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FE/AST/SufNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -288,8 +268,6 @@
         <option value="$PROJECT_DIR$/src/FE/AST/Type.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/FuncallNode.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/NewNode.java" />
-        <option value="$PROJECT_DIR$/src/FE/AST/AssiNode.java" />
-        <option value="$PROJECT_DIR$/src/FE/AST/SufNode.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/FunctionNode.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/SizeNode.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/SpaceNode.java" />
@@ -303,8 +281,10 @@
         <option value="$PROJECT_DIR$/src/FE/CST/MplusLexer.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/MplusListener.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/MplusParser.java" />
-        <option value="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
+        <option value="$PROJECT_DIR$/src/FE/AST/AssiNode.java" />
+        <option value="$PROJECT_DIR$/src/FE/AST/SufNode.java" />
         <option value="$PROJECT_DIR$/src/a.in" />
+        <option value="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
       </list>
     </option>
   </component>
@@ -913,12 +893,12 @@
       <workItem from="1491043253222" duration="19110000" />
       <workItem from="1491062903967" duration="1495000" />
       <workItem from="1491064912229" duration="2094000" />
-      <workItem from="1491100673526" duration="14507000" />
+      <workItem from="1491100673526" duration="15345000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128496000" />
+    <option name="totallyTimeSpent" value="129334000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -953,7 +933,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14255983" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29839158" sideWeight="0.49635795" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32882413" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1128,14 +1108,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FE/AST/SufNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1334,16 +1306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="84" column="44" lean-forward="false" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FE/CST/MplusBaseListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
@@ -1368,24 +1330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
           <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FE/CST/MplusParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Mplus.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="38" column="1" lean-forward="false" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1422,14 +1366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FE/AST/AssiNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1448,29 +1384,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
+    <entry file="file://$PROJECT_DIR$/Mplus.g4">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="502" column="43" lean-forward="false" selection-start-line="502" selection-start-column="43" selection-end-line="502" selection-end-column="43" />
+        <state relative-caret-position="392">
+          <caret line="59" column="26" lean-forward="true" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FE/AST/AssiNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FE/CST/MplusParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="1257" column="0" lean-forward="false" selection-start-line="1257" selection-start-column="0" selection-end-line="1257" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2453#2454#0" expanded="true" />
-            <element signature="e#2473#2474#0" expanded="true" />
-            <element signature="e#8447#8448#0" expanded="true" />
-            <element signature="e#8473#8474#0" expanded="true" />
-            <element signature="e#9042#9043#0" expanded="true" />
-            <element signature="e#9068#9069#0" expanded="true" />
-            <element signature="e#9979#9980#0" expanded="true" />
-            <element signature="e#9999#10000#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FE/AST/SufNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/a.in">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="28">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="84" column="44" lean-forward="false" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="110" column="47" lean-forward="false" selection-start-line="110" selection-start-column="47" selection-end-line="110" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2453#2454#0" expanded="true" />
+            <element signature="e#2473#2474#0" expanded="true" />
+            <element signature="e#8710#8711#0" expanded="true" />
+            <element signature="e#8736#8737#0" expanded="true" />
+            <element signature="e#9305#9306#0" expanded="true" />
+            <element signature="e#9331#9332#0" expanded="true" />
+            <element signature="e#10242#10243#0" expanded="true" />
+            <element signature="e#10262#10263#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
