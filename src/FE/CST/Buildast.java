@@ -279,6 +279,7 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void exitReturn(MplusParser.ReturnContext ctx) {
         ReturnNode returnnode;
+
         if(ctx.getChildCount() == 3) {
             returnnode = new ReturnNode(AstNode.get(ctx.getChild(1)));
         } else {
@@ -290,7 +291,9 @@ public class Buildast extends MplusBaseListener{
         AstNode.put(ctx, returnnode);
     }
 
-    @Override public void enterSelfpart(MplusParser.SelfpartContext ctx) {}
+    @Override public void enterSelfpart(MplusParser.SelfpartContext ctx) {
+        functiontype = new Type("void");
+    }
 
     @Override public void exitSelfpart(MplusParser.SelfpartContext ctx) {
         SelfNode tmp = new SelfNode((StmtNode)AstNode.get(ctx.getChild(3)));
@@ -333,12 +336,10 @@ public class Buildast extends MplusBaseListener{
         ExprNode left = (ExprNode)AstNode.get(ctx.getChild(0));
         ExprNode right = (ExprNode)AstNode.get(ctx.getChild(2));
         if(left.type.type.compareTo("!+!") == 0) {
-            System.out.println(1);
             throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
         }
         Integer classid = ClassMap.get(left.type.type);
         if(classid == 0 && (left.type.len == 0 && left.type.type.equals("string") == false)) {
-            System.out.print(1);
             throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
         }
         MemNode tmp = new MemNode(left, right);
