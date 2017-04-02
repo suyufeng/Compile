@@ -1,9 +1,8 @@
-// Target: qsort
-// Possible optimization: Dead code elimination, common expression, strength reduction
-// REMARKS: nothing.
-//
-//
-
-//int a[10100];
-int[] a = new int[10100];
-int n = 10000;
+class node {
+    string t;
+}
+int main() {
+    node tmp = new node;
+    tmp.t = "1111";
+    int a = tmp.t.length();
+}

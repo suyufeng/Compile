@@ -14,7 +14,7 @@ public class Checkconflict extends MplusBaseListener {
     public Map<Pair<String, Integer>, Type> FunctionMap = new HashMap<>();
     public Map<Pair<String, Integer>, Type> NameMap = new HashMap<>();
     public Map<Pair<String, Integer>, List<Type>> ParaMap = new HashMap<>();
-    private int id = 0, idcnt = 0, now_class_id = 0;
+    private int id = 1, idcnt = 1, now_class_id = 0;
     Stack id_stack = new Stack();
     boolean canreturn = false;
     int canbreak = 0, row, col;
@@ -63,7 +63,7 @@ public class Checkconflict extends MplusBaseListener {
     @Override
     public void enterClasspart(MplusParser.ClasspartContext ctx) {
         String classname = ctx.Name().getText();
-        if (ClassMap.containsKey(classname) || id != 1) {
+        if (ClassMap.containsKey(classname) || id != 2) {
             throw new CompliationError("CompliationError on line:" + row + " column:" + col + " !");
         }
         In();

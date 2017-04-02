@@ -6,7 +6,7 @@ package FE.AST;
 public class ArefNode extends ExprNode{
     ExprNode tmp;
     public ArefNode(ExprNode tmp) {
-        type = tmp.type;
+        type = new Type(tmp.type.type, tmp.type.len, tmp.type.have);
         type.len -= 1;
     }
 }
