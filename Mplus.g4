@@ -4,7 +4,7 @@ program: (classpart | functionpart | difinition)+;
 
 classpart: 'class' Name '{' (functionpart | difinition | selfpart )* '}' ;
 
-selfpart:  Name '('')' blockpart;
+selfpart:  type '('')' blockpart;
 
 functionpart: type Name '(' parameter ')' blockpart;
 

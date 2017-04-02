@@ -297,6 +297,13 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void exitSelfpart(MplusParser.SelfpartContext ctx) {
         SelfNode tmp = new SelfNode((StmtNode)AstNode.get(ctx.getChild(3)));
+        String classnamep = ctx.getChild(0).getText();
+        if(ClassNameMap.containsKey(classnamep)) {
+            int t = ClassMap.get(classnamep);
+            if(t != now_class_id) {
+                throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            }
+        }
         AstNode.put(ctx, tmp);
     }
 
