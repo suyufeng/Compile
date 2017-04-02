@@ -564,9 +564,9 @@ public class Buildast extends MplusBaseListener{
                     }
                     AstNode.put(ctx, ttmp);
                     return ;
+                } else {
+                    throw new CompliationError("568CompliationError on line: " + row + " column: " + col + " !");
                 }
-            } else {
-                throw new CompliationError("568CompliationError on line: " + row + " column: " + col + " !");
             }
         } else {
             tmp1 = (BasicNode)left;
