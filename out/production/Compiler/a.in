@@ -1,22 +1,7 @@
-class Foo {
-    int young;
-}
+class A { int a; }
 
 int main() {
-    Foo chairman = new Foo;
-    chairman.naive = -2147483648;
+    A a = new A;
+    if (a) {}
+    return 0;
 }
-
-
-/*!! metadata:
-=== comment ===
-fldop-1-5120309049-liaochao.mx
-=== assert ===
-failure_compile
-=== phase ===
-semantic pretest
-=== is_public ===
-True
-
-!!*/
-

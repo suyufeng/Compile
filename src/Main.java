@@ -95,7 +95,7 @@ public class Main {
             walker.walk(second_result, tree);
         } catch (CompliationError t) {
             System.out.println(t.getError());
-            exit(0);
+            throw new CompliationError("1");
         }
 
         // print LISP-style tree
