@@ -8,13 +8,11 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import Exception.CompliationError;
 
-import static java.lang.System.exit;
 
 public class Main {
     static void init(Map<Pair<String, Integer>, Type> FunctionMap, Map<Pair<String, Integer>, Type> NameMap, Map<String, Integer> ClassMap, Map<Pair<String, Integer>, List<Type>> ParaMap) {

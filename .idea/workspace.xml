@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/Main.java" line="65" />
+    <bookmark url="file://$PROJECT_DIR$/src/Main.java" line="63" />
     <bookmark url="file://$PROJECT_DIR$/src/FE/AST/ParaNode.java" line="8" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/10.in" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/12.in" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/4.in" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/5.in" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/8.in" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/a.in" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/CST/Buildast.java" afterPath="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/a.in" afterPath="$PROJECT_DIR$/src/a.in" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,14 +38,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Buildast.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Buildast.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="717" column="21" lean-forward="false" selection-start-line="717" selection-start-column="16" selection-end-line="717" selection-end-column="21" />
+            <state relative-caret-position="252">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="392">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BinaryOpNode.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,6 +79,16 @@
                 <element signature="e#193#194#0" expanded="true" />
                 <element signature="e#216#217#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnaryNode.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/FE/AST/UnaryNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,8 +138,8 @@
       <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="107" column="13" lean-forward="false" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
+            <state relative-caret-position="-362">
+              <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -127,8 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>funck</find>
-      <find>throw new</find>
       <find>enterfunct</find>
       <find>syste</find>
       <find>enterpar</find>
@@ -157,6 +184,8 @@
       <find>entere</find>
       <find>statment</find>
       <find>System</find>
+      <find>Syste</find>
+      <find>Next</find>
     </findStrings>
     <replaceStrings>
       <replace>Mplus</replace>
@@ -214,21 +243,21 @@
         <option value="$PROJECT_DIR$/src/FE/AST/SpaceNode.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/Arrtype.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/ArefNode.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/SufNode.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/SizeNode.java" />
-        <option value="$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/Type.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/Checkconflict.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/AssiNode.java" />
-        <option value="$PROJECT_DIR$/src/a.in" />
         <option value="$PROJECT_DIR$/Mplus.g4" />
         <option value="$PROJECT_DIR$/src/FE/CST/MplusBaseListener.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/MplusLexer.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/MplusListener.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/MplusParser.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/ExprstmtNode.java" />
+        <option value="$PROJECT_DIR$/src/a.in" />
         <option value="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java" />
       </list>
     </option>
   </component>
@@ -838,12 +867,12 @@
       <workItem from="1491062903967" duration="1495000" />
       <workItem from="1491064912229" duration="2094000" />
       <workItem from="1491100673526" duration="20177000" />
-      <workItem from="1491125238715" duration="1497000" />
+      <workItem from="1491125238715" duration="1801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135663000" />
+    <option name="totallyTimeSpent" value="135967000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -980,14 +1009,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FE/AST/UnaryNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1170,16 +1191,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="43" column="57" lean-forward="false" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FE/AST/SizeNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1193,16 +1204,6 @@
         <state relative-caret-position="140">
           <caret line="5" column="35" lean-forward="false" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="38" column="74" lean-forward="false" selection-start-line="38" selection-start-column="74" selection-end-line="38" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1245,14 +1246,6 @@
           <folding>
             <element signature="e#233#234#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/a.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="107" column="13" lean-forward="false" selection-start-line="107" selection-start-column="13" selection-end-line="107" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1306,6 +1299,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Mplus.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/a.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-362">
+          <caret line="46" column="4" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FE/AST/ExprstmtNode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1317,21 +1352,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Mplus.g4">
+    <entry file="file://$PROJECT_DIR$/src/FE/AST/UnaryNode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="16" column="23" lean-forward="false" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        <state relative-caret-position="140">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="717" column="21" lean-forward="false" selection-start-line="717" selection-start-column="16" selection-end-line="717" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

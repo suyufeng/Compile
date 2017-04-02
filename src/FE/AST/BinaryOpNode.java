@@ -6,9 +6,6 @@ package FE.AST;
 
 import Exception.CompliationError;
 
-import java.util.Stack;
-import java.util.concurrent.CompletionException;
-
 public class BinaryOpNode extends ExprNode{
     ExprNode left, right;
     OperaNode op;
