@@ -73,7 +73,7 @@ public class Main {
         ParseTree tree = parser.program();
         if(parser.getNumberOfSyntaxErrors() > 0) {
             System.out.println("Error!");
-            exit(0);
+            throw new CompliationError("1");
         }
         ParseTreeWalker walker = new ParseTreeWalker();
         Checkconflict first = new Checkconflict();
@@ -82,7 +82,7 @@ public class Main {
             walker.walk(first, tree);
         } catch (CompliationError t) {
             System.out.println(t.getError());
-            exit(0);
+            throw new CompliationError("1");
         }
 
         Map<Pair<String, Integer>, Type> FunctionMap = first.FunctionMap;

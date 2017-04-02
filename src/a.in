@@ -1,16 +1,16 @@
-class A {
-    int f;
-    bool f;
+class Foo {
+    int young;
 }
 
 int main() {
-    return 0;
+    Foo chairman = new Foo;
+    chairman.naive = -2147483648;
 }
 
 
 /*!! metadata:
 === comment ===
-class-1-5100379071-puyouer.mx
+fldop-1-5120309049-liaochao.mx
 === assert ===
 failure_compile
 === phase ===

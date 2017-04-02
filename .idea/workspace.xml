@@ -6,56 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/CST/MplusBaseListener.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/CST/MplusLexer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/FE/CST/MplusListener.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MplusParser.class" afterPath="$PROJECT_DIR$/MplusParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/Buildast.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/Buildast.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/Checkconflict.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/Checkconflict.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusBaseListener.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusBaseListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Aref_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Aref_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Array_typeContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Array_typeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Assign_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Assign_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Binary_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Binary_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$BlockpartContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$BlockpartContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$BoolContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$BoolContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Bracket_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Bracket_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$BreakContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$BreakContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ConstantContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ConstantContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Constant_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Constant_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ContinueContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ContinueContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$DifinitionContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$DifinitionContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ExprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ExprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Expr_statementContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Expr_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$For_statementContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$For_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Function_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Function_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$FunctionpartContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$FunctionpartContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$If_statementContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$If_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$IntContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$IntContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Member_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Member_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$My_typeContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$My_typeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Name_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Name_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$New_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$New_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$NullContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$NullContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ParameterContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ParameterContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ReturnContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$ReturnContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$SelfpartContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$SelfpartContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Skip_statementContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Skip_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$StatementContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$StatementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$StringContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$StringContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Suffix_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Suffix_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$This_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$This_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$True_typeContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$True_typeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$TypeContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$TypeContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Unary_exprContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$Unary_exprContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$While_statementContext.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser$While_statementContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/MplusParser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Mplus.g4" afterPath="$PROJECT_DIR$/Mplus.g4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/a.in" afterPath="$PROJECT_DIR$/out/production/Compiler/a.in" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/CST/Buildast.java" afterPath="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/CST/Checkconflict.java" afterPath="$PROJECT_DIR$/src/FE/CST/Checkconflict.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/CST/MplusParser.java" afterPath="$PROJECT_DIR$/src/FE/CST/MplusParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/a.in" afterPath="$PROJECT_DIR$/src/a.in" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -101,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1848">
-              <caret line="66" column="46" lean-forward="false" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="78" />
+            <state relative-caret-position="134">
+              <caret line="75" column="44" lean-forward="false" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="a.in" pinned="false" current-in-tab="true">
+      <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="563">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -277,7 +229,6 @@
         <option value="$PROJECT_DIR$/src/FE/AST/Arrtype.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/ArefNode.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/Mplus.g4" />
         <option value="$PROJECT_DIR$/src/FE/CST/MplusParser.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/MplusListener.java" />
@@ -286,6 +237,7 @@
         <option value="$PROJECT_DIR$/src/FE/CST/Checkconflict.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
         <option value="$PROJECT_DIR$/src/a.in" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -894,12 +846,12 @@
       <workItem from="1491043253222" duration="19110000" />
       <workItem from="1491062903967" duration="1495000" />
       <workItem from="1491064912229" duration="2094000" />
-      <workItem from="1491100673526" duration="8694000" />
+      <workItem from="1491100673526" duration="9156000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122683000" />
+    <option name="totallyTimeSpent" value="123145000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1341,16 +1293,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1848">
-          <caret line="66" column="46" lean-forward="false" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="78" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FE/CST/Checkconflict.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
@@ -1401,9 +1343,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/a.in">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="563">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="11" lean-forward="true" selection-start-line="0" selection-start-column="11" selection-end-line="0" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="75" column="44" lean-forward="false" selection-start-line="75" selection-start-column="44" selection-end-line="75" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
