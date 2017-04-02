@@ -6,6 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/Main.class" afterPath="$PROJECT_DIR$/out/production/Compiler/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,7 +29,7 @@
       <file leaf-file-name="Buildast.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3114">
+            <state relative-caret-position="-90">
               <caret line="550" column="110" lean-forward="false" selection-start-line="550" selection-start-column="110" selection-end-line="550" selection-end-column="110" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -37,10 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="a.in" pinned="false" current-in-tab="true">
+      <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="896">
+            <state relative-caret-position="787">
               <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
@@ -57,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1308">
-              <caret line="44" column="64" lean-forward="true" selection-start-line="44" selection-start-column="64" selection-end-line="44" selection-end-column="64" />
+            <state relative-caret-position="246">
+              <caret line="66" column="46" lean-forward="true" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -258,11 +259,11 @@
         <option value="$PROJECT_DIR$/src/FE/CST/MplusListener.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/MplusParser.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/ArefNode.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/Checkconflict.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/BinaryOpNode.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
         <option value="$PROJECT_DIR$/src/a.in" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
@@ -871,12 +872,12 @@
       <workItem from="1491043253222" duration="19110000" />
       <workItem from="1491062903967" duration="1495000" />
       <workItem from="1491064912229" duration="2094000" />
-      <workItem from="1491100673526" duration="5815000" />
+      <workItem from="1491100673526" duration="6458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119804000" />
+    <option name="totallyTimeSpent" value="120447000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -1349,9 +1350,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/a.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="787">
+          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3114">
+        <state relative-caret-position="-90">
           <caret line="550" column="110" lean-forward="false" selection-start-line="550" selection-start-column="110" selection-end-line="550" selection-end-column="110" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1361,19 +1370,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1308">
-          <caret line="44" column="64" lean-forward="true" selection-start-line="44" selection-start-column="64" selection-end-line="44" selection-end-column="64" />
+        <state relative-caret-position="246">
+          <caret line="66" column="46" lean-forward="true" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/a.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
