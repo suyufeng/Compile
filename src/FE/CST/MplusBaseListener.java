@@ -1,6 +1,5 @@
 // Generated from Mplus.g4 by ANTLR 4.6
 package FE.CST;
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -143,6 +142,18 @@ public class MplusBaseListener implements MplusListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitWhile_statement(MplusParser.While_statementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterScope_statement(MplusParser.Scope_statementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitScope_statement(MplusParser.Scope_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

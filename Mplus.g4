@@ -25,11 +25,13 @@ expr_statement: expr ';';
 
 blockpart: '{' statement* '}';
 
-if_statement: 'if' '(' expr ')' statement ('else' statement)?;
+if_statement: 'if' '(' expr ')' scope_statement ('else' scope_statement)?;
 
-while_statement: 'while' '(' expr ')' statement;
+while_statement: 'while' '(' expr ')' scope_statement;
 
-for_statement: 'for' '(' expr? ';' expr? ';' expr? ')' statement;
+scope_statement: statement;
+
+for_statement: 'for' '(' expr? ';' expr? ';' expr? ')' scope_statement;
 
 skip_statement: 'continue' ';'                      #continue
 			  | 'break' ';'                         #break

@@ -207,6 +207,14 @@ public class Checkconflict extends MplusBaseListener {
         row = ctx.getStart().getLine();
         col = ctx.getStart().getCharPositionInLine();
     }
+    @Override public void enterScope_statement(MplusParser.Scope_statementContext ctx) {
+        In();
+    }
+
+    @Override public void exitScope_statement(MplusParser.Scope_statementContext ctx) {
+        Out();
+    }
+
 
     @Override
     public void exitEveryRule(ParserRuleContext ctx) {

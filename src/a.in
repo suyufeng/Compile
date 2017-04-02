@@ -1,32 +1,21 @@
-int Wallace = 1<<10;
-class sometimes {
-    int naive;
-    string haha;
+class A {
+    int a;
 }
-class ArrayWrapper {
-    sometimes[][] arr;
-}
-int get(int n) {
-    if (n == 0) return 0;
-    return 1 + get(n-1);
-}
+
 int main() {
-    sometimes keep = new sometimes;
-    int n = 3;
-    keep.naive = 2 + get(n) * 4 / 5;
-    bool fun = (keep.naive - 5 * 3) != (666 ^ 7);
-    while (getInt() < Wallace) {
-        keep.naive++;
-        ++n;
-    }
+    A a = new A;
+    A b = new A;
+    A c = new A;
+    c = a + b;
     return 0;
 }
 
+
 /*!! metadata:
 === comment ===
-language_manual.mx
+biop-1-5100379071-puyouer.mx
 === assert ===
-success_compile
+failure_compile
 === phase ===
 semantic pretest
 === is_public ===

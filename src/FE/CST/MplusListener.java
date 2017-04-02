@@ -1,6 +1,5 @@
 // Generated from Mplus.g4 by ANTLR 4.6
 package FE.CST;
-
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -118,6 +117,16 @@ public interface MplusListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitWhile_statement(MplusParser.While_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MplusParser#scope_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterScope_statement(MplusParser.Scope_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MplusParser#scope_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitScope_statement(MplusParser.Scope_statementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MplusParser#for_statement}.
 	 * @param ctx the parse tree

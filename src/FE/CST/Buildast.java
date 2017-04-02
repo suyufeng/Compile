@@ -156,6 +156,9 @@ public class Buildast extends MplusBaseListener{
         if(!(son instanceof SpaceNode) && son.type.type.compareTo("!+!") == 0) {
             Error_num--;
         }
+        if(t.type.compareTo("void") == 0) {
+            throw new CompliationError("160CompliationError on line: " + row + " column: " + col + " !");
+        }
 
         DifiNode tmp = new DifiNode();
         AstNode.put(ctx, tmp);
@@ -263,6 +266,14 @@ public class Buildast extends MplusBaseListener{
         AstNode.put(ctx, tmp);
     }
 
+    @Override public void enterScope_statement(MplusParser.Scope_statementContext ctx) {
+        In();
+    }
+
+    @Override public void exitScope_statement(MplusParser.Scope_statementContext ctx) {
+        Out();
+        AstNode.put(ctx, AstNode.get(ctx.getChild(0)));
+    }
 
     @Override public void enterContinue(MplusParser.ContinueContext ctx) {}
 
@@ -488,6 +499,9 @@ public class Buildast extends MplusBaseListener{
         if(!(left instanceof BasicNode) && !(left instanceof ArefNode) && !(left instanceof MemNode)) {
             throw new CompliationError("488CompliationError on line: " + row + " column: " + col + " !");
         }
+        if(left instanceof ConstNode) {
+            throw new CompliationError("503CompliationError on line: " + row + " column: " + col + " !");
+        }
         AssiNode tmp;
         try {
             tmp = new AssiNode((ExprNode) left, (ExprNode) right);
@@ -670,7 +684,7 @@ public class Buildast extends MplusBaseListener{
             Type tt = get(t, now_class_id);
             if(tt.type.equals("!+!") == true) {
 
-          //      System.out.println(t);
+          //    System.out.println(t);
                 Error_num++;
             }
 
