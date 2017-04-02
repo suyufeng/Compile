@@ -536,12 +536,20 @@ public class Buildast extends MplusBaseListener{
             tmp1 = (BasicNode)left;
         }
         List<Type> list2;
+
         if(!FunctionMap.containsKey(new Pair<String, Integer>(tmp1.name, classid))) {
             throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
         } else {
+
             list2 = ParaMap.get(new Pair<String, Integer>(tmp1.name, classid));
-            if(!list.containsAll(list2) || !list2.containsAll(list)) {
+            int c = list.size();
+            if(c != list2.size()) {
                 throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+            }
+            for(int i = 0; i < c; i++) {
+                if(!list.get(i).Compareto(list2.get(i))) {
+                    throw new CompliationError("CompliationError on line: " + row + " column: " + col + " !");
+                }
             }
         }
         if(tmp1.type.type.compareTo("!+!") == 0) {
