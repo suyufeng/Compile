@@ -28,7 +28,7 @@ public class BinaryOpNode extends ExprNode{
         }
     }
     Boolean both(String t) {
-        if(!left.type.type.equals(t) || right.type.type.equals(t)) {
+        if(!left.type.type.equals(t) || !right.type.type.equals(t)) {
             return false;
         } else {
             return true;
