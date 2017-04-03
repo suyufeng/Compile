@@ -111,7 +111,7 @@ public class Buildast extends MplusBaseListener{
         functiontype = new Checkconflict().trans(ctx.type().getText());
         if(ctx.getChild(1).getText().compareTo("main") == 0) {
             if(ctx.getChild(0).getText().compareTo("int") == 0) {
-                if(now_class_id == 2) {
+                if(id == 2) {
                     have_int_main = true;
                 }
             }

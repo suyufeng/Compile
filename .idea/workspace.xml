@@ -8,8 +8,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/FE/CST/Buildast.class" afterPath="$PROJECT_DIR$/out/production/Compiler/FE/CST/Buildast.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/a.in" afterPath="$PROJECT_DIR$/out/production/Compiler/a.in" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/AST/Expr/BinaryOpNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Expr/BinaryOpNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/AST/Stmt/ReturnNode.java" afterPath="$PROJECT_DIR$/src/FE/AST/Stmt/ReturnNode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/CST/Buildast.java" afterPath="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/a.in" afterPath="$PROJECT_DIR$/src/a.in" />
     </list>
@@ -47,27 +45,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="a.in" pinned="false" current-in-tab="true">
+      <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
-              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state relative-caret-position="2240">
+              <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Buildast.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Buildast.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="547" column="0" lean-forward="false" selection-start-line="547" selection-start-column="0" selection-end-line="547" selection-end-column="0" />
+            <state relative-caret-position="156">
+              <caret line="113" column="26" lean-forward="false" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2526#2527#0" expanded="true" />
                 <element signature="e#2546#2547#0" expanded="true" />
-                <element signature="e#10742#10743#0" expanded="true" />
-                <element signature="e#10762#10763#0" expanded="true" />
+                <element signature="e#10732#10733#0" expanded="true" />
+                <element signature="e#10752#10753#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -140,7 +138,6 @@
       <find>In()</find>
       <find>547</find>
       <find>414</find>
-      <find>82</find>
       <find>Difini</find>
       <find>get</find>
       <find>86</find>
@@ -158,6 +155,8 @@
       <find>Syst</find>
       <find>hav</find>
       <find>552</find>
+      <find>82</find>
+      <find>have_int_main</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,8 +180,8 @@
         <option value="$PROJECT_DIR$/src/FE/CST/Checkconflict.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/Expr/BinaryOpNode.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/Stmt/ReturnNode.java" />
-        <option value="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
         <option value="$PROJECT_DIR$/src/a.in" />
+        <option value="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
       </list>
     </option>
   </component>
@@ -784,12 +783,12 @@
       <updated>1491202056559</updated>
       <workItem from="1491202058858" duration="5000" />
       <workItem from="1491202071872" duration="19000" />
-      <workItem from="1491202106932" duration="7308000" />
+      <workItem from="1491202106932" duration="7504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7405000" />
+    <option name="totallyTimeSpent" value="7601000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1275,25 +1274,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/a.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2240">
+          <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="547" column="0" lean-forward="false" selection-start-line="547" selection-start-column="0" selection-end-line="547" selection-end-column="0" />
+        <state relative-caret-position="156">
+          <caret line="113" column="26" lean-forward="false" selection-start-line="113" selection-start-column="26" selection-end-line="113" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2526#2527#0" expanded="true" />
             <element signature="e#2546#2547#0" expanded="true" />
-            <element signature="e#10742#10743#0" expanded="true" />
-            <element signature="e#10762#10763#0" expanded="true" />
+            <element signature="e#10732#10733#0" expanded="true" />
+            <element signature="e#10752#10753#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/a.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
