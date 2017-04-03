@@ -28,6 +28,7 @@ public class Buildast extends MplusBaseListener{
     String classname;
     int tmp1;
     int idcnt = 1, id = 1, now_class_id = 0, Error_num = 0, row = 0, col = 0;
+    Boolean have_int_main = false;
     public Buildast(Map<Pair<String, Integer>, Type> a1, Map<Pair<String, Integer>, Type> a2, Map<String, Integer> b1, Map<Pair<String, Integer>, List<Type>> a3) {
         FunctionMap = a1;
         ClassNameMap = a2;
@@ -80,7 +81,7 @@ public class Buildast extends MplusBaseListener{
         }
         AstNode.put(ctx, tmp);
         root = tmp;
-        if(Error_num > 0) {
+        if(Error_num > 0 || have_int_main == false) {
             throw new CompliationError("82CompliationError on line: " + row + " column: " + col + " !");
         }
     }
@@ -109,8 +110,10 @@ public class Buildast extends MplusBaseListener{
     @Override public void enterFunctionpart(MplusParser.FunctionpartContext ctx) {
         functiontype = new Checkconflict().trans(ctx.type().getText());
         if(ctx.getChild(1).getText().compareTo("main") == 0) {
-            if(ctx.getChild(0).getText().compareTo("int") != 0) {
-                throw new CompliationError("111CompliationError on line: " + row + " column: " + col + " !");
+            if(ctx.getChild(0).getText().compareTo("int") == 0) {
+                if(now_class_id == 2) {
+                    have_int_main = true;
+                }
             }
         }
     }

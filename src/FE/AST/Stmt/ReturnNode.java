@@ -14,6 +14,12 @@ public class ReturnNode  extends StmtNode{
         son = (ExprNode)l;
     }
     public Boolean check(Type t) {
+        if(son.type.type.equals("null")) {
+            System.out.println(t.flag);
+        }
+        if(son.type.type.equals("null") && (t.len > 0 || t.flag == false)) {
+            return true;
+        }
         return son.type.Compareto(t);
     }
 }
