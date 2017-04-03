@@ -10,7 +10,7 @@ functionpart: type Name '(' parameter ')' blockpart;
 
 parameter: (type Name)? | (type Name (',' type Name)*);
 
-difinition: type Name (op = '=' expr)? ';';
+difinition: type Name (op = '=' (expr | This))? ';';
 
 statement: blockpart
 		 | expr_statement
@@ -20,7 +20,7 @@ statement: blockpart
 		 | skip_statement
 		 | difinition
 ;
-expr_statement: expr? ';';
+expr_statement: (expr | This)? ';';
 
 blockpart: '{' statement* '}';
 

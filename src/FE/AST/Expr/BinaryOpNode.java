@@ -54,13 +54,8 @@ public class BinaryOpNode extends ExprNode{
         if(left.type.len != 0) {
             return false;
         }
-        if(op.s.equals("<")) {
-            if(!both("int") && !both("string")) {
-                return false;
-            }
-        }
-        if(op.s.equals(">") || op.s.equals("<=") || op.s.equals(">=")) {
-            if(!both("int"))
+        if(op.s.equals("<") || op.s.equals(">") || op.s.equals("<=") || op.s.equals(">=")) {
+            if(!both("int") && !both("string"))
                 return false;
         }
         if(op.s.equals("%") || op.s.equals("<<") || op.s.equals(">>"))
