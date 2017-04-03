@@ -22,6 +22,8 @@ public class BinaryOpNode extends ExprNode{
         else
             type = left.type;
         if(Check() == false) {
+            System.out.println(y.type.type);
+            System.out.println(x.type.type);
             throw new CompliationError("!");
         }
     }

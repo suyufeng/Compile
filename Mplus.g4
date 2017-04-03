@@ -34,29 +34,30 @@ for_statement: 'for' '(' expr? ';' expr? ';' expr? ')' scope_statement;
 
 skip_statement: 'continue' ';'                      #continue
 			  | 'break' ';'                         #break
-		      | 'return' expr? ';'                  #return
+		      | 'return' (expr | This)? ';'         #return
 ;
 
-expr : constant                                          #constant_expr
-	 | Name                                              #name_expr
-	 | '(' expr ')'                                      #bracket_expr
-	 | expr op = ('++'|'--')                             #suffix_expr
-	 | expr '(' (expr (',' expr)*)? ')'                  #function_expr
-	 | expr '[' expr ']'                                 #aref_expr
-	 | expr '.' Name                                     #member_expr
-     | This '.' Name                                     #this_expr
-     | op = ('+'|'-'|'!'|'~'|'++'|'--') expr             #unary_expr
-	 | 'new' type ('[' expr? ']')*                       #new_expr
-	 | expr op = ('*'|'/'|'%') expr                      #binary_expr
-	 | expr op = ('+'|'-') expr                          #binary_expr
-	 | expr op = ('<<'|'>>') expr                        #binary_expr
-	 | expr op = '&' expr                                #binary_expr
-	 | expr op = '^' expr                                #binary_expr
-	 | expr op = '|' expr                                #binary_expr
-	 | expr op = ('<'|'>'|'<='|'>='|'=='|'!=') expr      #binary_expr
-	 | expr op = '&&' expr                               #binary_expr
-	 | expr op = '||' expr                               #binary_expr
-	 | expr op = '=' expr                                #assign_expr
+expr : constant                                           #constant_expr
+	 | Name                                               #name_expr
+	 | '(' expr ')'                                       #bracket_expr
+	 | expr op = ('++'|'--')                              #suffix_expr
+	 | expr '(' ((expr | This) (',' (expr | This))*)? ')' #function_expr
+	 | expr '[' expr ']'                                  #aref_expr
+	 | expr '.' Name                                      #member_expr
+     | This '.' Name                                      #member_expr
+     | op = ('+'|'-'|'!'|'~'|'++'|'--') expr              #unary_expr
+	 | 'new' type ('[' expr? ']')*                        #new_expr
+	 | expr op = ('*'|'/'|'%') expr                       #binary_expr
+	 | expr op = ('+'|'-') expr                           #binary_expr
+	 | expr op = ('<<'|'>>') expr                         #binary_expr
+	 | expr op = '&' expr                                 #binary_expr
+	 | expr op = '^' expr                                 #binary_expr
+	 | expr op = '|' expr                                 #binary_expr
+	 | expr op = ('<'|'>'|'<='|'>='|'=='|'!=') expr       #binary_expr
+	 | expr op = '&&' expr                                #binary_expr
+	 | expr op = '||' expr                                #binary_expr
+	 | expr op = '=' expr                                 #assign_expr
+	 | This op = '=' expr                                 #assign_expr
 ;
 
 constant: ('true'|'false')                          #bool

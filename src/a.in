@@ -1,28 +1,30 @@
-class A {}
-class B { B() {{{{{ return; }}}}} }  // single return is allowed in constructor
-class C { int func() { return 93; } }
-int main() {}
-void func() {
-    if(false);else;
-    while(true);
-    for(;;);
-    return;
-    {;{{;{{}{}}}};{{};{}}};
-    new A[10][][][];
-    (new C).func() + (new C).func();   // new is a kind of expression
+A object;
+
+int main() {
+    return 0;
 }
 
+class A {
+    void func1(int x, int y) {
+        func2(this.x*x, this.y*y);
+    }
 
-/*!! metadata:
-=== comment ===
-miscellaneous blank test
-blank-515030910117-zhenglianmin.mx
-=== assert ===
-success_compile
-=== phase ===
-semantic extended
-=== is_public ===
-True
+    void func2(int xx, int yy) {
+        func1(x*this.x, y*this.y);
+    }
 
-!!*/
+    A set(int xx, int yy) {
+        return set(x, y).set(this.x, this.y).set(xx, yy).getThis();
+    }
 
+    A copy(A other) {
+        this = other;
+        return this;
+    }
+
+    A getThis() {
+        return getThis().getThis().getThis().getThis().copy(this);
+    }
+
+    int x; int y;
+}

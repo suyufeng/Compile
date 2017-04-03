@@ -26,6 +26,7 @@ public class Buildast extends MplusBaseListener{
     Type functiontype;
     RootNode root;
     String classname;
+    int tmp1;
     int idcnt = 1, id = 1, now_class_id = 0, Error_num = 0, row = 0, col = 0;
     public Buildast(Map<Pair<String, Integer>, Type> a1, Map<Pair<String, Integer>, Type> a2, Map<String, Integer> b1, Map<Pair<String, Integer>, List<Type>> a3) {
         FunctionMap = a1;
@@ -46,7 +47,7 @@ public class Buildast extends MplusBaseListener{
     }
 
     Pair<Type, Integer> get_type(String name) {
-        for(int i = 0; i < id_stack.size(); i++) {
+        for(int i = id_stack.size() - 1; i >= 0; i--) {
             if(NameMap.containsKey(new Pair<String, Integer>(name, (Integer)id_stack.get(i)))) {
                 Type type = NameMap.get(new Pair<String, Integer>(name, (Integer)id_stack.get(i)));
                 return new Pair<Type, Integer>(type, (Integer)id_stack.get(i));
@@ -58,8 +59,8 @@ public class Buildast extends MplusBaseListener{
     Type get(String name, int tmp) {
         Pair<Type, Integer> type = get_type(name);
         Type ttype;
-        if(NameMap.containsKey(new Pair<String, Integer>(name, tmp))) {
-            ttype = NameMap.get(new Pair<String, Integer>(name, tmp));
+        if(ClassNameMap.containsKey(new Pair<String, Integer>(name, tmp))) {
+            ttype = ClassNameMap.get(new Pair<String, Integer>(name, tmp));
             if(tmp > type.b) {
                 return ttype;
             }
@@ -132,6 +133,7 @@ public class Buildast extends MplusBaseListener{
         List<TerminalNode> ListName = ctx.Name();
         List<MplusParser.TypeContext> typeName = ctx.type();
         List<Type> type_list = new ArrayList();
+        tmp1 = Error_num;
         for(int i = 0; i < ListName.size(); i++) {
             String name = ListName.get(i).getSymbol().getText();
             String ttype = typeName.get(i).getText();
@@ -140,7 +142,6 @@ public class Buildast extends MplusBaseListener{
             Pair<String, Integer> pair = new Pair<String, Integer>(name, id);
             pair = new Pair<String, Integer>(name, idcnt + 1);
             NameMap.put(pair, type);
-            Error_num--;
         }
     }
 
@@ -151,6 +152,7 @@ public class Buildast extends MplusBaseListener{
             t.add(AstNode.get(ctx.getChild(i)));
         }
         AstNode.put(ctx, t);
+        Error_num = tmp1;
     }
 
     @Override public void enterDifinition(MplusParser.DifinitionContext ctx) { }
@@ -340,8 +342,16 @@ public class Buildast extends MplusBaseListener{
     @Override public void exitUnary_expr(MplusParser.Unary_exprContext ctx) {
         OperaNode t = new OperaNode(ctx.op.getText());
         UnaryNode tmp;
+        ExprNode son = (ExprNode)(AstNode.get(ctx.getChild(1)));
+        if(t.s.equals("++") || t.s.equals("--")) {
+            if (!(son instanceof BasicNode) && !(son instanceof ArefNode) && !(son instanceof MemNode)) {
+                throw new CompliationError("345CompliationError on line: " + row + " column: " + col + " !");
+            }
+            if (son instanceof ConstNode) {
+                throw new CompliationError("348CompliationError on line: " + row + " column: " + col + " !");
+            }
+        }
         try {
-            ExprNode son = (ExprNode)(AstNode.get(ctx.getChild(1)));
             tmp = new UnaryNode(t, son);
         } catch (CompliationError ff) {
             throw new CompliationError("320CompliationError on line: " + row + " column: " + col + " !");
@@ -384,12 +394,8 @@ public class Buildast extends MplusBaseListener{
             if(right.type.type.compareTo("!+!") == 0) {
                 Error_num--;
             }
-            int fbh;
         } else {
             tmp.type = new Type("!+!", 1000000);
-            if(right.type.type.compareTo("!+!") != 0) {
-                Error_num++;
-            }
         }
         AstNode.put(ctx, tmp);
     }
@@ -399,33 +405,6 @@ public class Buildast extends MplusBaseListener{
     @Override public void exitConstant_expr(MplusParser.Constant_exprContext ctx) {
         AstNode.put(ctx, AstNode.get(ctx.getChild(0)));
         ExprNode e = (ExprNode)AstNode.get(ctx.getChild(0));
-    }
-    @Override public void enterThis_expr(MplusParser.This_exprContext ctx) {
-    }
-
-    @Override public void exitThis_expr(MplusParser.This_exprContext ctx) {
-        ThisNode tmp = new ThisNode(AstNode.get(ctx.getChild(0)));
-        if(now_class_id == 2) {
-            throw new CompliationError("382CompliationError on line: " + row + " column: " + col + " !");
-        }
-        Node left = AstNode.get(ctx.getChild(0));
-        ExprNode right = (ExprNode)AstNode.get(ctx.getChild(2));
-        BasicNode tmp1 = (BasicNode)right;
-        if(ClassNameMap.containsKey(new Pair<String, Integer>(tmp1.name, now_class_id))
-                && !FunctionMap.containsKey(new Pair<String, Integer>(tmp1.name, now_class_id))) {
-            Type type = ClassNameMap.get(new Pair<String, Integer>(tmp1.name, now_class_id));
-            tmp.type = type;
-            int yjc;
-            if(right.type.type.compareTo("!+!") == 0) {
-                Error_num--;
-            }
-        } else {
-            tmp.type = new Type("!+!", 1000000);
-            if(right.type.type.compareTo("!+!") != 0) {
-                Error_num++;
-            }
-        }
-        AstNode.put(ctx, tmp);
     }
 
     @Override public void enterBinary_expr(MplusParser.Binary_exprContext ctx) { }
@@ -448,7 +427,13 @@ public class Buildast extends MplusBaseListener{
     @Override public void exitSuffix_expr(MplusParser.Suffix_exprContext ctx) {
         ExprNode left = (ExprNode)AstNode.get(ctx.getChild(0));
         if(left.type.type.compareTo("int") != 0) {
-            throw new CompliationError("423CompliationError on line: " + row + " column: " + col + " !");
+            throw new CompliationError("451CompliationError on line: " + row + " column: " + col + " !");
+        }
+        if(!(left instanceof BasicNode) && !(left instanceof ArefNode) && !(left instanceof MemNode)) {
+            throw new CompliationError("454CompliationError on line: " + row + " column: " + col + " !");
+        }
+        if(left instanceof ConstNode) {
+            throw new CompliationError("557CompliationError on line: " + row + " column: " + col + " !");
         }
         OperaNode op = new OperaNode(ctx.getChild(1).getText());
         SufNode tmp = new SufNode(left, op);
@@ -577,10 +562,14 @@ public class Buildast extends MplusBaseListener{
             }
         } else {
             tmp1 = (BasicNode)left;
+            if(now_class_id != 0) {
+                if(FunctionMap.containsKey(new Pair<String, Integer>(tmp1.name, now_class_id))) {
+                    classid = now_class_id;
+                }
+            }
         }
         List<Type> list2;
         if(!FunctionMap.containsKey(new Pair<String, Integer>(tmp1.name, classid))) {
-
             throw new CompliationError("547CompliationError on line: " + row + " column: " + col + " !");
         } else {
             list2 = ParaMap.get(new Pair<String, Integer>(tmp1.name, classid));
@@ -707,15 +696,15 @@ public class Buildast extends MplusBaseListener{
             } else {
                 Type type = new Type(classname);
                 NameMap.put(new Pair<String, Integer>("this", now_class_id), type);
-                AstNode.put(node, new BasicNode(type, "this"));
+                AstNode.put(node, new ThisNode(type, "this"));
             }
+            return ;
         }
         char c = t.charAt(0);
         if(Character.isLetter(c)) {
             Type tt = get(t, now_class_id);
             if(tt.type.equals("!+!") == true) {
 
-          //    System.out.println(t);
                 Error_num++;
             }
 
