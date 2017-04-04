@@ -30,7 +30,7 @@ while_statement: 'while' '(' expr ')' scope_statement;
 
 scope_statement: statement;
 
-for_statement: 'for' '(' expr? ';' expr? ';' expr? ')' scope_statement;
+for_statement: 'for' '(' (expr | This)? ';' expr? ';' (expr | This)? ')' scope_statement;
 
 skip_statement: 'continue' ';'                      #continue
 			  | 'break' ';'                         #break
@@ -39,7 +39,7 @@ skip_statement: 'continue' ';'                      #continue
 
 expr : constant                                           #constant_expr
 	 | Name                                               #name_expr
-	 | '(' expr ')'                                       #bracket_expr
+	 | '(' (expr | This) ')'                              #bracket_expr
 	 | expr op = ('++'|'--')                              #suffix_expr
 	 | expr '(' ((expr | This) (',' (expr | This))*)? ')' #function_expr
 	 | expr '[' expr ']'                                  #aref_expr
@@ -56,8 +56,8 @@ expr : constant                                           #constant_expr
 	 | expr op = ('<'|'>'|'<='|'>='|'=='|'!=') expr       #binary_expr
 	 | expr op = '&&' expr                                #binary_expr
 	 | expr op = '||' expr                                #binary_expr
-	 | expr op = '=' expr                                 #assign_expr
-	 | This op = '=' expr                                 #assign_expr
+	 | expr op = '=' (expr | This)                        #assign_expr
+	 | This op = '=' (expr | This)                        #assign_expr
 ;
 
 constant: ('true'|'false')                          #bool
