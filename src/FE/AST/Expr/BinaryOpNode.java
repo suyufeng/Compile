@@ -62,6 +62,14 @@ public class BinaryOpNode extends ExprNode{
             if(!both("int")) {
                 return false;
             }
+        if(op.s.equals("&") || op.s.equals("|") || op.s.equals("^"))
+            if(!both("int") && !both("bool")) {
+                return false;
+            }
+        if(op.s.equals("&&") || op.s.equals("||"))
+            if(!both("bool")) {
+                return false;
+            }
         return true;
     }
 

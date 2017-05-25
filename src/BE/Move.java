@@ -3,7 +3,7 @@ package BE;
 /**
  * Created by suyufeng on 17-5-20.
  */
-public class Move extends Ir{
+public class Move extends StmtIr{
     Address left, right;
     public Move(Address left, Address right) {
         this.left = left;
