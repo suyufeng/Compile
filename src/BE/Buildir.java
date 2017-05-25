@@ -470,11 +470,11 @@ public class Buildir extends MplusBaseListener {
             for(int i = 6; i < strlen; i++) {
                 a = a + tmp.content.charAt(i);
             }
-            Address.imm2.num = Integer.parseInt(a);
-            Address.imm1.num = 1;
+            Address.imm2 = new Immediate(Integer.parseInt(a));
+            Address.imm1=  new Immediate(0);
             String2register.put(now, Integer.parseInt(a));
         } else {
-            Address.imm2.num = Integer.parseInt(tmp.content);
+            Address.imm2 = new Immediate(Integer.parseInt(tmp.content));
         }
         Move.left = now;
         Move.right = Address;
@@ -550,13 +550,14 @@ public class Buildir extends MplusBaseListener {
     List<Ir> getNew(List<Address> x, int y, Address z) {
         List<Ir> hh = new ArrayList<>();
         if(x.size() == 0) {
-            if(y == 0) {
+            if(y == 0 || y == 1) {
                 return hh;
             }
-            Malloc Malloc = new Malloc();
-            Malloc.address = z;
-            Malloc.size = new Address(Classnum.get(y));
+            Malloc Malloc = new Malloc(new Address(new Vregister(++register_num)), new Address(Classnum.get(y)));
+            hh.add(new Temp(Malloc.address));
             hh.add(Malloc);
+            Address newadd = new Address(z); newadd.imm1 = new Immediate(8);
+            hh.add(new Move(newadd, Malloc.address));
             CallIr CallIr = new CallIr();
             CallIr.para.add(thisregsiter.get(y));
             CallIr.label = y;
@@ -570,8 +571,7 @@ public class Buildir extends MplusBaseListener {
         }
         Address Address = new Address(new Vregister(++register_num));
         hh.add(new Temp(Address));
-        Move Move = new Move(Address, new Address(0));
-        hh.add(Move);
+        hh.add(new Move(Address, new Address(0)));
         // i = 0;
         Catch condition = new Catch(++register_num);
         Catch Body = new Catch(++register_num);
@@ -586,14 +586,13 @@ public class Buildir extends MplusBaseListener {
         hh.add(Cjump);
 
         hh.add(Body);
-        Malloc Malloc = new Malloc();
-        Malloc.size = x.get(0);
+        Malloc Malloc = new Malloc(new Address(new Vregister(++register_num)), x.get(0));
         Address ttt = new Address(z);
         ttt.imm1.num = 8;
         ttt.reg2 = Address.reg1;
-        Move = new Move(ttt, Malloc.address);
-        hh.add(Move);
-        if(x.size() != 0 || y != 0) {
+        hh.add(new Temp(new Address(new Vregister(register_num))));
+        hh.add(new Move(ttt, Malloc.address));
+        if(x.size() != 0 || y <= 1) {
             List<Ir> fuck = getNew(next, y, Malloc.address);
             for(int i = 0; i < fuck.size(); i++) {
                 hh.add(fuck.get(i));
@@ -609,23 +608,34 @@ public class Buildir extends MplusBaseListener {
         NewNode tmp = (NewNode)AstNode.get(ctx);
         int classid = ClassMap.get(tmp.type.type);
         ExprIr now = new ExprIr();
-        List<Address> list = new ArrayList<>();
-        for(int i = 1; i < tmp.son.size(); i++) {
-            ExprNode u = tmp.son.get(i);
-            ExprIr uu = (ExprIr)reflict.get(u);
-            now.add(uu);
-            list.add(uu.address);
+        if(tmp.son.size() != 0) {
+            List<Address> list = new ArrayList<>();
+            for(int i = 1; i < tmp.son.size(); i++) {
+                ExprNode u = tmp.son.get(i);
+                ExprIr uu = (ExprIr)reflict.get(u);
+                now.add(uu);
+                list.add(uu.address);
+            }
+            Address t = new Address(new Vregister(++register_num));
+            Malloc tp = new Malloc(t, ((ExprIr)reflict.get(tmp.son.get(0))).address);
+            now.content.add(new Temp(t));
+            now.content.add(tp);
+            List<Ir> tmp1 = getNew(list, classid, t);
+            for(int i = 0; i < tmp1.size(); i++) {
+                now.content.add(tmp1.get(i));
+            }
+            now.address = t;
+        } else {
+            Address t = new Address(new Vregister(++register_num));
+            Malloc Malloc = new Malloc(t, new Address(Classnum.get(classid)));
+            CallIr CallIr = new CallIr();
+            CallIr.para.add(thisregsiter.get(classid));
+            CallIr.label = classid;
+            CallIr.name = "1selfpart";
+            now.content.add(new Temp(t));
+            now.content.add(Malloc);
+            now.content.add(CallIr);
         }
-        Address t = new Address(new Vregister(++register_num));
-        Malloc tp = new Malloc();
-        tp.size = ((ExprIr)reflict.get(tmp.son.get(0))).address;
-        tp.address = t;
-        now.content.add(tp);
-        List<Ir> tmp1 = getNew(list, classid, t);
-        for(int i = 0; i < tmp1.size(); i++) {
-            now.content.add(tmp1.get(i));
-        }
-        now.address = t;
         reflict.put(AstNode.get(ctx), now);
     }
 
@@ -712,9 +722,11 @@ public class Buildir extends MplusBaseListener {
         int nowid = get(name, now_class_id);
         if(now_class_id == nowid) {
             Address address = new Address(thisaddress);
-            int index = Classindex.get(new Pair<Integer,String>(now_class_id, name));
-            address.imm2.num = index * 8;
-            Expr.address = address;
+            if(Classindex.containsKey(new Pair<Integer,String>(now_class_id, name))) {
+                int index = Classindex.get(new Pair<Integer, String>(now_class_id, name));
+                address.imm2.num = index * 8;
+                Expr.address = address;
+            }
         } else {
             if(node.getText().equals("this")) {
                 Expr.address = thisaddress;

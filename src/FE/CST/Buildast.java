@@ -3,6 +3,7 @@ package FE.CST;
 import FE.AST.*;
 import FE.AST.Expr.*;
 import FE.AST.Stmt.*;
+import jdk.nashorn.internal.ir.FunctionCall;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.Pair;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -108,7 +109,7 @@ public class Buildast extends MplusBaseListener{
         for(int i = 0; i < n; i++) {
             tmp.add(AstNode.get(ctx.getChild(i)));
         }
-        Classnum.put(now_class_id, clac);
+        Classnum.put(now_class_id, clac + 1);
         AstNode.put(ctx, tmp);
         now_class_id = 0;
     }
@@ -180,7 +181,7 @@ public class Buildast extends MplusBaseListener{
         AstNode.put(ctx, tmp);
         String name = ctx.Name().getText();
         if(now_class_id != 2 && now_class_id == id) {
-            Classindex.put(new Pair<Integer, String>(id, name), clac++);
+            Classindex.put(new Pair<Integer, String>(id, name), ++clac);
         }
         NameMap.put(new Pair<String, Integer>(name, id), t);
         if(ctx.getChildCount() != 3) {
@@ -605,7 +606,11 @@ public class Buildast extends MplusBaseListener{
             if(tmp.type.len > 0) {
                 BasicNode rr = (BasicNode) AstNode.get(ctx.getChild(0).getChild(2));
                 if(rr.name.compareTo("size") == 0) {
-                    SizeNode ttmp = new SizeNode(new Type("int"));
+                    FuncallNode ttmp = new FuncallNode();
+                    ttmp.label = 2;
+                    ttmp.name = "size";
+                    ttmp.son_ad.add((ExprNode)AstNode.get(ctx.getChild(0)));
+                    ttmp.type = new Type("int");
                     if(rr.type.type.compareTo("!+!") == 0) {
                         Error_num--;
                     }

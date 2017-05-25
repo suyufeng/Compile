@@ -5,8 +5,9 @@ package BE;
  */
 public class Malloc extends ExprIr {
     Address size;
-    public Malloc() {
-
+    public Malloc(Address address, Address size) {
+        this.address = address;
+        this.size = size;
     }
 }
 
