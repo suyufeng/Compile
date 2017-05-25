@@ -430,7 +430,7 @@ public class Buildir extends MplusBaseListener {
     @Override public void exitMember_expr(MplusParser.Member_exprContext ctx) {
         ExprIr now = new ExprIr();
         ExprIr left = (ExprIr)reflict.get(AstNode.get(ctx.getChild(0)));
-        ExprIr right = (ExprIr)reflict.get(AstNode.get(ctx.getChild(1)));
+        ExprIr right = (ExprIr)reflict.get(AstNode.get(ctx.getChild(2)));
         now.add(left);
         now.add(right);
         String name = ctx.getChild(1).getText();
@@ -647,20 +647,7 @@ public class Buildir extends MplusBaseListener {
     @Override public void enterName_expr(MplusParser.Name_exprContext ctx) { }
 
     @Override public void exitName_expr(MplusParser.Name_exprContext ctx) {
-        BasicNode Basic = (BasicNode)AstNode.get(ctx);
-        String name = Basic.name;
-        ExprIr Expr = new ExprIr();
-        int nowid = get(name, now_class_id);
-        if(now_class_id == nowid) {
-            Address address = new Address(thisaddress);
-            int index = Classindex.get(new Pair<Integer,String>(now_class_id, name));
-            address.imm2.num = index * 8;
-            Expr.address = address;
-        } else {
-            Expr.address = Name2register.get(new Pair<String, Integer>(name, nowid));
-        }
-        Expr.content.add(Expr);
-        reflict.put(AstNode.get(ctx), Expr);
+
     }
 
     @Override public void enterFunction_expr(MplusParser.Function_exprContext ctx) { }
@@ -719,7 +706,25 @@ public class Buildir extends MplusBaseListener {
     
     @Override public void exitEveryRule(ParserRuleContext ctx) { }
     
-    @Override public void visitTerminal(TerminalNode node) { }
+    @Override public void visitTerminal(TerminalNode node) {
+        String name = node.getText();
+        ExprIr Expr = new ExprIr();
+        int nowid = get(name, now_class_id);
+        if(now_class_id == nowid) {
+            Address address = new Address(thisaddress);
+            int index = Classindex.get(new Pair<Integer,String>(now_class_id, name));
+            address.imm2.num = index * 8;
+            Expr.address = address;
+        } else {
+            if(node.getText().equals("this")) {
+                Expr.address = thisaddress;
+            } else {
+                Expr.address = Name2register.get(new Pair<String, Integer>(name, nowid));
+            }
+        }
+        Expr.content.add(Expr);
+        reflict.put(AstNode.get(node), Expr);
+    }
     
     @Override public void visitErrorNode(ErrorNode node) { }
 
