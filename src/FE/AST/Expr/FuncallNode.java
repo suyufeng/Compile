@@ -10,6 +10,11 @@ import java.util.List;
  */
 public class FuncallNode extends ExprNode {
     List<Type> son = new ArrayList();
+    public List<ExprNode> son_ad = new ArrayList<>();
+
+    public int label;
+    public String name;
+
     public FuncallNode() {
 
     }

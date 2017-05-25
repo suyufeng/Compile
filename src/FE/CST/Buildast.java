@@ -20,14 +20,18 @@ public class Buildast extends MplusBaseListener{
     public Map<String, Integer> ClassMap = new HashMap<>();
     public Map<Pair<String, Integer>, Type> ClassNameMap = new HashMap<>();
     public Map<Pair<String, Integer>, List<Type>> ParaMap = new HashMap<>();
+    public Map<Pair<Integer, String>, Integer> Classindex = new HashMap<>();
+    public Map<Integer, Integer> Classnum = new HashMap<>();
+    public List<String> pattern = new ArrayList<>();
     private Stack id_stack = new Stack();
     ParseTree loop;
-    ParseTreeProperty<Node> AstNode = new ParseTreeProperty<>();
+    public ParseTreeProperty<Node> AstNode = new ParseTreeProperty<>();
     Type functiontype;
     RootNode root;
     String classname;
     int tmp1;
     int idcnt = 1, id = 1, now_class_id = 0, Error_num = 0, row = 0, col = 0;
+    int clac = 0;
     Boolean have_int_main = false;
     public Buildast(Map<Pair<String, Integer>, Type> a1, Map<Pair<String, Integer>, Type> a2, Map<String, Integer> b1, Map<Pair<String, Integer>, List<Type>> a3) {
         FunctionMap = a1;
@@ -90,6 +94,7 @@ public class Buildast extends MplusBaseListener{
         In();
         now_class_id = id;
         classname = ctx.Name().getText();
+        clac = 0;
     }
 
     @Override public void exitClasspart(MplusParser.ClasspartContext ctx) {
@@ -103,6 +108,7 @@ public class Buildast extends MplusBaseListener{
         for(int i = 0; i < n; i++) {
             tmp.add(AstNode.get(ctx.getChild(i)));
         }
+        Classnum.put(now_class_id, clac);
         AstNode.put(ctx, tmp);
         now_class_id = 0;
     }
@@ -162,7 +168,6 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void exitDifinition(MplusParser.DifinitionContext ctx) {
         Type t = new Checkconflict().trans(ctx.type().getText());
-
         ExprNode son = (ExprNode) AstNode.get(ctx.getChild(1));
         if(!(son instanceof SpaceNode) && son.type.type.compareTo("!+!") == 0) {
             Error_num--;
@@ -174,6 +179,9 @@ public class Buildast extends MplusBaseListener{
         DifiNode tmp = new DifiNode();
         AstNode.put(ctx, tmp);
         String name = ctx.Name().getText();
+        if(now_class_id != 2 && now_class_id == id) {
+            Classindex.put(new Pair<Integer, String>(id, name), clac++);
+        }
         NameMap.put(new Pair<String, Integer>(name, id), t);
         if(ctx.getChildCount() != 3) {
             ExprNode checktype = (ExprNode) AstNode.get(ctx.getChild(3));
@@ -222,6 +230,14 @@ public class Buildast extends MplusBaseListener{
             tmp.add(AstNode.get(ctx.getChild(i)));
         }
         AstNode.put(ctx, tmp);
+    }
+
+    @Override public void exitThen_statement(MplusParser.Then_statementContext ctx) {
+        AstNode.put(ctx, AstNode.get(ctx.getChild(0)));
+    }
+
+    @Override public void exitElse_statement(MplusParser.Else_statementContext ctx) {
+        AstNode.put(ctx, AstNode.get(ctx.getChild(0)));
     }
 
     @Override public void enterIf_statement(MplusParser.If_statementContext ctx) {
@@ -391,6 +407,7 @@ public class Buildast extends MplusBaseListener{
             throw new CompliationError("349CompliationError on line: " + row + " column: " + col + " !");
         }
         MemNode tmp = new MemNode(left, right);
+        tmp.origin = classid;
         BasicNode tmp1 = (BasicNode)right;
         if(ClassNameMap.containsKey(new Pair<String, Integer>(tmp1.name, classid))
                 && !FunctionMap.containsKey(new Pair<String, Integer>(tmp1.name, classid))) {
@@ -424,7 +441,32 @@ public class Buildast extends MplusBaseListener{
         } catch (CompliationError e) {
             throw new CompliationError("414CompliationError on line: " + row + " column: " + col + " !");
         }
-        AstNode.put(ctx, tmp);
+        if(left.type.type.equals("string")) {
+            FuncallNode tt = new FuncallNode();
+            tt.son_ad.add(left);
+            tt.son_ad.add(right);
+            tt.label = 1;
+            tt.type = new Type("bool");
+            if(t.equals("+")) {
+               tt.name = "ssstringadd";
+               tt.type = new Type("string");
+            } else if(t.equals("<")) {
+                tt.name = "ssstringless";
+            } else if(t.equals("<=")) {
+                tt.name = "ssstringlessorequal";
+            } else if(t.equals("==")) {
+                tt.name = "ssstringequal";
+            } else if(t.equals("!=")) {
+                tt.name = "ssstringnotequal";
+            } else if(t.equals(">")) {
+                tt.name = "ssstringgreater";
+            } else if(t.equals(">=")) {
+                tt.name = "ssstringgreaterorequal";
+            }
+            AstNode.put(ctx, tt);
+        } else {
+            AstNode.put(ctx, tmp);
+        }
     }
 
     @Override public void enterSuffix_expr(MplusParser.Suffix_exprContext ctx) { }
@@ -466,6 +508,7 @@ public class Buildast extends MplusBaseListener{
         Type type = new Checkconflict().trans(str);
         Boolean flag = true;
         Integer num = 0;
+        NewNode tmp = new NewNode();
         for(int i = 2, j; i < n; i = j + 1) {
             j = i;
             while(true) {
@@ -477,6 +520,12 @@ public class Buildast extends MplusBaseListener{
                 j++;
                 if(j >= n) {
                     break;
+                }
+            }
+            if(j + 1 < n) {
+                Node son = AstNode.get(ctx.getChild(j + 1));
+                if(!(son instanceof SpaceNode)) {
+                    tmp.son.add((ExprNode) AstNode.get(ctx.getChild(j + 1)));
                 }
             }
             if(j - i == 2) {
@@ -491,7 +540,6 @@ public class Buildast extends MplusBaseListener{
             }
         }
         type.len = num / 2;
-        NewNode tmp = new NewNode();
         tmp.type = type;
         AstNode.put(ctx, tmp);
     }
@@ -529,6 +577,7 @@ public class Buildast extends MplusBaseListener{
     @Override public void exitFunction_expr(MplusParser.Function_exprContext ctx) {
         Node left = AstNode.get(ctx.getChild(0));
         List<Type> list = new ArrayList();
+        List<ExprNode> list1 = new ArrayList<>();
         int n = ctx.getChildCount();
         for(int i = 2; i < n; i += 2) {
             if(i == n - 1) {
@@ -537,6 +586,7 @@ public class Buildast extends MplusBaseListener{
             ExprNode son = (ExprNode)AstNode.get(ctx.getChild(i));
             Type CC = son.type;
             list.add(CC);
+            list1.add(son);
         }
         if(left instanceof ConstNode || left instanceof ArefNode) {
             throw new CompliationError("517CompliationError on line: " + row + " column: " + col + " !");
@@ -602,6 +652,9 @@ public class Buildast extends MplusBaseListener{
         }
         Type type = FunctionMap.get(new Pair<String, Integer>(tmp1.name, classid));
         FuncallNode ttmp = new FuncallNode(list2, type);
+        ttmp.son_ad = list1;
+        ttmp.label = classid;
+        ttmp.name = tmp1.name;
         AstNode.put(ctx, ttmp);
     }
 
@@ -615,7 +668,12 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void exitBool(MplusParser.BoolContext ctx) {
         Type tt = new Type("bool");
-        ConstNode tmp = new ConstNode(tt, " ");
+        ConstNode tmp;
+        if(ctx.getText().equals("true")) {
+            tmp = new ConstNode(tt, " ", "1");
+        } else {
+            tmp = new ConstNode(tt, " ", "0");
+        }
         AstNode.put(ctx, tmp);
     }
 
@@ -623,7 +681,8 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void exitInt(MplusParser.IntContext ctx) {
         Type tt = new Type("int");
-        ConstNode tmp = new ConstNode(tt, " ");
+        int num =  Integer.parseInt(ctx.getText());
+        ConstNode tmp = new ConstNode(tt, " ", ctx.getText());
         AstNode.put(ctx, tmp);
     }
 
@@ -631,7 +690,8 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void exitString(MplusParser.StringContext ctx) {
         Type tt = new Type("string");
-        ConstNode tmp = new ConstNode(tt, " ");
+        ConstNode tmp = new ConstNode(tt, " ", "string" + Integer.toString(pattern.size()));
+        pattern.add(ctx.getText());
         AstNode.put(ctx, tmp);
     }
 
@@ -639,7 +699,7 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void exitNull(MplusParser.NullContext ctx) {
         Type tt = new Type("null");
-        ConstNode tmp = new ConstNode(tt, " ");
+        ConstNode tmp = new ConstNode(tt, " ", ctx.getText());
         AstNode.put(ctx, tmp);
     }
 

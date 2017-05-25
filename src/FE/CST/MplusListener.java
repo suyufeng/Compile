@@ -99,6 +99,26 @@ public interface MplusListener extends ParseTreeListener {
 	 */
 	void exitBlockpart(MplusParser.BlockpartContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link MplusParser#then_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterThen_statement(MplusParser.Then_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MplusParser#then_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitThen_statement(MplusParser.Then_statementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MplusParser#else_statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterElse_statement(MplusParser.Else_statementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MplusParser#else_statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitElse_statement(MplusParser.Else_statementContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link MplusParser#if_statement}.
 	 * @param ctx the parse tree
 	 */

@@ -24,7 +24,11 @@ expr_statement: (expr | This)? ';';
 
 blockpart: '{' statement* '}';
 
-if_statement: 'if' '(' expr ')' scope_statement ('else' scope_statement)?;
+then_statement: scope_statement;
+
+else_statement: scope_statement;
+
+if_statement: 'if' '(' expr ')' then_statement ('else' else_statement)?;
 
 while_statement: 'while' '(' expr ')' scope_statement;
 

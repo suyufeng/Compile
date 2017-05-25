@@ -5,6 +5,7 @@ package FE.AST.Expr;
  */
 public class MemNode extends ExprNode {
     ExprNode left, right;
+    public int origin;
     public MemNode(ExprNode left, ExprNode right) {
         this.left = left;
         this.right = right;

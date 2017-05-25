@@ -4,8 +4,8 @@ import Exception.*;
  * Created by suyufeng on 17-3-31.
  */
 public class UnaryNode extends ExprNode{
-    OperaNode op;
-    ExprNode son;
+    public OperaNode op;
+    public ExprNode son;
     public UnaryNode() {
 
     }

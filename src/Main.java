@@ -1,3 +1,4 @@
+import BE.Buildir;
 import FE.AST.Type;
 import FE.CST.*;
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -59,6 +60,48 @@ public class Main {
         tmp.add(new Type("int"));
         FunctionMap.put(new Pair<String, Integer>("toString", 2), new Type("string"));
         ParaMap.put(new Pair<String, Integer>("toString", 2), tmp);
+
+        tmp = new ArrayList();
+        tmp.add(new Type("string"));
+        tmp.add(new Type("string"));
+        FunctionMap.put(new Pair<String, Integer>("ssstringadd", 2), new Type("string"));
+        ParaMap.put(new Pair<String, Integer>("ssstringadd", 2), tmp);
+
+        tmp = new ArrayList();
+        tmp.add(new Type("string"));
+        tmp.add(new Type("string"));
+        FunctionMap.put(new Pair<String, Integer>("ssstringless", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("ssstringless", 2), tmp);
+
+        tmp = new ArrayList();
+        tmp.add(new Type("string"));
+        tmp.add(new Type("string"));
+        FunctionMap.put(new Pair<String, Integer>("ssstringlessequal", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("ssstringlessequal", 2), tmp);
+
+        tmp = new ArrayList();
+        tmp.add(new Type("string"));
+        tmp.add(new Type("string"));
+        FunctionMap.put(new Pair<String, Integer>("ssstringequal", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("ssstringequal", 2), tmp);
+
+        tmp = new ArrayList();
+        tmp.add(new Type("string"));
+        tmp.add(new Type("string"));
+        FunctionMap.put(new Pair<String, Integer>("ssstringnotequal", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("ssstringnotequal", 2), tmp);
+
+        tmp = new ArrayList();
+        tmp.add(new Type("string"));
+        tmp.add(new Type("string"));
+        FunctionMap.put(new Pair<String, Integer>("ssstringgreater", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("ssstringgreater", 2), tmp);
+
+        tmp = new ArrayList();
+        tmp.add(new Type("string"));
+        tmp.add(new Type("string"));
+        FunctionMap.put(new Pair<String, Integer>("ssstringgreaterequal", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("ssstringgreaterequal", 2), tmp);
     }
     public static void main(String[] args) throws Exception{
 
@@ -88,13 +131,19 @@ public class Main {
         Map<String, Integer> ClassMap = first.ClassMap;
         Map<Pair<String, Integer>, List<Type>> ParaMap = first.ParaMap;
         init(FunctionMap, NameMap, ClassMap, ParaMap);
-        Buildast second_result = new Buildast(FunctionMap, NameMap, ClassMap, ParaMap);
+        Buildast second_walk = new Buildast(FunctionMap, NameMap, ClassMap, ParaMap);
         try {
-            walker.walk(second_result, tree);
+            walker.walk(second_walk, tree);
         } catch (CompliationError t) {
             System.out.println(t.getError());
             throw new CompliationError("1");
         }
+
+        Buildir third_walk = new Buildir(second_walk.AstNode, ClassMap, second_walk.Classindex, second_walk.NameMap, second_walk.Classnum);
+        walker.walk(third_walk, tree);
+
+
+
 
         // print LISP-style tree
        // System.out.println(tree.toStringTree(parser));

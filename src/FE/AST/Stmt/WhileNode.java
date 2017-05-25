@@ -7,7 +7,7 @@ import FE.AST.Expr.ExprNode;
  */
 public class WhileNode extends StmtNode {
     public ExprNode condition;
-    StmtNode statement;
+    public StmtNode statement;
 
     public WhileNode() {}
     public WhileNode(ExprNode a1, StmtNode a2) {
