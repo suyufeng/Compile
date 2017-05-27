@@ -8,6 +8,7 @@ import java.util.List;
  */
 public class FunctionIr extends Ir{
     List<Address> para = new ArrayList<>();
+    public int add_num = 0;
     public int label;
     public String name;
     public FunctionIr() {

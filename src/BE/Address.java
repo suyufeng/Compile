@@ -6,6 +6,7 @@ package BE;
 public class Address {
     public Vregister reg1, reg2;
     Immediate imm1, imm2;
+    public int globel = 0;
     //reg1 + reg2 * imm1 + imm2;
     public Address(Vregister reg1) {
         this.reg1 = reg1;
@@ -34,7 +35,7 @@ public class Address {
         imm2 = new Immediate(x.imm2);
     }
     boolean isVregister() {
-        if(this.reg2 == null && this.imm1 == null && this.imm2 == null && this.reg1 != null) {
+        if(this.reg2 == null && this.imm1 == null && this.imm2 == null && this.reg1 != null && globel == 0) {
             return true;
         } else {
             return false;

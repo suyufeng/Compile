@@ -1,6 +1,7 @@
 import BE.Buildir;
 import FE.AST.Type;
 import FE.CST.*;
+import GC.GetCode;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.misc.Pair;
@@ -143,8 +144,9 @@ public class Main {
         walker.walk(third_walk, tree);
 
 
-
-
+        GetCode forth_walk = new GetCode(third_walk.globel, third_walk.procedure, second_walk.pattern);
+        forth_walk.prepare();
+        forth_walk.work();
         // print LISP-style tree
        // System.out.println(tree.toStringTree(parser));
     }

@@ -32,8 +32,8 @@ public class Buildir extends MplusBaseListener {
     public Map<Pair<Integer, String>, Integer> Classindex = new HashMap<>();
     public Map<Pair<String, Integer>, Type> NameMap = new HashMap<>();
     public Map<Address, Integer> String2register = new HashMap<>();
-    public Map<Integer, Address> thisregsiter = new HashMap<>();
     public Map<Integer, Integer> Classnum = new HashMap<>();
+    public List<Integer> globel = new ArrayList<>();
     public Buildir(ParseTreeProperty a2, Map<String, Integer> a3, Map<Pair<Integer, String>, Integer> b1, Map<Pair<String, Integer>, Type> b2, Map<Integer, Integer> b3) {
         AstNode = a2;
         ClassMap = a3;
@@ -42,10 +42,10 @@ public class Buildir extends MplusBaseListener {
         Classnum = b3;
     }
     int idcnt = 1, id = 1, now_class_id = 0;
-    int register_num = 0;
+    int register_num = 0, globelnum = 0;
     int catch_num = 0, clac = 0;
     private Stack id_stack = new Stack();
-    List procedure = new ArrayList();
+    public List procedure = new ArrayList();
     Address thisaddress;
 
     private void In() {
@@ -92,8 +92,6 @@ public class Buildir extends MplusBaseListener {
         In();
         now_class_id = id;
         clac = 0;
-        thisaddress = new Address(new Vregister(++register_num));
-        thisregsiter.put(id, thisaddress);
     }
     
     @Override public void exitClasspart(MplusParser.ClasspartContext ctx) {
@@ -106,6 +104,8 @@ public class Buildir extends MplusBaseListener {
     
     @Override public void exitSelfpart(MplusParser.SelfpartContext ctx) {
         FunctionIr tmp = new FunctionIr();
+        thisaddress = new Address(new Vregister(++register_num));
+        tmp.content.add(new Temp(thisaddress));
         Node goal = AstNode.get(ctx.getChild(3));
         for(int i = 0; i < reflict.get(goal).content.size(); i++) {
             tmp.content.add(reflict.get(goal).content.get(i));
@@ -154,7 +154,9 @@ public class Buildir extends MplusBaseListener {
             son.content.add(a1);
             son.para.add((new Address(new Vregister(register_num))));
         }
-        if(now_class_id != 2) {
+        if(now_class_id != 0) {
+            thisaddress = new Address(new Vregister(++register_num));
+            son.content.add(new Temp(thisaddress));
             son.para.add(thisaddress);
         }
         reflict.put(AstNode.get(ctx), son);
@@ -166,12 +168,23 @@ public class Buildir extends MplusBaseListener {
     }
     
     @Override public void exitDifinition(MplusParser.DifinitionContext ctx) {
+        if(now_class_id == id) {
+            reflict.put(AstNode.get(ctx), new Ir());
+            return ;
+        }
         register_num++;
         String t = ctx.getChild(1).getText();
-        Name2register.put(new Pair(t, id), new Address(new Vregister(register_num)));
         Temp a1 = new Temp();
-        a1.add = (new Address(new Vregister(register_num)));
-        a1.content.add(a1);
+        if(id == 2) {
+            Address add = new Address(new Vregister(register_num));
+            add.globel = ++globelnum;
+            globel.add(register_num);
+            Name2register.put(new Pair(t, id), add);
+        } else {
+            a1.add = (new Address(new Vregister(register_num)));
+            a1.content.add(a1);
+            Name2register.put(new Pair(t, id), new Address(new Vregister(register_num)));
+        }
         if(ctx.getChildCount() != 3) {
             ExprIr hh = (ExprIr)reflict.get(AstNode.get(ctx.getChild(3)));
             Move tmp = new Move(new Address(new Vregister(register_num)), hh.address);
@@ -409,14 +422,17 @@ public class Buildir extends MplusBaseListener {
             Temp dest = new Temp(new Address(new Vregister(++register_num)));
             Move tmp = new Move(dest.add, basic.address);
             basic_reg = dest.add;
+            now.content.add(dest);
             now.content.add(tmp);
         }
 
         Address index_reg = new Address(index.address);
         if(!index.address.isVregister()) {
             Temp dest = new Temp(new Address(new Vregister(++register_num)));
+            int yjc;
             Move tmp = new Move(dest.add, index.address);
             index_reg = dest.add;
+            now.content.add(dest);
             now.content.add(tmp);
         }
 
@@ -441,6 +457,7 @@ public class Buildir extends MplusBaseListener {
             if(!left.address.isVregister()) {
                 now.address = new Address(new Vregister(++register_num));
                 Move Move = new Move(now.address, left.address);
+                now.content.add(new Temp(now.address));
                 now.content.add(Move);
                 basic = now.address;
             }
@@ -480,6 +497,7 @@ public class Buildir extends MplusBaseListener {
         Move.right = Address;
         ExprIr ExprIr = new ExprIr();
         ExprIr.address = now;
+        ExprIr.content.add(new Temp(now));
         ExprIr.content.add(Move);
         reflict.put(AstNode.get(ctx), ExprIr);
     }
@@ -538,6 +556,7 @@ public class Buildir extends MplusBaseListener {
         now.address = push;
         now.content.add(new Temp(new Address(new Vregister(register_num))));
         Move Move = new Move(now.address, now.right);
+        now.content.add(new Temp(push));
         now.content.add(Move);
         now.dest = now.right;
         now.op = ctx.getChild(1).getText();
@@ -559,7 +578,7 @@ public class Buildir extends MplusBaseListener {
             Address newadd = new Address(z); newadd.imm1 = new Immediate(8);
             hh.add(new Move(newadd, Malloc.address));
             CallIr CallIr = new CallIr();
-            CallIr.para.add(thisregsiter.get(y));
+            CallIr.para.add(z);
             CallIr.label = y;
             CallIr.name = "1selfpart";
             hh.add(CallIr);
@@ -573,9 +592,9 @@ public class Buildir extends MplusBaseListener {
         hh.add(new Temp(Address));
         hh.add(new Move(Address, new Address(0)));
         // i = 0;
-        Catch condition = new Catch(++register_num);
-        Catch Body = new Catch(++register_num);
-        Catch end = new Catch(++register_num);
+        Catch condition = new Catch(++catch_num);
+        Catch Body = new Catch(++catch_num);
+        Catch end = new Catch(++catch_num);
         hh.add(condition);
         BinaryIr Binary = new BinaryIr(Address, "<", x.get(0));
         hh.add(new Temp(new Address(new Vregister(++register_num))));
@@ -629,7 +648,7 @@ public class Buildir extends MplusBaseListener {
             Address t = new Address(new Vregister(++register_num));
             Malloc Malloc = new Malloc(t, new Address(Classnum.get(classid)));
             CallIr CallIr = new CallIr();
-            CallIr.para.add(thisregsiter.get(classid));
+            CallIr.para.add(t);
             CallIr.label = classid;
             CallIr.name = "1selfpart";
             now.content.add(new Temp(t));
@@ -721,11 +740,14 @@ public class Buildir extends MplusBaseListener {
         ExprIr Expr = new ExprIr();
         int nowid = get(name, now_class_id);
         if(now_class_id == nowid) {
-            Address address = new Address(thisaddress);
-            if(Classindex.containsKey(new Pair<Integer,String>(now_class_id, name))) {
-                int index = Classindex.get(new Pair<Integer, String>(now_class_id, name));
-                address.imm2.num = index * 8;
-                Expr.address = address;
+            if(thisaddress != null) {
+                System.out.println(now_class_id + " " + nowid + " " + thisaddress + " " + name);
+                Address address = new Address(thisaddress);
+                if(Classindex.containsKey(new Pair<Integer,String>(now_class_id, name))) {
+                    int index = Classindex.get(new Pair<Integer, String>(now_class_id, name));
+                    address.imm2.num = index * 8;
+                    Expr.address = address;
+                }
             }
         } else {
             if(node.getText().equals("this")) {
