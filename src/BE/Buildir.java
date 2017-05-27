@@ -100,11 +100,11 @@ public class Buildir extends MplusBaseListener {
     }
     
     @Override public void enterSelfpart(MplusParser.SelfpartContext ctx) {
+        thisaddress = new Address(new Vregister(++register_num));
     }
     
     @Override public void exitSelfpart(MplusParser.SelfpartContext ctx) {
         FunctionIr tmp = new FunctionIr();
-        thisaddress = new Address(new Vregister(++register_num));
         tmp.content.add(new Temp(thisaddress));
         Node goal = AstNode.get(ctx.getChild(3));
         for(int i = 0; i < reflict.get(goal).content.size(); i++) {
@@ -741,7 +741,6 @@ public class Buildir extends MplusBaseListener {
         int nowid = get(name, now_class_id);
         if(now_class_id == nowid) {
             if(thisaddress != null) {
-                System.out.println(now_class_id + " " + nowid + " " + thisaddress + " " + name);
                 Address address = new Address(thisaddress);
                 if(Classindex.containsKey(new Pair<Integer,String>(now_class_id, name))) {
                     int index = Classindex.get(new Pair<Integer, String>(now_class_id, name));

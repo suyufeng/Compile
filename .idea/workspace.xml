@@ -8,13 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Address.java" afterPath="$PROJECT_DIR$/src/BE/Address.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Buildir.java" afterPath="$PROJECT_DIR$/src/BE/Buildir.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/FunctionIr.java" afterPath="$PROJECT_DIR$/src/BE/FunctionIr.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Temp.java" afterPath="$PROJECT_DIR$/src/BE/Temp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Vregister.java" afterPath="$PROJECT_DIR$/src/BE/Vregister.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/a.in" afterPath="$PROJECT_DIR$/src/a.in" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Buildir.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Buildir.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BE/Buildir.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-48">
-              <caret line="750" column="12" lean-forward="false" selection-start-line="750" selection-start-column="12" selection-end-line="750" selection-end-column="12" />
+            <state relative-caret-position="148">
+              <caret line="742" column="37" lean-forward="false" selection-start-line="742" selection-start-column="37" selection-end-line="742" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -99,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="a.in" pinned="false" current-in-tab="true">
+      <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+            <state relative-caret-position="168">
+              <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -171,15 +166,15 @@
       <find>SizeNode</find>
       <find>Syste</find>
       <find>enterdifini</find>
-      <find>Syst</find>
       <find>enterBin</find>
       <find>S</find>
       <find>enterconst</find>
       <find>enterClass</find>
       <find>enterDi</find>
       <find>++reg</find>
-      <find>ang</find>
       <find>enterclass</find>
+      <find>ang</find>
+      <find>Syst</find>
     </findStrings>
     <replaceStrings>
       <replace>_walk</replace>
@@ -240,13 +235,13 @@
         <option value="$PROJECT_DIR$/src/BE/Cjump.java" />
         <option value="$PROJECT_DIR$/src/BE/Move.java" />
         <option value="$PROJECT_DIR$/src/FE/AST/Expr/BinaryOpNode.java" />
-        <option value="$PROJECT_DIR$/src/a.in" />
         <option value="$PROJECT_DIR$/src/BE/Address.java" />
         <option value="$PROJECT_DIR$/src/BE/FunctionIr.java" />
         <option value="$PROJECT_DIR$/src/BE/Temp.java" />
         <option value="$PROJECT_DIR$/src/BE/Vregister.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/GC/GetCode.java" />
+        <option value="$PROJECT_DIR$/src/a.in" />
         <option value="$PROJECT_DIR$/src/BE/Buildir.java" />
       </list>
     </option>
@@ -910,12 +905,12 @@
       <workItem from="1495602963192" duration="48536000" />
       <workItem from="1495720336427" duration="11143000" />
       <workItem from="1495796319437" duration="4913000" />
-      <workItem from="1495850989739" duration="4591000" />
+      <workItem from="1495850989739" duration="5145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185460000" />
+    <option name="totallyTimeSpent" value="186014000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1422,21 +1417,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/Buildir.java">
+    <entry file="file://$PROJECT_DIR$/src/a.in">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="750" column="12" lean-forward="false" selection-start-line="750" selection-start-column="12" selection-end-line="750" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/a.in">
+    <entry file="file://$PROJECT_DIR$/src/BE/Buildir.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="24" column="22" lean-forward="false" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="148">
+          <caret line="742" column="37" lean-forward="false" selection-start-line="742" selection-start-column="37" selection-end-line="742" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
