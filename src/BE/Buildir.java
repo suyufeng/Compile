@@ -445,7 +445,7 @@ public class Buildir extends MplusBaseListener {
         ExprIr right = (ExprIr)reflict.get(AstNode.get(ctx.getChild(2)));
         now.add(left);
         now.add(right);
-        String name = ctx.getChild(1).getText();
+        String name = ctx.getChild(2).getText();
         int classid = ((MemNode)AstNode.get(ctx)).origin;
         if(Classindex.containsKey(new Pair<Integer, String>(classid, name))) {
             int index = Classindex.get(new Pair<Integer, String>(classid, name));
@@ -565,10 +565,10 @@ public class Buildir extends MplusBaseListener {
 
     List<Ir> getNew(List<Address> x, int y, Address z) {
         List<Ir> hh = new ArrayList<>();
-        if(x.size() == 0) {
-            if(y == 0 || y == 1) {
+        if(x.size() == 1 && y <= 1) {
                 return hh;
-            }
+        }
+        if(x.size() == 0) {
             Malloc Malloc = new Malloc(new Address(new Vregister(++register_num)), new Address(Classnum.get(y)));
             hh.add(new Temp(Malloc.address));
             hh.add(Malloc);
@@ -628,7 +628,7 @@ public class Buildir extends MplusBaseListener {
         ExprIr now = new ExprIr();
         if(tmp.son.size() != 0) {
             List<Address> list = new ArrayList<>();
-            for(int i = 1; i < tmp.son.size(); i++) {
+            for(int i = 0; i < tmp.son.size(); i++) {
                 ExprNode u = tmp.son.get(i);
                 ExprIr uu = (ExprIr)reflict.get(u);
                 now.add(uu);
