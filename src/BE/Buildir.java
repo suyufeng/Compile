@@ -705,7 +705,8 @@ public class Buildir extends MplusBaseListener {
     @Override public void exitFunction_expr(MplusParser.Function_exprContext ctx) {
         FuncallNode tmp = (FuncallNode)(AstNode.get(ctx));
         CallIr tt = new CallIr();
-        if(tmp.label != 2) {
+
+        if(tmp.label != 2 && tmp.label != 0) {
             ExprIr t = (ExprIr)(reflict.get(AstNode.get(ctx.getChild(0).getChild(0))));
             if(t.address == null) {
                 t = new ExprIr();
