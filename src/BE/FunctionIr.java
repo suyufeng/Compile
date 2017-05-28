@@ -39,8 +39,7 @@ public class FunctionIr extends Ir{
         System.out.println(name + "." + Integer.toString(label) + ".out:");
 
 
-        System.out.println("\tpop    rbp");
-        System.out.println("\tadd    rsp, " + Integer.toString(add_num));
+        System.out.println("\tleave");
         System.out.println("\tret");
     }
 }

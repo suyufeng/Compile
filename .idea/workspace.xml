@@ -8,27 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/Main.class" afterPath="$PROJECT_DIR$/out/production/Compiler/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/a.in" afterPath="$PROJECT_DIR$/out/production/Compiler/a.in" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Address.java" afterPath="$PROJECT_DIR$/src/BE/Address.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/BinaryIr.java" afterPath="$PROJECT_DIR$/src/BE/BinaryIr.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Buildir.java" afterPath="$PROJECT_DIR$/src/BE/Buildir.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/CallIr.java" afterPath="$PROJECT_DIR$/src/BE/CallIr.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Catch.java" afterPath="$PROJECT_DIR$/src/BE/Catch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Cjump.java" afterPath="$PROJECT_DIR$/src/BE/Cjump.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/FunctionIr.java" afterPath="$PROJECT_DIR$/src/BE/FunctionIr.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Ir.java" afterPath="$PROJECT_DIR$/src/BE/Ir.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Jump.java" afterPath="$PROJECT_DIR$/src/BE/Jump.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Malloc.java" afterPath="$PROJECT_DIR$/src/BE/Malloc.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Move.java" afterPath="$PROJECT_DIR$/src/BE/Move.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Return.java" afterPath="$PROJECT_DIR$/src/BE/Return.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/StmtIr.java" afterPath="$PROJECT_DIR$/src/BE/StmtIr.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Temp.java" afterPath="$PROJECT_DIR$/src/BE/Temp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/UnaryIr.java" afterPath="$PROJECT_DIR$/src/BE/UnaryIr.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GC/GetCode.java" afterPath="$PROJECT_DIR$/src/GC/GetCode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/a.in" afterPath="$PROJECT_DIR$/src/a.in" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="FunctionIr.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FunctionIr.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BE/FunctionIr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="29" column="91" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="364">
+              <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -137,11 +117,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="a.in" pinned="false" current-in-tab="true">
+      <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="84">
-              <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="4" selection-end-column="24" />
+              <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -264,8 +244,8 @@
         <option value="$PROJECT_DIR$/src/BE/Return.java" />
         <option value="$PROJECT_DIR$/src/BE/CallIr.java" />
         <option value="$PROJECT_DIR$/src/GC/GetCode.java" />
-        <option value="$PROJECT_DIR$/src/BE/FunctionIr.java" />
         <option value="$PROJECT_DIR$/src/a.in" />
+        <option value="$PROJECT_DIR$/src/BE/FunctionIr.java" />
       </list>
     </option>
   </component>
@@ -932,12 +912,12 @@
       <workItem from="1495850989739" duration="5410000" />
       <workItem from="1495859409189" duration="22189000" />
       <workItem from="1495949223564" duration="945000" />
-      <workItem from="1495950188677" duration="16187000" />
+      <workItem from="1495950188677" duration="16253000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225600000" />
+    <option name="totallyTimeSpent" value="225666000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1433,18 +1413,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/FunctionIr.java">
+    <entry file="file://$PROJECT_DIR$/src/a.in">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="29" column="91" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="84">
+          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/a.in">
+    <entry file="file://$PROJECT_DIR$/src/BE/FunctionIr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="4" selection-end-column="24" />
+        <state relative-caret-position="364">
+          <caret line="41" column="35" lean-forward="false" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
           <folding />
         </state>
       </provider>
