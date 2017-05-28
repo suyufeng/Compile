@@ -17,11 +17,10 @@ public class Address extends Ir{
         this.reg1 = reg1;
         this.imm2 = new Immediate(x);
     }
-    public Address(Vregister reg1, Vregister reg2, int x, int y) {
+    public Address(Vregister reg1, Vregister reg2, int x) {
         this.reg1 = reg1;
         this.reg2 = reg2;
         this.imm1 = new Immediate(x);
-        this.imm2 = new Immediate(y);
     }
     public Address(int x) {
         this.imm2 = new Immediate(x);

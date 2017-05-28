@@ -41,10 +41,10 @@ public class Ir {
                 True_address now1 = map.get(tmp.reg1.num);
                 True_address now2 = map.get(tmp.reg2.num);
                 int flag = 0;
-                if(now1.reg != 0) {
+                if(now1.reg == 0) {
                     flag += 1;
                 }
-                if(now2.reg != 0) {
+                if(now2.reg == 0) {
                     flag += 2;
                 }
 

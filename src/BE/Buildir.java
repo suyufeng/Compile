@@ -432,7 +432,7 @@ public class Buildir extends MplusBaseListener {
             now.content.add(tmp);
         }
 
-        Address tmp = new Address(basic_reg.reg1, index_reg.reg2, 8, 0);
+        Address tmp = new Address(basic_reg.reg1, index_reg.reg1, 8);
         now.address = tmp;
         reflict.put(AstNode.get(ctx), now);
     }
