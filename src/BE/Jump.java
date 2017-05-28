@@ -8,4 +8,8 @@ public class Jump extends StmtIr {
     public Jump(Catch x) {
         yes = x;
     }
+    @Override
+    public void ToString(){
+        System.out.println("Jump  " + "flag:" + yes.flag);
+    }
 }

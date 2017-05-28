@@ -9,5 +9,9 @@ public class Malloc extends ExprIr {
         this.address = address;
         this.size = size;
     }
+    @Override
+    public void ToString(){
+        System.out.println("Malloc receive:(" + address.oString() + ") size:(" + size.oString() + ")");
+    }
 }
 

@@ -45,6 +45,11 @@ public class Main {
         ParaMap.put(new Pair<String, Integer>("print", 2), tmp);
 
         tmp = new ArrayList();
+        tmp.add(new Type("int"));
+        FunctionMap.put(new Pair<String, Integer>("printInt", 2), new Type("void"));
+        ParaMap.put(new Pair<String, Integer>("printInt", 2), tmp);
+
+        tmp = new ArrayList();
         tmp.add(new Type("string"));
         FunctionMap.put(new Pair<String, Integer>("println", 2), new Type("void"));
         ParaMap.put(new Pair<String, Integer>("println", 2), tmp);
@@ -144,10 +149,12 @@ public class Main {
         walker.walk(third_walk, tree);
 
 
-        GetCode forth_walk = new GetCode(third_walk.globel, third_walk.procedure, second_walk.pattern);
+        GetCode forth_walk = new GetCode(third_walk.globel, third_walk.procedure, second_walk.pattern, third_walk.tt);
         forth_walk.prepare();
         forth_walk.work();
         // print LISP-style tree
        // System.out.println(tree.toStringTree(parser));
     }
 }
+
+

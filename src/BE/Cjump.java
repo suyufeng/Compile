@@ -11,4 +11,8 @@ public class Cjump extends StmtIr {
         this.yes = yes;
         this.no = no;
     }
+    @Override
+    public void ToString(){
+        System.out.println("Cjump " + "yes:" + yes.flag + " no:" + no.flag);
+    }
 }

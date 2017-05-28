@@ -10,4 +10,8 @@ public class Catch extends Ir{
     public Catch(int flag) {
         this.flag = flag;
     }
+    @Override
+    public void ToString(){
+        System.out.println("Catch " + "flag: " + Integer.toString(flag));
+    }
 }
