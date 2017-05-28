@@ -22,6 +22,7 @@ public class Buildast extends MplusBaseListener{
     public Map<Pair<String, Integer>, Type> ClassNameMap = new HashMap<>();
     public Map<Pair<String, Integer>, List<Type>> ParaMap = new HashMap<>();
     public Map<Pair<Integer, String>, Integer> Classindex = new HashMap<>();
+    public Map<Integer, Boolean> Haveselfpart = new HashMap<>();
     public Map<Integer, Integer> Classnum = new HashMap<>();
     public List<String> pattern = new ArrayList<>();
     private Stack id_stack = new Stack();
@@ -345,6 +346,7 @@ public class Buildast extends MplusBaseListener{
 
     @Override public void exitSelfpart(MplusParser.SelfpartContext ctx) {
         SelfNode tmp = new SelfNode((StmtNode)AstNode.get(ctx.getChild(3)));
+        Haveselfpart.put(now_class_id, true);
         String classnamep = ctx.getChild(0).getText();
         if(ClassMap.containsKey(classnamep)) {
             int t = ClassMap.get(classnamep);
@@ -446,7 +448,7 @@ public class Buildast extends MplusBaseListener{
             FuncallNode tt = new FuncallNode();
             tt.son_ad.add(left);
             tt.son_ad.add(right);
-            tt.label = 1;
+            tt.label = 0;
             tt.type = new Type("bool");
             if(t.equals("+")) {
                tt.name = "ssstringadd";
@@ -609,7 +611,7 @@ public class Buildast extends MplusBaseListener{
                     FuncallNode ttmp = new FuncallNode();
                     ttmp.label = 2;
                     ttmp.name = "size";
-                    ttmp.son_ad.add((ExprNode)AstNode.get(ctx.getChild(0)));
+                    ttmp.son_ad.add((ExprNode)AstNode.get(ctx.getChild(0).getChild(0)));
                     ttmp.type = new Type("int");
                     if(rr.type.type.compareTo("!+!") == 0) {
                         Error_num--;

@@ -10,9 +10,9 @@ workb.0:
 	push   rbp
 	mov    rbp, rsp
 	sub    rsp, 24
-	mov    r15,  qword[rbp + 8]
-	mov    qword[rbp - 8],  r15
 	mov    r15,  qword[rbp + 16]
+	mov    qword[rbp - 8],  r15
+	mov    r15,  qword[rbp + 24]
 	mov    qword[rbp - 16],  r15
 
 	mov    r13,  qword[rbp - 8]
@@ -23,8 +23,7 @@ workb.0:
 	jmp    workb.0.out
 	jmp    workb.0.out
 workb.0.out:
-	pop    rbp
-	add    rsp, 24
+	leave
 	ret
 main:
 	push   rbp
@@ -61,4 +60,3 @@ printInt.0:
 	xor    rax,  rax
 	call   printf
 	ret
-

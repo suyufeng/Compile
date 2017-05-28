@@ -145,7 +145,7 @@ public class Main {
             throw new CompliationError("1");
         }
 
-        Buildir third_walk = new Buildir(second_walk.AstNode, ClassMap, second_walk.Classindex, second_walk.NameMap, second_walk.Classnum);
+        Buildir third_walk = new Buildir(second_walk.AstNode, ClassMap, second_walk.Classindex, second_walk.NameMap, second_walk.Classnum, second_walk.Haveselfpart);
         walker.walk(third_walk, tree);
 
 

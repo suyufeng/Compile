@@ -98,7 +98,7 @@ public class Ir {
         String left = tran_reg(l, assign_add);
         String right = tran_reg(r, assign_add);
 
-        if(Character.isDigit(right.charAt(0))) {
+        if(Character.isDigit(right.charAt(0)) || right.charAt(0) == 'g' || right.charAt(0) == 's') {
             return new Pair<Address, Address>(toadd(l, 1, 2, assign_add),r);
         }
 

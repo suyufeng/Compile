@@ -27,10 +27,14 @@ public class Address extends Ir{
         this.imm2 = new Immediate(x);
     }
     public Address(Address x) {
-        reg1 = new Vregister(x.reg1);
-        reg2 = new Vregister(x.reg2);
-        imm1 = new Immediate(x.imm1);
-        imm2 = new Immediate(x.imm2);
+        if(x.reg1 != null)
+            reg1 = new Vregister(x.reg1);
+        if(x.reg2 != null)
+            reg2 = new Vregister(x.reg2);
+        if(x.imm1 != null)
+            imm1 = new Immediate(x.imm1);
+        if(x.imm2 != null)
+            imm2 = new Immediate(x.imm2);
     }
     boolean isVregister() {
         if(this.reg2 == null && this.imm1 == null && this.imm2 == null && this.reg1 != null && globel == 0) {

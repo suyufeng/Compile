@@ -12,6 +12,9 @@ public class UnaryIr extends ExprIr {
         this.right = right;
     }
     public UnaryIr() {
+    }
+    @Override
+    public void ToString() {
         System.out.println("UnaryIr  op:" + op + "  address:(" + address.oString() + ")  dest("  + dest.oString() + ")");
     }
 }

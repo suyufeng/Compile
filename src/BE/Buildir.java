@@ -11,6 +11,7 @@ import FE.CST.MplusBaseListener;
 import FE.CST.MplusParser;
 import FE.AST.*;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.Pair;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -33,14 +34,16 @@ public class Buildir extends MplusBaseListener {
     public Map<Pair<String, Integer>, Type> NameMap = new HashMap<>();
     public Map<Address, Integer> String2register = new HashMap<>();
     public Map<Integer, Integer> Classnum = new HashMap<>();
+    public Map<Integer, Boolean> Haveselfpart = new HashMap<>();
     public List<Integer> globel = new ArrayList<>();
     public Map<Pair<String, Integer>, List<Address>> tt = new HashMap<>();
-    public Buildir(ParseTreeProperty a2, Map<String, Integer> a3, Map<Pair<Integer, String>, Integer> b1, Map<Pair<String, Integer>, Type> b2, Map<Integer, Integer> b3) {
+    public Buildir(ParseTreeProperty a2, Map<String, Integer> a3, Map<Pair<Integer, String>, Integer> b1, Map<Pair<String, Integer>, Type> b2, Map<Integer, Integer> b3, Map<Integer, Boolean> b4) {
         AstNode = a2;
         ClassMap = a3;
         Classindex = b1;
         NameMap = b2;
         Classnum = b3;
+        Haveselfpart = b4;
     }
     int idcnt = 1, id = 1, now_class_id = 0;
     int register_num = 0, globelnum = 0;
@@ -48,6 +51,7 @@ public class Buildir extends MplusBaseListener {
     private Stack id_stack = new Stack();
     public List procedure = new ArrayList();
     Address thisaddress;
+    Address functionaddress;
 
     private void In() {
         idcnt++;
@@ -525,7 +529,7 @@ public class Buildir extends MplusBaseListener {
             callir.add(tmp);
             callir.para.add(tmp.address);
         }
-        if(pattern.label != 2) {
+        if(pattern.label != 0 && pattern.label != 2) {
             callir.para.add(thisaddress.address);
         }
         callir.label = pattern.label;
@@ -590,11 +594,13 @@ public class Buildir extends MplusBaseListener {
             hh.add(Malloc);
             Address newadd = new Address(z); newadd.imm1 = new Immediate(8);
             hh.add(new Move(newadd, Malloc.address));
-            CallIr CallIr = new CallIr();
-            CallIr.para.add(z);
-            CallIr.label = y;
-            CallIr.name = "1selfpart";
-            hh.add(CallIr);
+            if(Haveselfpart.containsKey(y)) {
+                CallIr CallIr = new CallIr();
+                CallIr.para.add(z);
+                CallIr.label = y;
+                CallIr.name = "1selfpart";
+                hh.add(CallIr);
+            }
             return hh;
         }
         List<Address> next = new ArrayList<>();
@@ -660,13 +666,15 @@ public class Buildir extends MplusBaseListener {
         } else {
             Address t = new Address(new Vregister(++register_num));
             Malloc Malloc = new Malloc(t, new Address(Classnum.get(classid)));
-            CallIr CallIr = new CallIr();
-            CallIr.para.add(t);
-            CallIr.label = classid;
-            CallIr.name = "1selfpart";
             now.content.add(new Temp(t));
             now.content.add(Malloc);
-            now.content.add(CallIr);
+            if(Haveselfpart.containsKey(classid)) {
+                CallIr CallIr = new CallIr();
+                CallIr.para.add(t);
+                CallIr.label = classid;
+                CallIr.name = "1selfpart";
+                now.content.add(CallIr);
+            }
         }
         reflict.put(AstNode.get(ctx), now);
     }
@@ -698,7 +706,12 @@ public class Buildir extends MplusBaseListener {
         FuncallNode tmp = (FuncallNode)(AstNode.get(ctx));
         CallIr tt = new CallIr();
         if(tmp.label != 2) {
-            tt = calldeal(tmp, (ExprIr)(reflict.get(AstNode.get(ctx.getChild(0).getChild(0)))));
+            ExprIr t = (ExprIr)(reflict.get(AstNode.get(ctx.getChild(0).getChild(0))));
+            if(t.address == null) {
+                t = new ExprIr();
+                t.address = thisaddress;
+            }
+            tt = calldeal(tmp, t);
         } else {
             tt = calldeal(tmp, new ExprIr());
         }
