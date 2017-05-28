@@ -65,27 +65,6 @@ public class Buildir extends MplusBaseListener {
         id = (Integer)id_stack.peek();
     }
 
-    Pair<Type, Integer> get_type(String name) {
-        for(int i = id_stack.size() - 1; i >= 0; i--) {
-            if(NameMap.containsKey(new Pair<String, Integer>(name, (Integer)id_stack.get(i)))) {
-                Type type = NameMap.get(new Pair<String, Integer>(name, (Integer)id_stack.get(i)));
-                return new Pair<Type, Integer>(type, (Integer)id_stack.get(i));
-            }
-        }
-        return new Pair<Type, Integer>(new Type("!+!", 1000000), -1);
-    }
-
-    int get(String name, int tmp) {
-        Pair<Type, Integer> type = get_type(name);
-        Type ttype;
-        if(Classindex.containsKey(new Pair<Integer, String>(tmp, name))) {
-            if(tmp > type.b) {
-                return tmp;
-            }
-        }
-        return type.b;
-    }
-
     @Override public void enterProgram(MplusParser.ProgramContext ctx) {
         In();
     }
@@ -312,7 +291,7 @@ public class Buildir extends MplusBaseListener {
             }
         }
         reflict.get(now.statement).content.clear();
-        nn.content.add(new Jump(new Catch(catch_num - 3)));
+        nn.content.add(new Jump(new Catch(catch_num - 2)));
         nn.content.add(new Catch(catch_num));
         reflict.put(now, nn);
     }
@@ -368,7 +347,7 @@ public class Buildir extends MplusBaseListener {
             }
             reflict.get(ForNode.son[2]).content.clear();
         }
-        nn.content.add(new Jump(new Catch(catch_num - 2)));
+        nn.content.add(new Jump(new Catch(catch_num - 3)));
         nn.content.add(new Catch(catch_num - 1));
         reflict.put(ForNode, nn);
     }
@@ -593,7 +572,7 @@ public class Buildir extends MplusBaseListener {
             Malloc Malloc = new Malloc(new Address(new Vregister(++register_num)), new Address(Classnum.get(y)));
             hh.add(new Temp(Malloc.address));
             hh.add(Malloc);
-            Address newadd = new Address(z); newadd.imm1 = new Immediate(8);
+            Address newadd = new Address(z); newadd.imm2 = new Immediate(0);
             hh.add(new Move(newadd, Malloc.address));
             if(Haveselfpart.containsKey(y)) {
                 CallIr CallIr = new CallIr();
@@ -631,12 +610,12 @@ public class Buildir extends MplusBaseListener {
         ttt.reg2 = Address.reg1;
         hh.add(new Temp(new Address(new Vregister(register_num))));
         hh.add(new Move(ttt, Malloc.address));
-        if(x.size() != 0 || y <= 1) {
-            List<Ir> fuck = getNew(next, y, Malloc.address);
-            for(int i = 0; i < fuck.size(); i++) {
-                hh.add(fuck.get(i));
-            }
+
+        List<Ir> fuck = getNew(next, y, Malloc.address);
+        for(int i = 0; i < fuck.size(); i++) {
+            hh.add(fuck.get(i));
         }
+
         Jump Jump = new Jump(condition);
         hh.add(Jump);
         hh.add(end);
@@ -676,6 +655,7 @@ public class Buildir extends MplusBaseListener {
                 CallIr.name = "1selfpart";
                 now.content.add(CallIr);
             }
+            now.address = t;
         }
         reflict.put(AstNode.get(ctx), now);
     }
@@ -691,7 +671,7 @@ public class Buildir extends MplusBaseListener {
         Move Move = new Move();
         Move.left = left.address;
         Move.right = right.address;
-        Move.content.add(Move);
+        now.content.add(Move);
         reflict.put(AstNode.get(ctx), now);
     }
 
@@ -767,7 +747,11 @@ public class Buildir extends MplusBaseListener {
     @Override public void visitTerminal(TerminalNode node) {
         String name = node.getText();
         ExprIr Expr = new ExprIr();
-        int nowid = get(name, now_class_id);
+        ExprNode t = (ExprNode)AstNode.get(node);
+        int nowid = -1;
+        if(t instanceof BasicNode) {
+            nowid = ((BasicNode)t).belong;
+        }
         if(now_class_id == nowid) {
             if(thisaddress != null) {
                 Address address = new Address(thisaddress);

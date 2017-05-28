@@ -29,10 +29,60 @@ public class BinaryIr extends ExprIr{
         ri = tran_reg(now.b, assign_add);
         if(op.equals("+")) {
             System.out.println("\tadd    " + le + ",  " + ri);
+        } else if(op.equals("-")) {
+            System.out.println("\tsub    " + le + ",  " + ri);
+        } else if(op.equals("*")) {
+            System.out.println("\timul   " + le + ",  " + ri);
+        } else if(op.equals("/")) {
+            System.out.println("\tmov    " + "rax" + ",  " + le);
+            System.out.println("\tcdq");
+            System.out.println("\tidiv   " + ri);
+            System.out.println("\tmov    " + le + ",  " + "rax");
+        } else if(op.equals("%")) {
+            System.out.println("\tmov    " + "rax" + ",  " + le);
+            System.out.println("\tcdq");
+            System.out.println("\tidiv   " + ri);
+            System.out.println("\tmov    " + le + ",  " + "rdx");
+        } else if(op.equals("<")) {
+            System.out.println("\tcmp    " + le + ",  " + ri);
+            System.out.println("\tsetl   al");
+            System.out.println("\tmovzx  " + "rax" + ",  al");
+            System.out.println("\tmov    " + le + ",  rax");
+        } else if(op.equals("<=")) {
+            System.out.println("\tcmp    " + le + ",  " + ri);
+            System.out.println("\tsetle   al");
+            System.out.println("\tmovzx  " + "rax" + ",  al");
+            System.out.println("\tmov    " + le + ",  rax");
+        } else if(op.equals(">")) {
+            System.out.println("\tcmp    " + le + ",  " + ri);
+            System.out.println("\tsetg   al");
+            System.out.println("\tmovzx  " + "rax" + ",  al");
+            System.out.println("\tmov    " + le + ",  rax");
+        } else if(op.equals(">=")) {
+            System.out.println("\tcmp    " + le + ",  " + ri);
+            System.out.println("\tsetge  al");
+            System.out.println("\tmovzx  " + "rax" + ",  al");
+            System.out.println("\tmov    " + le + ",  rax");
+        } else if(op.equals("==")) {
+            System.out.println("\tcmp    " + le + ",  " + ri);
+            System.out.println("\tsete   al");
+            System.out.println("\tmovzx  " + "rax" + ",  al");
+            System.out.println("\tmov    " + le + ",  rax");
+        } else if(op.equals("!=")) {
+            System.out.println("\tcmp    " + le + ",  " + ri);
+            System.out.println("\tsetne   al");
+            System.out.println("\tmovzx  " + "rax" + ",  al");
+            System.out.println("\tmov    " + le + ",  rax");
+        } else if(op.equals("&")) {
+            System.out.println("\tand    " + le + ",  " + ri);
+        } else if(op.equals("|")) {
+            System.out.println("\tor     " + le + ",  " + ri);
+        } else if(op.equals("^")) {
+            System.out.println("\txor    " + le + ",  " + ri);
         }
     }
     @Override
     public void ToString() {
-        System.out.print("BinaryIr (" + address.oString() + ") = (" + left.oString() + ") " + op + " (" + right.oString() + ")");
+        System.out.println("BinaryIr (" + address.oString() + ") = (" + left.oString() + ") " + op + " (" + right.oString() + ")");
     }
 }

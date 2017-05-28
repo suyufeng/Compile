@@ -17,11 +17,18 @@ public class Move extends StmtIr{
     public Move() {}
     @Override
     public void translate(Map<Integer, True_address> assign_add) {
-        Pair<Address, Address> now = fuck_divert(left, right, assign_add);
-        String nowleft = tran_reg(now.a, assign_add);
-        String nowright = tran_reg(now.b, assign_add);
-        System.out.println("\tmov    " + nowleft + ",  "  + nowright);
-        System.out.println();
+        if(left.globel == 0) {
+            Pair<Address, Address> now = fuck_divert(left, right, assign_add);
+            String nowleft = tran_reg(now.a, assign_add);
+            String nowright = tran_reg(now.b, assign_add);
+            System.out.println("\tmov    " + nowleft + ",  "  + nowright);
+            System.out.println();
+        } else {
+            String nowleft = tran_reg(left, assign_add);
+            String nowright = tran_reg(toreg(right, assign_add), assign_add);
+            System.out.println("\tmov    [" + nowleft + "],  "  + nowright);
+            System.out.println();
+        }
     }
     @Override
     public void ToString() {

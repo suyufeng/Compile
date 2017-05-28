@@ -7,6 +7,7 @@ import FE.AST.Type;
  */
 public class BasicNode extends ExprNode {
     public String name;
+    public int belong;
     public BasicNode () {}
     public BasicNode (Type type, String name) {
         this.type = type;

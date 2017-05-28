@@ -1,14 +1,19 @@
-int main() {
-    int i;
-	int n = getString().parseInt();
-    return 0;
+class experience {
+    int naive;
 }
+int main() {
+    if (true)
+      if (true)
+         print("hello");
+       else
+         print("bye");
 
-
+    experience[][] exp = new experience[5][6];
+}
 
 /*!! metadata:
 === comment ===
-heapsort-5100379110-daibo.mx
+grammar_patch_2.mx
 === assert ===
 success_compile
 === phase ===

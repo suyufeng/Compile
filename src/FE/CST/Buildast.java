@@ -63,16 +63,16 @@ public class Buildast extends MplusBaseListener{
         return new Pair<Type, Integer>(new Type("!+!", 1000000), -1);
     }
 
-    Type get(String name, int tmp) {
+    Pair<Type, Integer> get(String name, int tmp) {
         Pair<Type, Integer> type = get_type(name);
         Type ttype;
         if(ClassNameMap.containsKey(new Pair<String, Integer>(name, tmp))) {
             ttype = ClassNameMap.get(new Pair<String, Integer>(name, tmp));
             if(tmp > type.b) {
-                return ttype;
+                return new Pair<Type, Integer> (ttype, tmp);
             }
         }
-        return type.a;
+        return new Pair<Type, Integer> (type.a, type.b);
     }
 
     @Override public void enterProgram(MplusParser.ProgramContext ctx) {
@@ -774,13 +774,13 @@ public class Buildast extends MplusBaseListener{
         }
         char c = t.charAt(0);
         if(Character.isLetter(c)) {
-            Type tt = get(t, now_class_id);
-            if(tt.type.equals("!+!") == true) {
-
+            Pair<Type, Integer> tt = get(t, now_class_id);
+            if(tt.a.type.equals("!+!") == true) {
                 Error_num++;
             }
 
-            BasicNode tmp = new BasicNode(tt, t);
+            BasicNode tmp = new BasicNode(tt.a, t);
+            tmp.belong = tt.b;
             AstNode.put(node, tmp);
         }
     }

@@ -33,7 +33,6 @@ public class CallIr extends ExprIr {
         }
         for(int i = num - 1; i >= 0; i--) {
             Address now = para.get(i);
-            now.ToString();
             Address kk = now.toreg(now, assign_add);
             String tmp = kk.tran_reg(kk, assign_add);
             System.out.println("\tpush   " + tmp);
