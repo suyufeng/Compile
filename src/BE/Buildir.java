@@ -535,6 +535,7 @@ public class Buildir extends MplusBaseListener {
         callir.label = pattern.label;
         callir.name = pattern.name;
         callir.address = new Address(new Vregister(++register_num));
+
         callir.content.add(new Temp(callir.address));
         callir.content.add(callir);
         return callir;
@@ -705,7 +706,6 @@ public class Buildir extends MplusBaseListener {
     @Override public void exitFunction_expr(MplusParser.Function_exprContext ctx) {
         FuncallNode tmp = (FuncallNode)(AstNode.get(ctx));
         CallIr tt = new CallIr();
-
         if(tmp.label != 2 && tmp.label != 0) {
             ExprIr t = (ExprIr)(reflict.get(AstNode.get(ctx.getChild(0).getChild(0))));
             if(t.address == null) {
@@ -716,6 +716,8 @@ public class Buildir extends MplusBaseListener {
         } else {
             tt = calldeal(tmp, new ExprIr());
         }
+        ExprIr left = (ExprIr)reflict.get(AstNode.get(ctx.getChild(0)));
+        tt.add(left);
         reflict.put(AstNode.get(ctx), tt);
     }
     
