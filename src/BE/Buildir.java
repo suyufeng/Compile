@@ -323,9 +323,9 @@ public class Buildir extends MplusBaseListener {
                 nn.content.add(reflict.get(ForNode.son[1]).content.get(i));
             }
             reflict.get(ForNode.son[1]).content.clear();
+            Cjump Cjump = new Cjump(((ExprIr)(reflict.get(ForNode.son[1]))).address, new Catch(++catch_num), new Catch(++catch_num));
+            nn.content.add(Cjump);
         }
-        Cjump Cjump = new Cjump(((ExprIr)(reflict.get(ForNode.son[1]))).address, new Catch(++catch_num), new Catch(++catch_num));
-        nn.content.add(Cjump);
         nn.content.add(new Catch(catch_num - 1));
         for(int i = 0; i < reflict.get(ForNode.statement).content.size(); i++) {
             if(reflict.get(ForNode.statement).content.get(i) instanceof Jump) {

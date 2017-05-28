@@ -66,7 +66,7 @@ public class Ir {
 
     Address toadd(Address origin, int x, int y, Map<Integer, True_address> assign_add) {
         String pattern = tran_reg(origin, assign_add);
-        if(pattern.charAt(0) == 'q' || pattern.charAt(0) == 'r' || pattern.charAt(0) == 's' || pattern.charAt(0) == 'g') {
+        if(Character.isDigit(pattern.charAt(0)) || pattern.charAt(0) == 'q' || pattern.charAt(0) == 'r' || pattern.charAt(0) == 's' || pattern.charAt(0) == 'g') {
             return origin;
         } else if(pattern.charAt(0) == 'o') {
             System.out.println("\tmov    " + a[x] + ",  " + tran_reg(new Address(origin.reg1), assign_add));
