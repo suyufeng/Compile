@@ -579,6 +579,8 @@ public class Buildir extends MplusBaseListener {
                 CallIr.para.add(z);
                 CallIr.label = y;
                 CallIr.name = "1selfpart";
+                CallIr.address = new Address(new Vregister(++register_num));
+                hh.add(new Temp(new Address(new Vregister(register_num))));
                 hh.add(CallIr);
             }
             return hh;
@@ -609,12 +611,16 @@ public class Buildir extends MplusBaseListener {
         ttt.imm1 = new Immediate(8);
         ttt.reg2 = Address.reg1;
         hh.add(new Temp(new Address(new Vregister(register_num))));
+        hh.add(Malloc);
         hh.add(new Move(ttt, Malloc.address));
 
         List<Ir> fuck = getNew(next, y, Malloc.address);
         for(int i = 0; i < fuck.size(); i++) {
             hh.add(fuck.get(i));
         }
+        BinaryIr tmp = new BinaryIr(Address, "+", new Address(1));
+        tmp.address = Address;
+        hh.add(tmp);
 
         Jump Jump = new Jump(condition);
         hh.add(Jump);
@@ -653,6 +659,8 @@ public class Buildir extends MplusBaseListener {
                 CallIr.para.add(t);
                 CallIr.label = classid;
                 CallIr.name = "1selfpart";
+                CallIr.address = new Address(new Vregister(++register_num));
+                now.content.add(new Temp(new Address(new Vregister(register_num))));
                 now.content.add(CallIr);
             }
             now.address = t;
