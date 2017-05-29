@@ -64,7 +64,7 @@ public class GetCode {
         System.out.println("format4:");
         System.out.println("	db\"%s\",10,0");
         for(int i = 0; i < pattern.size(); i++) {
-            System.out.println("string." + Integer.toString(i + 1) + ": db " + pattern.get(i) + ", 0");
+            System.out.println("string." + Integer.toString(i) + ": db " + pattern.get(i) + ", 0");
         }
         System.out.println("format: db  \"%lld\", 0");
         System.out.println("");

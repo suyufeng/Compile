@@ -32,7 +32,9 @@ public class BinaryIr extends ExprIr{
         } else if(op.equals("-")) {
             System.out.println("\tsub    " + le + ",  " + ri);
         } else if(op.equals("*")) {
-            System.out.println("\timul   " + le + ",  " + ri);
+            System.out.println("\tmov    rax" + ",  " + le);
+            System.out.println("\timul   " + "rax" + ",  " + ri);
+            System.out.println("\tmov    " + le + ",  " + "rax");
         } else if(op.equals("/")) {
             System.out.println("\tmov    " + "rax" + ",  " + le);
             System.out.println("\tcdq");
