@@ -16,7 +16,7 @@ public class FunctionIr extends Ir{
     public String name;
     public FunctionIr() {
     }
-    @Override public void translate(Map<Integer, True_address> assign_add) {
+    @Override public void translate(Map<Integer, True_address> assign_add, int Num) {
         if(name.equals("main")) {
             System.out.println(name + ":");
         } else {
@@ -32,8 +32,9 @@ public class FunctionIr extends Ir{
             System.out.println("\tmov    " + left + ",  r15");
         }
         System.out.println("");
+        Num = 8 + add_num;
         for(int i = 0; i < content.size(); i++) {
-            content.get(i).translate(assign_add);
+            content.get(i).translate(assign_add, Num);
         }
         System.out.println("\tjmp    " + name + "." + Integer.toString(label) + ".out");
         System.out.println(name + "." + Integer.toString(label) + ".out:");

@@ -70,44 +70,44 @@ public class Main {
         tmp = new ArrayList();
         tmp.add(new Type("string"));
         tmp.add(new Type("string"));
-        FunctionMap.put(new Pair<String, Integer>("ssstringadd", 2), new Type("string"));
-        ParaMap.put(new Pair<String, Integer>("ssstringadd", 2), tmp);
+        FunctionMap.put(new Pair<String, Integer>("Sadd", 2), new Type("string"));
+        ParaMap.put(new Pair<String, Integer>("Sadd", 2), tmp);
 
         tmp = new ArrayList();
         tmp.add(new Type("string"));
         tmp.add(new Type("string"));
-        FunctionMap.put(new Pair<String, Integer>("ssstringless", 2), new Type("bool"));
-        ParaMap.put(new Pair<String, Integer>("ssstringless", 2), tmp);
+        FunctionMap.put(new Pair<String, Integer>("Slt", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("Slt", 2), tmp);
 
         tmp = new ArrayList();
         tmp.add(new Type("string"));
         tmp.add(new Type("string"));
-        FunctionMap.put(new Pair<String, Integer>("ssstringlessequal", 2), new Type("bool"));
-        ParaMap.put(new Pair<String, Integer>("ssstringlessequal", 2), tmp);
+        FunctionMap.put(new Pair<String, Integer>("Sle", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("Sle", 2), tmp);
 
         tmp = new ArrayList();
         tmp.add(new Type("string"));
         tmp.add(new Type("string"));
-        FunctionMap.put(new Pair<String, Integer>("ssstringequal", 2), new Type("bool"));
-        ParaMap.put(new Pair<String, Integer>("ssstringequal", 2), tmp);
+        FunctionMap.put(new Pair<String, Integer>("Seq", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("Seq", 2), tmp);
 
         tmp = new ArrayList();
         tmp.add(new Type("string"));
         tmp.add(new Type("string"));
-        FunctionMap.put(new Pair<String, Integer>("ssstringnotequal", 2), new Type("bool"));
-        ParaMap.put(new Pair<String, Integer>("ssstringnotequal", 2), tmp);
+        FunctionMap.put(new Pair<String, Integer>("Sne", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("Sne", 2), tmp);
 
         tmp = new ArrayList();
         tmp.add(new Type("string"));
         tmp.add(new Type("string"));
-        FunctionMap.put(new Pair<String, Integer>("ssstringgreater", 2), new Type("bool"));
-        ParaMap.put(new Pair<String, Integer>("ssstringgreater", 2), tmp);
+        FunctionMap.put(new Pair<String, Integer>("Sgt", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("Sgt", 2), tmp);
 
         tmp = new ArrayList();
         tmp.add(new Type("string"));
         tmp.add(new Type("string"));
-        FunctionMap.put(new Pair<String, Integer>("ssstringgreaterequal", 2), new Type("bool"));
-        ParaMap.put(new Pair<String, Integer>("ssstringgreaterequal", 2), tmp);
+        FunctionMap.put(new Pair<String, Integer>("Sge", 2), new Type("bool"));
+        ParaMap.put(new Pair<String, Integer>("Sge", 2), tmp);
     }
     public static void main(String[] args) throws Exception{
 
@@ -149,7 +149,7 @@ public class Main {
         walker.walk(third_walk, tree);
 
 
-        GetCode forth_walk = new GetCode(third_walk.globel, third_walk.procedure, second_walk.pattern, third_walk.tt);
+        GetCode forth_walk = new GetCode(third_walk.globel, third_walk.procedure, second_walk.pattern, third_walk.tt, third_walk.global);
         forth_walk.prepare();
         forth_walk.work();
         // print LISP-style tree

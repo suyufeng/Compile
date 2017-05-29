@@ -19,7 +19,7 @@ public class BinaryIr extends ExprIr{
     public BinaryIr() {
     }
     @Override
-    public void translate(Map<Integer, True_address> assign_add) {
+    public void translate(Map<Integer, True_address> assign_add, int Num) {
         Pair<Address, Address> now = fuck_divert(address, left, assign_add);
         String le = tran_reg(now.a, assign_add);
         String ri = tran_reg(now.b, assign_add);

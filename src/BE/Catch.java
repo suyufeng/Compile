@@ -18,7 +18,7 @@ public class Catch extends Ir{
         System.out.println("Catch " + "flag: " + Integer.toString(flag));
     }
     @Override
-    public void translate(Map<Integer, True_address> map) {
+    public void translate(Map<Integer, True_address> map, int Num) {
         System.out.println("Catch." + flag  + ":");
     }
 }

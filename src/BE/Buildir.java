@@ -37,6 +37,7 @@ public class Buildir extends MplusBaseListener {
     public Map<Integer, Boolean> Haveselfpart = new HashMap<>();
     public List<Integer> globel = new ArrayList<>();
     public Map<Pair<String, Integer>, List<Address>> tt = new HashMap<>();
+    public List<Ir> global = new ArrayList<Ir>();
     public Buildir(ParseTreeProperty a2, Map<String, Integer> a3, Map<Pair<Integer, String>, Integer> b1, Map<Pair<String, Integer>, Type> b2, Map<Integer, Integer> b3, Map<Integer, Boolean> b4) {
         AstNode = a2;
         ClassMap = a3;
@@ -184,6 +185,9 @@ public class Buildir extends MplusBaseListener {
             a1.add(hh);
             Move tmp = new Move(a1.add, hh.address);
             a1.content.add(tmp);
+            for(int i = 0; i < a1.content.size(); i++) {
+                global.add(a1.content.get(i));
+            }
         }
         reflict.put((Node)AstNode.get(ctx), a1);
     }
@@ -249,7 +253,7 @@ public class Buildir extends MplusBaseListener {
             nn.content.add(new Jump(new Catch(++catch_num)));
 
             nn.content.add(new Catch(catch_num - 1));
-            StmtIr els = (StmtIr) reflict.get(now.thennode);
+            StmtIr els = (StmtIr) reflict.get(now.elsenode);
             for (int i = 0; i < els.content.size(); i++) {
                 nn.content.add(els.content.get(i));
             }
@@ -334,7 +338,7 @@ public class Buildir extends MplusBaseListener {
                     t.yes.flag = catch_num + 1;
                 }
                 if(t.yes.flag == 987654321) {
-                    t.yes.flag = catch_num - 1;
+                    t.yes.flag = catch_num;
                 }
             }
             nn.content.add(reflict.get(ForNode.statement).content.get(i));
@@ -453,7 +457,8 @@ public class Buildir extends MplusBaseListener {
             if(!left.address.isVregister()) {
                 now.address = new Address(new Vregister(++register_num));
                 Move Move = new Move(now.address, left.address);
-                now.content.add(new Temp(now.address));
+                now.address.ToString();
+                now.content.add(new Temp(new Address(new Vregister(register_num))));
                 now.content.add(Move);
                 basic = now.address;
             }

@@ -11,12 +11,12 @@ import java.util.Map;
 public class Move extends StmtIr{
     Address left, right;
     public Move(Address left, Address right) {
-        this.left = left;
-        this.right = right;
+        this.left = new Address(left);
+        this.right = new Address(right);
     }
     public Move() {}
     @Override
-    public void translate(Map<Integer, True_address> assign_add) {
+    public void translate(Map<Integer, True_address> assign_add, int Num) {
         if(left.globel == 0) {
             Pair<Address, Address> now = fuck_divert(left, right, assign_add);
             String nowleft = tran_reg(now.a, assign_add);
@@ -26,7 +26,7 @@ public class Move extends StmtIr{
         } else {
             String nowleft = tran_reg(left, assign_add);
             String nowright = tran_reg(toreg(right, assign_add), assign_add);
-            System.out.println("\tmov    [" + nowleft + "],  "  + nowright);
+            System.out.println("\tmov    " + nowleft + ",  "  + nowright);
             System.out.println();
         }
     }

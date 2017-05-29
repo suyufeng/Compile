@@ -19,7 +19,7 @@ public class CallIr extends ExprIr {
         System.out.println("Call " + Integer.toString(label) + "." + name);
     }
     @Override
-    public void translate(Map<Integer, True_address> assign_add) {
+    public void translate(Map<Integer, True_address> assign_add, int Num) {
         if(label == 2) {
             label = 0;
         }
@@ -30,6 +30,9 @@ public class CallIr extends ExprIr {
             Address kk = now.toreg(now, assign_add);
             String tmp = kk.tran_reg(kk, assign_add);
             System.out.println("\tpush   " + tmp);
+        }
+        if((Num + num * 8) % 16 != 0) {
+            System.out.println("\tpush   rbp");
         }
         for(int i = num - 1; i >= 0; i--) {
             Address now = para.get(i);
@@ -43,7 +46,10 @@ public class CallIr extends ExprIr {
         for(int i = 0; i < save.size(); i++) {
             System.out.println("\tpop    r15");
             Move = new Move(save.get(i), new Address(new Vregister((int)1e7+3)));
-            Move.translate(assign_add);
+            Move.translate(assign_add, num);
+        }
+        if((Num + num * 8) % 16 != 0) {
+            System.out.println("\tpop    rbp");
         }
         String tmp = tran_reg(toadd(address, 1, 2, assign_add), assign_add);
         System.out.println("\tmov    " + tmp + ",  rax");

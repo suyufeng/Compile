@@ -12,17 +12,17 @@ import java.util.Map;
  */
 public class Ir {
     public List<Ir> content = new ArrayList();
-    String[] a = new String[]{"", "r13", "r14", "r15"};
-    public void translate(Map<Integer, True_address> assign_add) {
+    String[] a = new String[]{"", "rsi", "rdi", "r15"};
+    public void translate(Map<Integer, True_address> assign_add, int Num) {
 
     }
     public String tran_reg(Address tmp, Map<Integer, True_address> map) {
         String[] a = new String[12];
-        a[1] = "rbx"; a[2] = "rsi"; a[3] = "rdi"; a[4] = "r8";
+        a[1] = "rbx"; a[2] = "r13"; a[3] = "r14"; a[4] = "r8";
         a[5] = "r9";a[6] = "r10";a[7] = "r11";a[8] = "r12";
-        a[9] = "r13"; a[10] = "r14"; a[11] = "r15";
+        a[9] = "rsi"; a[10] = "rdi"; a[11] = "r15";
         if(tmp.globel != 0) {
-            return "globel." + Integer.toString(tmp.globel);
+            return "qword[globel." + Integer.toString(tmp.globel) + "]";
         }
         if(tmp.imm1 != null && tmp.reg2 == null) {
             return "string." + tmp.imm2.num;
@@ -55,7 +55,7 @@ public class Ir {
                 }
             } else {
                 True_address now1 = map.get(tmp.reg1.num);
-                if(now1.reg != 0) {
+                if(now1.reg == 0) {
                     return "o";
                 } else {
                     return "qword[" + a[now1.reg] + " + " + Integer.toString(tmp.imm2.num) + "]";
@@ -97,10 +97,9 @@ public class Ir {
     public Pair<Address, Address> fuck_divert(Address l, Address r, Map<Integer, True_address> assign_add) {
         String left = tran_reg(l, assign_add);
         String right = tran_reg(r, assign_add);
-
-        if(Character.isDigit(right.charAt(0)) || right.charAt(0) == 'g' || right.charAt(0) == 's') {
-            return new Pair<Address, Address>(toadd(l, 1, 2, assign_add),r);
-        }
+//        if(Character.isDigit(right.charAt(0)) || right.charAt(0) == 'g' || right.charAt(0) == 's') {
+ //           return new Pair<Address, Address>(toadd(l, 1, 2, assign_add),r);
+  //      }
 
         int num = 0;
         if(left.charAt(0) == 'r') {

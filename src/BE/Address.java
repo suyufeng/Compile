@@ -34,6 +34,7 @@ public class Address extends Ir{
             imm1 = new Immediate(x.imm1);
         if(x.imm2 != null)
             imm2 = new Immediate(x.imm2);
+        globel = x.globel;
     }
     boolean isVregister() {
         if(this.reg2 == null && this.imm1 == null && this.imm2 == null && this.reg1 != null && globel == 0) {

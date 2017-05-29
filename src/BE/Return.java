@@ -16,7 +16,7 @@ public class Return extends StmtIr {
         System.out.println("Return  son:(" + son.oString() + ")");
     }
     @Override
-    public void translate(Map<Integer, True_address> map) {
+    public void translate(Map<Integer, True_address> map, int Num) {
         String a = tran_reg(toadd(son, 1, 2, map), map);
         System.out.println("\tmov    rax" + ",  " + a);
         System.out.println("\tjmp    " + name + "." + label + ".out");

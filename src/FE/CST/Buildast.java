@@ -451,20 +451,20 @@ public class Buildast extends MplusBaseListener{
             tt.label = 0;
             tt.type = new Type("bool");
             if(t.equals("+")) {
-               tt.name = "ssstringadd";
+               tt.name = "Sadd";
                tt.type = new Type("string");
             } else if(t.equals("<")) {
-                tt.name = "ssstringless";
+                tt.name = "Slt";
             } else if(t.equals("<=")) {
-                tt.name = "ssstringlessorequal";
+                tt.name = "Sle";
             } else if(t.equals("==")) {
-                tt.name = "ssstringequal";
+                tt.name = "Seq";
             } else if(t.equals("!=")) {
-                tt.name = "ssstringnotequal";
+                tt.name = "Sne";
             } else if(t.equals(">")) {
-                tt.name = "ssstringgreater";
+                tt.name = "Sgt";
             } else if(t.equals(">=")) {
-                tt.name = "ssstringgreaterorequal";
+                tt.name = "Sge";
             }
             AstNode.put(ctx, tt);
         } else {

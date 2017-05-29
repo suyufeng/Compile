@@ -17,7 +17,7 @@ public class Jump extends StmtIr {
         System.out.println("Jump  " + "flag:" + yes.flag);
     }
     @Override
-    public void translate(Map<Integer, True_address> map) {
+    public void translate(Map<Integer, True_address> map, int Num) {
         System.out.println("\tjmp    Catch." + yes.flag);
     }
 }
