@@ -81,6 +81,12 @@ public class BinaryIr extends ExprIr{
             System.out.println("\tor     " + le + ",  " + ri);
         } else if(op.equals("^")) {
             System.out.println("\txor    " + le + ",  " + ri);
+        } else if(op.equals("<<")) {
+            System.out.println("\tmov    " + "rcx" + ",  " + ri);
+            System.out.println("\tshl    " + le + ",  cl");
+        } else if(op.equals(">>")) {
+            System.out.println("\tmov    " + "rcx" + ",  " + ri);
+            System.out.println("\tsar    " + le + ",  cl");
         }
     }
     @Override

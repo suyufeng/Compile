@@ -127,9 +127,9 @@ public class SystemFunction {
         System.out.println("");
         System.out.println("	push rbp");
         System.out.println("	mov rbp,rsp");
-        System.out.println("	mov rdi,qword[rbp + 16]");
-        System.out.println("	mov rsi,qword[rbp + 24]");
-        System.out.println("	mov rdx,qword[rbp + 32]");
+        System.out.println("	mov rdi,qword[rbp + 32]");
+        System.out.println("	mov rsi,qword[rbp + 16]");
+        System.out.println("	mov rdx,qword[rbp + 24]");
         System.out.println("	push rdi");
         System.out.println("	push rsi");
         System.out.println("	mov rdi,rdx");
@@ -171,8 +171,8 @@ public class SystemFunction {
         System.out.println("	");
         System.out.println("	push rbp");
         System.out.println("	mov rbp,rsp");
-        System.out.println("	mov rdi,qword[rbp + 16]");
-        System.out.println("	mov rsi,qword[rbp + 24]");
+        System.out.println("	mov rdi,qword[rbp + 24]");
+        System.out.println("	mov rsi,qword[rbp + 16]");
         System.out.println("	mov rax,0");
         System.out.println("	mov al,byte[rdi+rsi]");
         System.out.println("	leave");

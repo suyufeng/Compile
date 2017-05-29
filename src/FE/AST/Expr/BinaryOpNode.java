@@ -9,7 +9,7 @@ import FE.AST.Type;
 
 public class BinaryOpNode extends ExprNode{
     ExprNode left, right;
-    OperaNode op;
+    public OperaNode op;
 
     BinaryOpNode() {}
     public BinaryOpNode(ExprNode x, String ope, ExprNode y) {
