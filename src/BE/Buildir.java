@@ -96,7 +96,7 @@ public class Buildir extends MplusBaseListener {
             tmp.content.add(reflict.get(goal).content.get(i));
         }
         tmp.label = now_class_id;
-        tmp.name = "1selfpart";
+        tmp.name = "TTselfpart";
         tmp.para.add(thisaddress);
         tt.put(new Pair<String, Integer>(tmp.name, tmp.label), tmp.para);
         reflict.get(goal).content.clear();
@@ -591,7 +591,7 @@ public class Buildir extends MplusBaseListener {
                 CallIr CallIr = new CallIr();
                 CallIr.para.add(z);
                 CallIr.label = y;
-                CallIr.name = "1selfpart";
+                CallIr.name = "TTselfpart";
                 CallIr.address = new Address(new Vregister(++register_num));
                 hh.add(new Temp(new Address(new Vregister(register_num))));
                 hh.add(CallIr);
@@ -671,7 +671,7 @@ public class Buildir extends MplusBaseListener {
                 CallIr CallIr = new CallIr();
                 CallIr.para.add(t);
                 CallIr.label = classid;
-                CallIr.name = "1selfpart";
+                CallIr.name = "TTselfpart";
                 CallIr.address = new Address(new Vregister(++register_num));
                 now.content.add(new Temp(new Address(new Vregister(register_num))));
                 now.content.add(CallIr);
