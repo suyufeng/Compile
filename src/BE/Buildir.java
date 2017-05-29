@@ -322,39 +322,44 @@ public class Buildir extends MplusBaseListener {
             }
             reflict.get(ForNode.son[0]).content.clear();
         }
-        nn.content.add(new Jump(new Catch(++catch_num)));
-        nn.content.add(new Catch(catch_num));
+        Catch condition =new Catch(++catch_num);
+        Catch body =new Catch(++catch_num);
+        Catch out =new Catch(++catch_num);
+        Catch loop =new Catch(++catch_num);
+
+        nn.content.add(new Jump(condition));
+        nn.content.add(condition);
         if(ForNode.son[1] != null) {
             for(int i = 0; i < reflict.get(ForNode.son[1]).content.size(); i++) {
                 nn.content.add(reflict.get(ForNode.son[1]).content.get(i));
             }
             reflict.get(ForNode.son[1]).content.clear();
-            Cjump Cjump = new Cjump(((ExprIr)(reflict.get(ForNode.son[1]))).address, new Catch(++catch_num), new Catch(++catch_num));
+            Cjump Cjump = new Cjump(((ExprIr)(reflict.get(ForNode.son[1]))).address,body,out);
             nn.content.add(Cjump);
         }
-        nn.content.add(new Catch(catch_num - 1));
+        nn.content.add(body);
         for(int i = 0; i < reflict.get(ForNode.statement).content.size(); i++) {
             if(reflict.get(ForNode.statement).content.get(i) instanceof Jump) {
                 Jump t = (Jump)reflict.get(ForNode.statement).content.get(i);
                 if(t.yes.flag == 123456789) {
-                    t.yes.flag = catch_num + 1;
+                    t.yes.flag = loop.flag;
                 }
                 if(t.yes.flag == 987654321) {
-                    t.yes.flag = catch_num;
+                    t.yes.flag = out.flag;
                 }
             }
             nn.content.add(reflict.get(ForNode.statement).content.get(i));
         }
-        nn.content.add(new Jump(new Catch(++catch_num)));
-        nn.content.add(new Catch(catch_num));
+        nn.content.add(new Jump(loop));
+        nn.content.add(loop);
         if(ForNode.son[2] != null) {
             for(int i = 0; i < reflict.get(ForNode.son[2]).content.size(); i++) {
                 nn.content.add(reflict.get(ForNode.son[2]).content.get(i));
             }
             reflict.get(ForNode.son[2]).content.clear();
         }
-        nn.content.add(new Jump(new Catch(catch_num - 3)));
-        nn.content.add(new Catch(catch_num - 1));
+        nn.content.add(new Jump(condition));
+        nn.content.add(out);
         reflict.put(ForNode, nn);
     }
 
@@ -711,8 +716,16 @@ public class Buildir extends MplusBaseListener {
         } else {
             tt = calldeal(tmp, new ExprIr());
         }
-        ExprIr left = (ExprIr)reflict.get(AstNode.get(ctx.getChild(0)));
-        tt.add(left);
+        ExprIr t = (ExprIr)(reflict.get(AstNode.get(ctx.getChild(0))));
+        List<Ir> tp = new ArrayList<>();
+        for(int i = 0; i < tt.content.size(); i++) {
+            tp.add(tt.content.get(i));
+        }
+        tt.content.clear();
+        tt.add(t);
+        for(int i = 0; i < tp.size(); i++) {
+            tt.content.add(tp.get(i));
+        }
         reflict.put(AstNode.get(ctx), tt);
     }
     
