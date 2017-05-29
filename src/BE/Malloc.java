@@ -28,6 +28,7 @@ public class Malloc extends ExprIr {
         System.out.println("\tadd    rdi,  1");
         System.out.println("\timul   rdi,  8");
         System.out.println("\tcall   malloc");
+        right = tran_reg(toreg(size, map), map);
         System.out.println("\tmov    qword[rax],  " + right);
         System.out.println("\tadd    rax,  8");
         System.out.println("\tmov    " + tran_reg(toadd(address, 1, 2, map), map) + ",  rax");

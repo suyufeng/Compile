@@ -31,6 +31,7 @@ public class SystemFunction {
         System.out.println("	ret");
         System.out.println("");
         System.out.println("size.0:");
+        System.out.println("	mov rdi,qword[rbp + 8]");
         System.out.println("	mov rax,[rdi-8]");
         System.out.println("	ret");
         System.out.println("");
