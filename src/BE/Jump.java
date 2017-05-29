@@ -2,6 +2,8 @@ package BE;
 
 import GC.True_address;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,5 +21,11 @@ public class Jump extends StmtIr {
     @Override
     public void translate(Map<Integer, True_address> map, int Num) {
         System.out.println("\tjmp    Catch." + yes.flag);
+    }
+    @Override
+    public List<Integer> suf(Map<Integer, Integer> map) {
+        List<Integer> a = new ArrayList<>();
+        a.add(map.get(yes.flag));
+        return a;
     }
 }

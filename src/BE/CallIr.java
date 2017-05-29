@@ -54,4 +54,16 @@ public class CallIr extends ExprIr {
         String tmp = tran_reg(toadd(address, 1, 2, assign_add), assign_add);
         System.out.println("\tmov    " + tmp + ",  rax");
     }
+    @Override
+    public List<Integer> def() {
+        return address.getnum();
+    }
+    @Override
+    public List<Integer> use() {
+        List<Integer> num = new ArrayList<>();
+        for(int i = 0; i < para.size(); i++) {
+            num = fix(num, para.get(i).getnum());
+        }
+        return num;
+    }
 }

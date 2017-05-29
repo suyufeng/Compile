@@ -3,6 +3,7 @@ package BE;
 import GC.True_address;
 import org.antlr.v4.runtime.misc.Pair;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -92,5 +93,13 @@ public class BinaryIr extends ExprIr{
     @Override
     public void ToString() {
         System.out.println("BinaryIr (" + address.oString() + ") = (" + left.oString() + ") " + op + " (" + right.oString() + ")");
+    }
+    @Override
+    public List<Integer> def() {
+        return address.getnum();
+    }
+    @Override
+    public List<Integer> use() {
+        return fix(left.getnum(), right.getnum());
     }
 }

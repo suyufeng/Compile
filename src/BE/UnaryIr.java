@@ -3,6 +3,8 @@ package BE;
 import GC.True_address;
 import org.antlr.v4.runtime.misc.Pair;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -50,5 +52,12 @@ public class UnaryIr extends ExprIr {
             }
             System.out.println("\tmov    " + tran_reg(toadd(dest, 1, 2, map), map) + ",  r15");
         }
+    }
+    public List<Integer> def() {
+        return dest.getnum();
+    }
+
+    public List<Integer> use() {
+        return right.getnum();
     }
 }

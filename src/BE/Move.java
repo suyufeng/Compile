@@ -3,6 +3,8 @@ package BE;
 import GC.True_address;
 import org.antlr.v4.runtime.misc.Pair;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,6 +35,13 @@ public class Move extends StmtIr{
     @Override
     public void ToString() {
         System.out.println("Move  left:(" + left.oString() + ")  right:(" + right.oString() + ")");
+    }
+    public List<Integer> def() {
+        return left.getnum();
+    }
+
+    public List<Integer> use() {
+        return right.getnum();
     }
 }
 

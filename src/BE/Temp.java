@@ -20,6 +20,7 @@ public class Temp extends ExprIr {
 
     @Override
     public void ToString() {
-        System.out.println("Temp   add:(" + add.oString() + ")");
+
+
     }
 };

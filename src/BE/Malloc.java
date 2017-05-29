@@ -2,6 +2,8 @@ package BE;
 
 import GC.True_address;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,6 +37,15 @@ public class Malloc extends ExprIr {
         if(flag == 1) {
             System.out.println("\tpop    rbp");
         }
+    }
+    @Override
+    public List<Integer> def() {
+        return address.getnum();
+    }
+
+    @Override
+    public List<Integer> use() {
+        return size.getnum();
     }
 }
 

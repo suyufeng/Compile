@@ -2,6 +2,8 @@ package BE;
 
 import GC.True_address;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,5 +28,13 @@ public class Return extends StmtIr {
             System.out.println("\tmov    rax" + ",  " + a);
         }
         System.out.println("\tjmp    " + name + "." + label + ".out");
+    }
+
+    @Override
+    public List<Integer> use() {
+        if(son == null) {
+            return new ArrayList<>();
+        }
+        return son.getnum();
     }
 }

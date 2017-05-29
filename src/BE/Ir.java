@@ -4,6 +4,7 @@ import GC.True_address;
 import org.antlr.v4.runtime.misc.Pair;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -120,6 +121,52 @@ public class Ir {
         } else {
             return new Pair<Address, Address>(toadd(l, 1, 2, assign_add), r);
         }
+    }
+
+    public List<Integer> def() {
+        return new ArrayList<>();
+    }
+
+    public List<Integer> use() {
+        return new ArrayList<>();
+    }
+
+    public List<Integer> suf(Map<Integer, Integer> tmp) {
+        return new ArrayList<>();
+    }
+
+    public List<Integer> fix(List<Integer> x, List<Integer> y) {
+        Map<Integer, Boolean> map = new HashMap<>();
+        List<Integer> z = new ArrayList<>();
+        for(int i = 0; i < x.size(); i++) {
+            if(!map.containsKey(x.get(i))) {
+                z.add(x.get(i));
+                map.put(x.get(i), true);
+            }
+        }
+        for(int i = 0; i < y.size(); i++) {
+            if(!map.containsKey(y.get(i))) {
+                z.add(y.get(i));
+                map.put(y.get(i), true);
+            }
+        }
+        return z;
+    }
+
+    public List<Integer> del(List<Integer> y, List<Integer> x) {
+        Map<Integer, Boolean> map = new HashMap<>();
+        List<Integer> z = new ArrayList<>();
+        for(int i = 0; i < x.size(); i++) {
+            if(!map.containsKey(x.get(i))) {
+                map.put(x.get(i), true);
+            }
+        }
+        for(int i = 0; i < y.size(); i++) {
+            if(!map.containsKey(y.get(i))) {
+                z.add(y.get(i));
+            }
+        }
+        return z;
     }
 
     public void ToString() {

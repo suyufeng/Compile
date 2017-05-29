@@ -1,15 +1,12 @@
 int main() {
-    int a = 5;
-    int b = 0;
-    int c;
-    if (b != 0 && a/b != 1) {
-        c = 10;
-    } else {
-        c = 20;
+    int n = 5;
+    int sum = 0;
+    int i;
+    int j;
+    for (i = 1; i <= n; ++i) {
+        for (j = 1; j <= n; ++j)
+            sum = sum + i;
+        sum = sum + 1;
     }
-
-    if (!(c == 10 && a/b == 0 && a == 5))
-        c = 30;
-
-    return c;
+    printInt(sum);
 }

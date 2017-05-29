@@ -1,5 +1,8 @@
 package BE;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by suyufeng on 17-4-4.
  */
@@ -79,6 +82,17 @@ public class Address extends Ir{
             a += (" imm2: " + Integer.toString(imm2.num));
         }
         return a;
+    }
+
+    public List<Integer> getnum() {
+        List<Integer> ans = new ArrayList<>();
+        if(reg1 != null) {
+            ans.add(reg1.num);
+        }
+        if(reg2 != null) {
+            ans.add(reg2.num);
+        }
+        return ans;
     }
 
 }
