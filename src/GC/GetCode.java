@@ -64,7 +64,18 @@ public class GetCode {
         System.out.println("format4:");
         System.out.println("	db\"%s\",10,0");
         for(int i = 0; i < pattern.size(); i++) {
-            System.out.println("string." + Integer.toString(i) + ": db " + pattern.get(i) + ", 0");
+            int length = pattern.get(i).length();
+            char last = ' ';
+            int true_length = length;
+            for(int j = 0; j < length; j++) {
+                if(pattern.get(i).charAt(j) == '\\' && last != '\\') {
+                    true_length--;
+                }
+                last = pattern.get(i).charAt(j);
+            }
+
+            System.out.println("dq  " + true_length);
+            System.out.println("string." + Integer.toString(i) + ": db `" + pattern.get(i) + "`, 0");
         }
         System.out.println("format: db  \"%lld\", 0");
         System.out.println("");

@@ -698,7 +698,11 @@ public class Buildast extends MplusBaseListener{
     @Override public void exitString(MplusParser.StringContext ctx) {
         Type tt = new Type("string");
         ConstNode tmp = new ConstNode(tt, " ", "string" + Integer.toString(pattern.size()));
-        pattern.add(ctx.getText());
+        String t = "";
+        for(int i = 1; i + 1 < ctx.getText().length(); i++) {
+            t += ctx.getText().charAt(i);
+        }
+        pattern.add(t);
         AstNode.put(ctx, tmp);
     }
 
