@@ -464,7 +464,6 @@ public class Buildir extends MplusBaseListener {
             if(!left.address.isVregister()) {
                 now.address = new Address(new Vregister(++register_num));
                 Move Move = new Move(now.address, left.address);
-                now.address.ToString();
                 now.content.add(new Temp(new Address(new Vregister(register_num))));
                 now.content.add(Move);
                 basic = now.address;

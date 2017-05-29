@@ -75,9 +75,9 @@ public class BinaryIr extends ExprIr{
             System.out.println("\tsetne   al");
             System.out.println("\tmovzx  " + "rax" + ",  al");
             System.out.println("\tmov    " + le + ",  rax");
-        } else if(op.equals("&")) {
+        } else if(op.equals("&") || op.equals("&&")) {
             System.out.println("\tand    " + le + ",  " + ri);
-        } else if(op.equals("|")) {
+        } else if(op.equals("|") || op.equals("||")) {
             System.out.println("\tor     " + le + ",  " + ri);
         } else if(op.equals("^")) {
             System.out.println("\txor    " + le + ",  " + ri);

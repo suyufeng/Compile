@@ -3,13 +3,13 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/BE/Move.java" line="36" />
     <bookmark url="file://$PROJECT_DIR$/src/BE/Immediate.java" line="9" />
-    <bookmark url="file://$PROJECT_DIR$/src/BE/Buildir.java" line="598" />
+    <bookmark url="file://$PROJECT_DIR$/src/BE/Buildir.java" line="597" />
     <bookmark url="file://$PROJECT_DIR$/src/BE/CallIr.java" line="25" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/FE/CST/Buildast.java" afterPath="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GC/GetCode.java" afterPath="$PROJECT_DIR$/src/GC/GetCode.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/BinaryIr.java" afterPath="$PROJECT_DIR$/src/BE/BinaryIr.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Buildir.java" afterPath="$PROJECT_DIR$/src/BE/Buildir.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/a.in" afterPath="$PROJECT_DIR$/src/a.in" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -60,68 +60,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Buildir.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Buildir.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/BE/Buildir.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="357" column="13" lean-forward="false" selection-start-line="357" selection-start-column="13" selection-end-line="357" selection-end-column="13" />
+            <state relative-caret-position="160">
+              <caret line="465" column="64" lean-forward="false" selection-start-line="465" selection-start-column="64" selection-end-line="465" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Buildast.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="704" column="21" lean-forward="false" selection-start-line="704" selection-start-column="21" selection-end-line="704" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FunctionIr.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BE/FunctionIr.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Malloc.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BE/Malloc.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cjump.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BE/Cjump.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="23" column="49" lean-forward="false" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CallIr.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BE/CallIr.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1344">
-              <caret line="54" column="57" lean-forward="false" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -129,8 +75,8 @@
       <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="715">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="463">
+              <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -147,9 +93,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>enternull</find>
-      <find>19971024</find>
-      <find>enterreturn</find>
       <find>return</find>
       <find>Classindex</find>
       <find>enternew</find>
@@ -177,6 +120,9 @@
       <find>entermember</find>
       <find>enterbina</find>
       <find>enterfor</find>
+      <find>pattern</find>
+      <find>Tostring</find>
+      <find>tostring</find>
     </findStrings>
     <replaceStrings>
       <replace>_walk</replace>
@@ -239,13 +185,13 @@
         <option value="$PROJECT_DIR$/src/BE/CallIr.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/BE/Malloc.java" />
-        <option value="$PROJECT_DIR$/src/BE/BinaryIr.java" />
         <option value="$PROJECT_DIR$/src/GC/SystemFunction.java" />
         <option value="$PROJECT_DIR$/src/BE/Cjump.java" />
-        <option value="$PROJECT_DIR$/src/BE/Buildir.java" />
-        <option value="$PROJECT_DIR$/src/a.in" />
         <option value="$PROJECT_DIR$/src/GC/GetCode.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
+        <option value="$PROJECT_DIR$/src/BE/BinaryIr.java" />
+        <option value="$PROJECT_DIR$/src/a.in" />
+        <option value="$PROJECT_DIR$/src/BE/Buildir.java" />
       </list>
     </option>
   </component>
@@ -917,12 +863,12 @@
       <workItem from="1495950188677" duration="40938000" />
       <workItem from="1495997448910" duration="3501000" />
       <workItem from="1496026312812" duration="20131000" />
-      <workItem from="1496047729333" duration="8457000" />
+      <workItem from="1496047729333" duration="9704000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282440000" />
+    <option name="totallyTimeSpent" value="283687000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -935,6 +881,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="85" y="34" width="1845" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1275,38 +1222,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/BinaryIr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="38" column="15" lean-forward="false" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BE/Malloc.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
           <caret line="30" column="47" lean-forward="false" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/FunctionIr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/Cjump.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="23" column="49" lean-forward="false" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1333,32 +1252,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/CallIr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1344">
-          <caret line="54" column="57" lean-forward="false" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/Buildir.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="357" column="13" lean-forward="false" selection-start-line="357" selection-start-column="13" selection-end-line="357" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/a.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="715">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/GC/GetCode.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1770">
@@ -1367,11 +1260,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/a.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BE/CallIr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="54" column="57" lean-forward="false" selection-start-line="54" selection-start-column="57" selection-end-line="54" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BE/Cjump.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="23" column="49" lean-forward="false" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BE/FunctionIr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="776">
+          <caret line="38" column="70" lean-forward="false" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BE/BinaryIr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2288">
+          <caret line="86" column="24" lean-forward="false" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FE/CST/Buildast.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="704" column="21" lean-forward="false" selection-start-line="704" selection-start-column="21" selection-end-line="704" selection-end-column="21" />
+        <state relative-caret-position="188">
+          <caret line="699" column="74" lean-forward="false" selection-start-line="699" selection-start-column="66" selection-end-line="699" selection-end-column="74" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BE/Buildir.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="465" column="64" lean-forward="false" selection-start-line="465" selection-start-column="64" selection-end-line="465" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
