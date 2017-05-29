@@ -43,13 +43,13 @@ public class CallIr extends ExprIr {
         System.out.println("\tcall   " + name + "." + Integer.toString(label));
         System.out.println("\tadd    rsp,  " + Integer.toString(num * 8));
 
-        for(int i = 0; i < save.size(); i++) {
+        if((Num + num * 8) % 16 != 0) {
+            System.out.println("\tpop    rbp");
+        }
+        for(int i = save.size() - 1; i >= 0; i--) {
             System.out.println("\tpop    r15");
             Move = new Move(save.get(i), new Address(new Vregister((int)1e7+3)));
             Move.translate(assign_add, num);
-        }
-        if((Num + num * 8) % 16 != 0) {
-            System.out.println("\tpop    rbp");
         }
         String tmp = tran_reg(toadd(address, 1, 2, assign_add), assign_add);
         System.out.println("\tmov    " + tmp + ",  rax");

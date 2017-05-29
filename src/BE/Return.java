@@ -13,12 +13,18 @@ public class Return extends StmtIr {
     public String name;
     @Override
     public void ToString() {
-        System.out.println("Return  son:(" + son.oString() + ")");
+        if(son != null) {
+            System.out.println("Return  son:(" + son.oString() + ")");
+        } else {
+            System.out.println("Return  ");
+        }
     }
     @Override
     public void translate(Map<Integer, True_address> map, int Num) {
-        String a = tran_reg(toadd(son, 1, 2, map), map);
-        System.out.println("\tmov    rax" + ",  " + a);
+        if(son != null) {
+            String a = tran_reg(toadd(son, 1, 2, map), map);
+            System.out.println("\tmov    rax" + ",  " + a);
+        }
         System.out.println("\tjmp    " + name + "." + label + ".out");
     }
 }

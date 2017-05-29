@@ -392,6 +392,8 @@ public class Buildir extends MplusBaseListener {
             tt.son = son.address;
             son.content.clear();
             tt.content.add(tt);
+        } else {
+            tt.content.add(tt);
         }
         reflict.put(AstNode.get(ctx), tt);
     }
