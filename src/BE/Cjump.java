@@ -21,7 +21,7 @@ public class Cjump extends StmtIr {
     }
     @Override
     public void translate(Map<Integer, True_address> map, int Num) {
-        System.out.println("\tcmp    " + tran_reg(flag, map) + ",  1");
+        System.out.println("\tcmp    " + tran_reg(toadd(flag, 1, 2, map),map) + ",  1");
         System.out.println("\tje     Catch." + yes.flag);
         System.out.println("\tjmp    Catch." + no.flag);
     }

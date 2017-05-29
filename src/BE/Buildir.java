@@ -185,8 +185,10 @@ public class Buildir extends MplusBaseListener {
             a1.add(hh);
             Move tmp = new Move(a1.add, hh.address);
             a1.content.add(tmp);
-            for(int i = 0; i < a1.content.size(); i++) {
-                global.add(a1.content.get(i));
+            if(id == 2) {
+                for(int i = 0; i < a1.content.size(); i++) {
+                    global.add(a1.content.get(i));
+                }
             }
         }
         reflict.put((Node)AstNode.get(ctx), a1);
