@@ -37,7 +37,7 @@ public class FunctionIr extends Ir{
         }
 
         for(int i = 0; i < save.size(); i++) {
-            System.out.println("push    " + tran_reg(save.get(i), assign_add));
+            System.out.println("\tpush    " + tran_reg(save.get(i), assign_add));
         }
 
         System.out.println("");
@@ -46,8 +46,8 @@ public class FunctionIr extends Ir{
             content.get(i).translate(assign_add, Num);
         }
 
-        for(int i = save.size() - 1; i > 0; i--) {
-            System.out.println("pop    " + tran_reg(save.get(i), assign_add));
+        for(int i = save.size() - 1; i >= 0; i--) {
+            System.out.println("\tpop    " + tran_reg(save.get(i), assign_add));
         }
 
         System.out.println("\tjmp    " + name + "." + Integer.toString(label) + ".out");
