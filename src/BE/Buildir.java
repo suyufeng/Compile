@@ -49,7 +49,7 @@ public class Buildir extends MplusBaseListener {
         Haveselfpart = b4;
     }
     int idcnt = 1, id = 1, now_class_id = 0;
-    int register_num = 0, globelnum = 0;
+    public int register_num = 0, globelnum = 0;
     int catch_num = 0, clac = 0;
     private Stack id_stack = new Stack();
     public List procedure = new ArrayList();
