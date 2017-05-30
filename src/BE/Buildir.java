@@ -538,48 +538,63 @@ public class Buildir extends MplusBaseListener {
     @Override public void exitBinary_expr(MplusParser.Binary_exprContext ctx) {
         ExprNode ExprNode = (ExprNode)AstNode.get(ctx);
         if(ExprNode instanceof FuncallNode == false) {
-            BinaryOpNode Node = (BinaryOpNode)ExprNode;
-
-            ExprIr left = (ExprIr)reflict.get(AstNode.get(ctx.getChild(0)));
-            ExprIr right = (ExprIr)reflict.get(AstNode.get(ctx.getChild(2)));
-            if(Node.op.s.equals("&&") || Node.op.s.equals("||")) {
-                ExprIr now = new ExprIr();
-                Catch yes = new Catch(++catch_num);
-                Catch no = new Catch(++catch_num);
-                Catch end = new Catch(++catch_num);
-                now.add(left);
-                now.address = new Address(new Vregister(++register_num));
-                now.content.add(new Temp(now.address));
-                Cjump Cjump = new Cjump(left.address, yes, no);
-                now.content.add(Cjump);
-                if(Node.op.s.equals("||")) {
-                    now.content.add(yes);
-                    now.content.add(new Move(now.address, new Address(1)));
-                    now.content.add(new Jump(end));
-                    now.content.add(no);
-                    now.add(right);
-                    now.content.add(new Move(now.address, right.address));
-                } else {
-                    now.content.add(yes);
-                    now.add(right);
-                    now.content.add(new Move(now.address, right.address));
-                    now.content.add(new Jump(end));
-                    now.content.add(no);
-                    now.content.add(new Move(now.address, new Address(0)));
-                }
-                now.content.add(end);
-                reflict.put(AstNode.get(ctx), now);
+            if(ExprNode instanceof ConstNode) {
+                ConstNode tmp = (ConstNode)ExprNode;
+                Address now = new Address(new Vregister(++register_num));
+                Move Move = new Move();
+                Address Address = new Address();
+                Address.imm2 = new Immediate(Integer.parseInt(tmp.content));
+                Move.left = now;
+                Move.right = Address;
+                ExprIr ExprIr = new ExprIr();
+                ExprIr.address = now;
+                ExprIr.content.add(new Temp(now));
+                ExprIr.content.add(Move);
+                reflict.put(AstNode.get(ctx), ExprIr);
             } else {
-                BinaryIr now = new BinaryIr();
-                now.add(left);
-                now.add(right);
-                now.left = left.address;
-                now.right = right.address;
-                now.op = ctx.getChild(1).getText();
-                now.content.add(new Temp(new Address(new Vregister(++register_num))));
-                now.address = new Address(new Vregister(register_num));
-                now.content.add(now);
-                reflict.put(AstNode.get(ctx), now);
+                BinaryOpNode Node = (BinaryOpNode) ExprNode;
+
+                ExprIr left = (ExprIr) reflict.get(AstNode.get(ctx.getChild(0)));
+                ExprIr right = (ExprIr) reflict.get(AstNode.get(ctx.getChild(2)));
+                if (Node.op.s.equals("&&") || Node.op.s.equals("||")) {
+                    ExprIr now = new ExprIr();
+                    Catch yes = new Catch(++catch_num);
+                    Catch no = new Catch(++catch_num);
+                    Catch end = new Catch(++catch_num);
+                    now.add(left);
+                    now.address = new Address(new Vregister(++register_num));
+                    now.content.add(new Temp(now.address));
+                    Cjump Cjump = new Cjump(left.address, yes, no);
+                    now.content.add(Cjump);
+                    if (Node.op.s.equals("||")) {
+                        now.content.add(yes);
+                        now.content.add(new Move(now.address, new Address(1)));
+                        now.content.add(new Jump(end));
+                        now.content.add(no);
+                        now.add(right);
+                        now.content.add(new Move(now.address, right.address));
+                    } else {
+                        now.content.add(yes);
+                        now.add(right);
+                        now.content.add(new Move(now.address, right.address));
+                        now.content.add(new Jump(end));
+                        now.content.add(no);
+                        now.content.add(new Move(now.address, new Address(0)));
+                    }
+                    now.content.add(end);
+                    reflict.put(AstNode.get(ctx), now);
+                } else {
+                    BinaryIr now = new BinaryIr();
+                    now.add(left);
+                    now.add(right);
+                    now.left = left.address;
+                    now.right = right.address;
+                    now.op = ctx.getChild(1).getText();
+                    now.content.add(new Temp(new Address(new Vregister(++register_num))));
+                    now.address = new Address(new Vregister(register_num));
+                    now.content.add(now);
+                    reflict.put(AstNode.get(ctx), now);
+                }
             }
         } else {
             FuncallNode tmp = (FuncallNode)ExprNode;

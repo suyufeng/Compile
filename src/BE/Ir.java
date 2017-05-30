@@ -19,8 +19,9 @@ public class Ir {
     }
     public String tran_reg(Address tmp, Map<Integer, True_address> map) {
         String[] a = new String[13];
-        a[1] = "r9"; a[2] = "r10"; a[3] = "r11"; a[4] = "r8";
-        a[5] = "rcx";
+        a[1] = "rcx"; a[2] = "r10"; a[3] = "r11"; a[4] = "r8";
+        //a[5] = "rbx";a[6] = "r13";a[7] = "r14";a[8] = "r12";
+        a[5] = "r9";
         a[6] = "rbx";a[7] = "r13";a[8] = "r14";a[9] = "r12";
         a[10] = "rsi"; a[11] = "rdi"; a[12] = "r15";
         if(tmp.globel != 0) {

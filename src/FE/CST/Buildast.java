@@ -470,6 +470,21 @@ public class Buildast extends MplusBaseListener{
         } else {
             AstNode.put(ctx, tmp);
         }
+        if(left instanceof ConstNode && right instanceof ConstNode) {
+            if(t.equals("*")) {
+                String le = ((ConstNode)left).content;
+                String ri = ((ConstNode)right).content;
+                int num = Integer.parseInt(le) * Integer.parseInt(ri);
+                ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
+                AstNode.put(ctx, tt);
+            } else if(t.equals("%")) {
+                String le = ((ConstNode)left).content;
+                String ri = ((ConstNode)right).content;
+                int num = Integer.parseInt(le) % Integer.parseInt(ri);
+                ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
+                AstNode.put(ctx, tt);
+            }
+        }
     }
 
     @Override public void enterSuffix_expr(MplusParser.Suffix_exprContext ctx) { }

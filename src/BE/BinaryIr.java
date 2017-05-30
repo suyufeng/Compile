@@ -84,15 +84,33 @@ public class BinaryIr extends ExprIr{
         } else if(op.equals("^")) {
             System.out.println("\txor    " + le + ",  " + ri);
         } else if(op.equals("<<")) {
-            System.out.println("\tpush   rcx");
-            System.out.println("\tmov    " + "rcx" + ",  " + ri);
-            System.out.println("\tshl    " + le + ",  cl");
-            System.out.println("\tpop    rcx");
+            if(le.equals("rcx")) {
+                System.out.println("\tmov    rax,  " + le);
+                System.out.println("\tmov    rcx,  " + ri);
+                System.out.println("\tshl    rax,  cl");
+                System.out.println("\tmov    " + le + ",  rax");
+            } else if(ri.equals("rcx")){
+                System.out.println("\tshl    " + le + ",  cl");
+            } else {
+                System.out.println("\tpush   rcx");
+                System.out.println("\tmov    rcx,  " + ri);
+                System.out.println("\tshl    " + le + ",  cl");
+                System.out.println("\tpop   rcx");
+            }
         } else if(op.equals(">>")) {
-            System.out.println("\tpush   rcx");
-            System.out.println("\tmov    " + "rcx" + ",  " + ri);
-            System.out.println("\tsar    " + le + ",  cl");
-            System.out.println("\tpop    rcx");
+            if(le.equals("rcx")) {
+                System.out.println("\tmov    rax,  " + le);
+                System.out.println("\tmov    rcx,  " + ri);
+                System.out.println("\tsar    rax,  cl");
+                System.out.println("\tmov    " + le + ",  rax");
+            } else if(ri.equals("rcx")){
+                System.out.println("\tsar    " + le + ",  cl");
+            } else {
+                System.out.println("\tpush   rcx");
+                System.out.println("\tmov    rcx,  " + ri);
+                System.out.println("\tsar    " + le + ",  cl");
+                System.out.println("\tpop   rcx");
+            }
         }
     }
     @Override
