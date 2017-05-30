@@ -19,6 +19,7 @@ public class FunctionIr extends Ir{
     @Override public void translate(Map<Integer, True_address> assign_add, int Num) {
         if(name.equals("main")) {
             System.out.println(name + ":");
+            System.out.println("\tpush   rbp");
         } else {
             System.out.println(name + "." + Integer.toString(label) + ":");
         }

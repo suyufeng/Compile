@@ -69,7 +69,7 @@ public class GetCode {
             }
             int flag = get_color(colormap);
             if(flag != -1) {
-            //    System.out.println(u + " " + flag);
+                System.out.println(u + " " + flag);
                 assign_add.put(u, new True_address(flag, 0));
             }
         }
@@ -136,12 +136,13 @@ public class GetCode {
         }
         List<Integer> all = new ArrayList<>();
         int Max = 0;
+
+        for(int i = 0; i < b.size(); i++) {
+            all.add(b.get(i).reg1.num);
+        }
         for(int i = 0; i < a.size(); i++) {
             all = new Ir().fix(all, use.get(i));
             all = new Ir().fix(all, def.get(i));
-        }
-        for(int i = 0; i < b.size(); i++) {
-            all.add(b.get(i).reg1.num);
         }
         for(int i = 0; i < all.size(); i++) {
             if(all.get(i) > Max) {
@@ -229,6 +230,7 @@ public class GetCode {
                 if(adj1.get(j).size() <= ColorNum) {
                     if(!used[j]) {
                         used[j] = true;
+                        queue.add(j);
                     }
                 }
             }
@@ -343,7 +345,7 @@ public class GetCode {
                         assign_add.put(num, new True_address(0, now.add_num));
                     }
                 }
-                //  instruction.ToString();
+                //instruction.ToString();
             }
         }
     }

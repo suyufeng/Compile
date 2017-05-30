@@ -23,7 +23,7 @@ public class CallIr extends ExprIr {
         if(label == 2) {
             label = 0;
         }
-        int num = para.size();
+        int num = save.size() + para.size() + 1;
         Move Move = new Move();
         for(int i = 0; i < save.size(); i++) {
             Address now = save.get(i);
