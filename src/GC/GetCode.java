@@ -140,6 +140,9 @@ public class GetCode {
             all = new Ir().fix(all, use.get(i));
             all = new Ir().fix(all, def.get(i));
         }
+        for(int i = 0; i < b.size(); i++) {
+            all.add(b.get(i).reg1.num);
+        }
         for(int i = 0; i < all.size(); i++) {
             if(all.get(i) > Max) {
                 Max = all.get(i);
