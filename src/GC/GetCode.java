@@ -414,7 +414,7 @@ public class GetCode {
             FunctionIr now = function.get(i);
             now.translate(assign_add, 0);
             //System.out.print(" ");
-        }
+        } 
         SystemFunction();
     }
 
