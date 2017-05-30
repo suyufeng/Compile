@@ -208,15 +208,10 @@ public class GetCode {
                 for(int j = 0; j < all.size(); j++) {
                     int to = all.get(j);
                     if(!used[to]) {
-                        if(adj1.get(to).size() > Max_num) {
-                            Max_num = adj1.get(to).size();
-                            Maxid = to;
-                        }
+                        used[to] = true;
+                        queue.add(to);
+                        break;
                     }
-                }
-                if(Maxid != -1) {
-                    used[Maxid] = true;
-                    queue.add(Maxid);
                 }
                 if(i + 1== queue.size()) {
                     break;
