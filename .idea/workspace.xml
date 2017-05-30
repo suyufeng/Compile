@@ -8,11 +8,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/GC/GetCode.java" line="404" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/a.in" afterPath="$PROJECT_DIR$/out/production/Compiler/a.in" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/a.in" afterPath="$PROJECT_DIR$/src/a.in" />
-    </list>
+    <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -62,7 +58,7 @@
       <file leaf-file-name="a.in" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
+            <state relative-caret-position="1316">
               <caret line="47" column="3" lean-forward="false" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
               <folding />
             </state>
@@ -925,12 +921,12 @@
       <workItem from="1496087409988" duration="1253000" />
       <workItem from="1496108769640" duration="20697000" />
       <workItem from="1496132964739" duration="1134000" />
-      <workItem from="1496134654403" duration="24674000" />
+      <workItem from="1496134654403" duration="24811000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="357220000" />
+    <option name="totallyTimeSpent" value="357357000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1375,7 +1371,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/a.in">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
+        <state relative-caret-position="1316">
           <caret line="47" column="3" lean-forward="false" selection-start-line="47" selection-start-column="3" selection-end-line="47" selection-end-column="3" />
           <folding />
         </state>
