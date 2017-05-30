@@ -86,6 +86,9 @@ public class Address extends Ir{
 
     public List<Integer> getnum() {
         List<Integer> ans = new ArrayList<>();
+        if (globel != 0) {
+            return new ArrayList<>();
+        }
         if(reg1 != null) {
             ans.add(reg1.num);
         }
