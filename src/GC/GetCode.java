@@ -72,7 +72,7 @@ public class GetCode {
             }
             int flag = get_color(colormap);
             if(flag != -1) {
-                //System.out.println(u + " " + flag);
+     //           System.out.println(u + " " + flag);
                 assign_add.put(u, new True_address(flag, 0));
             }
         }
@@ -339,6 +339,21 @@ public class GetCode {
                                 if(!color2.containsKey(assign_add.get(num.get(l)).reg)){
                                     color2.put(assign_add.get(num.get(l)).reg, true);
                                     CallIr.save.add(new Address(new Vregister(num.get(l))));
+                                }
+                            }
+                        }
+                    }
+                }
+                if(instruction instanceof Malloc) {
+                    Malloc Malloc = (Malloc)instruction;
+                    List<Integer> num = tt.get(new Pair<String, Integer>(now.name, now.label));
+                    Map<Integer, Boolean> color2 = new HashMap<>();
+                    if(num != null) {
+                        for(int l = 0; l < num.size(); l++) {
+                            if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
+                                if(!color2.containsKey(assign_add.get(num.get(l)).reg)){
+                                    color2.put(assign_add.get(num.get(l)).reg, true);
+                                    Malloc.save.add(new Address(new Vregister(num.get(l))));
                                 }
                             }
                         }

@@ -16,7 +16,7 @@ public class CallIr extends ExprIr {
     public String name;
     @Override
     public void ToString(){
-        System.out.println("Call " + Integer.toString(label) + "." + name);
+        System.out.println("Call " + Integer.toString(label) + "." + name + "  " + address.oString());
     }
     @Override
     public void translate(Map<Integer, True_address> assign_add, int Num) {
