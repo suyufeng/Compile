@@ -1,7 +1,11 @@
 package BE;
 
+import GC.True_address;
+
+import java.time.chrono.IsoChronology;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by suyufeng on 17-4-4.
@@ -76,10 +80,20 @@ public class Address extends Ir{
     public boolean equal(Address now) {
         if(Vregister_equal(reg1, now.reg1) && Vregister_equal(reg2, now.reg2)) {
             if(Imm_equal(imm1, now.imm1) && Imm_equal(imm2, now.imm2)) {
-                return true;
+                if(globel == now.globel) {
+                    return true;
+                }
             }
         }
         return false;
+    }
+
+    public boolean isTrueregister(Map<Integer, True_address> map) {
+        if(!isVregister()) {
+            return false;
+        }
+        True_address t = map.get(reg1.num);
+        return t.reg > 0;
     }
     @Override
     public void ToString()  {

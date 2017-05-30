@@ -23,6 +23,9 @@ public class Move extends StmtIr{
         if(skip) {
             return ;
         }
+        if(left.equal(right)) {
+            return ;
+        }
         if(left.globel == 0) {
             Pair<Address, Address> now = fuck_divert(left, right, assign_add);
             String nowleft = tran_reg(now.a, assign_add);

@@ -22,6 +22,13 @@ public class BinaryIr extends ExprIr{
     }
     @Override
     public void translate(Map<Integer, True_address> assign_add, int Num) {
+        if(op.equals("+") && address.isTrueregister(assign_add) && left.isTrueregister(assign_add) && right.isTrueregister(assign_add)) {
+            String a = tran_reg(address, assign_add);
+            String b = tran_reg(left, assign_add);
+            String c = tran_reg(right, assign_add);
+            System.out.println("\tlea    " + a + ",  [" + b + "+" + c + "]");
+            return ;
+        }
         Pair<Address, Address> now = fuck_divert(address, left, assign_add);
         String le = tran_reg(now.a, assign_add);
         String ri = tran_reg(now.b, assign_add);
