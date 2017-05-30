@@ -592,7 +592,7 @@ Sge.0:
 	mov rdi,0
 	cmp rax,0
 	setge dil
-	mov rax,rdi
+	mov rax,rdi 
 	mov rsp,rbp
 	pop rbp
 	ret
