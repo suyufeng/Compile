@@ -38,6 +38,10 @@ public class BinaryIr extends ExprIr{
             System.out.println("\timul   " + "rax" + ",  " + ri);
             System.out.println("\tmov    " + le + ",  " + "rax");
         } else if(op.equals("/")) {
+            if(Character.isDigit(ri.charAt(0))) {
+                System.out.println("\tmov    rcx" + ",  " + ri);
+                ri = "rcx";
+            }
             System.out.println("\tmov    " + "rax" + ",  " + le);
             System.out.println("\tcdq");
             System.out.println("\tidiv   " + ri);
