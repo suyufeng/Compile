@@ -17,9 +17,11 @@ public class FunctionIr extends Ir{
     public FunctionIr() {
     }
     @Override public void translate(Map<Integer, True_address> assign_add, int Num) {
+        Boolean flag = true;
         if(name.equals("main")) {
             System.out.println(name + ":");
-        //    System.out.println("\tpush   rbp");
+            System.out.println("\tpush   rbp");
+            flag = false;
         } else {
             System.out.println(name + "." + Integer.toString(label) + ":");
         }
@@ -42,6 +44,9 @@ public class FunctionIr extends Ir{
 
 
         System.out.println("\tleave");
+        if(flag == false) {
+            System.out.println("\tpop    rbp");
+        }
         System.out.println("\tret");
     }
 }

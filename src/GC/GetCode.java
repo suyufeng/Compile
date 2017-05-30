@@ -333,11 +333,13 @@ public class GetCode {
                     CallIr CallIr = (BE.CallIr)instruction;
                     List<Integer> num = tt.get(new Pair<String, Integer>(now.name, now.label));
                     Map<Integer, Boolean> color2 = new HashMap<>();
-                    for(int l = 0; l < num.size(); l++) {
-                        if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                            if(!color2.containsKey(assign_add.get(num.get(l)).reg)){
-                                color2.put(assign_add.get(num.get(l)).reg, true);
-                                CallIr.save.add(new Address(new Vregister(num.get(l))));
+                    if(num != null) {
+                        for(int l = 0; l < num.size(); l++) {
+                            if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
+                                if(!color2.containsKey(assign_add.get(num.get(l)).reg)){
+                                    color2.put(assign_add.get(num.get(l)).reg, true);
+                                    CallIr.save.add(new Address(new Vregister(num.get(l))));
+                                }
                             }
                         }
                     }
