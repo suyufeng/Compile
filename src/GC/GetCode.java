@@ -167,7 +167,7 @@ public class GetCode {
             List<Integer> Use = use.get(i);
             for(int j = 0; j < Def.size(); j++) {
                 for(int l = 0; l < Use.size(); l++) {
-                    if(Def.get(j).equals(use.get(l))) {
+                    if(Def.get(j).equals(Use.get(l))) {
                         continue;
                     }
                     adj1.get(Def.get(j)).add(Use.get(l));
