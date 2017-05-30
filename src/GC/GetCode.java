@@ -326,6 +326,20 @@ public class GetCode {
             Assign_true_reg();
         for(int i = 0; i < function.size(); i++) {
             FunctionIr now = function.get(i);
+            {
+                List<Integer> num = tt.get(new Pair<String, Integer>(now.name, now.label));
+                Map<Integer, Boolean> color2 = new HashMap<>();
+                if(num != null) {
+                    for(int l = 0; l < num.size(); l++) {
+                        if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
+                            if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg > 4){
+                                color2.put(assign_add.get(num.get(l)).reg, true);
+                                now.save.add(new Address(new Vregister(num.get(l))));
+                            }
+                        }
+                    }
+                }
+            }
             for(int j = 0; j < now.content.size(); j++) {
                 Ir instruction = now.content.get(j);
                 if(instruction instanceof CallIr) {
@@ -335,7 +349,7 @@ public class GetCode {
                     if(num != null) {
                         for(int l = 0; l < num.size(); l++) {
                             if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                                if(!color2.containsKey(assign_add.get(num.get(l)).reg)){
+                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg <= 4){
                                     color2.put(assign_add.get(num.get(l)).reg, true);
                                     CallIr.save.add(new Address(new Vregister(num.get(l))));
                                 }
@@ -350,7 +364,7 @@ public class GetCode {
                     if(num != null) {
                         for(int l = 0; l < num.size(); l++) {
                             if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                                if(!color2.containsKey(assign_add.get(num.get(l)).reg)){
+                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg <= 4){
                                     color2.put(assign_add.get(num.get(l)).reg, true);
                                     Malloc.save.add(new Address(new Vregister(num.get(l))));
                                 }

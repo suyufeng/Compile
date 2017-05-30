@@ -11,6 +11,7 @@ import java.util.Map;
  */
 public class FunctionIr extends Ir{
     public List<Address> para = new ArrayList<>();
+    public List<Address> save = new ArrayList<>();
     public int add_num = 0;
     public int label;
     public String name;
@@ -34,13 +35,22 @@ public class FunctionIr extends Ir{
             String left = tran_reg(toadd(para.get(i), 1, 2, assign_add), assign_add);
             System.out.println("\tmov    " + left + ",  r15");
         }
+
+        for(int i = 0; i < save.size(); i++) {
+            System.out.println("\tpush   " + tran_reg(save.get(i), assign_add));
+        }
+
         System.out.println("");
-        Num = 8 + add_num;
+        Num = 8 + add_num + save.size() * 8;
         for(int i = 0; i < content.size(); i++) {
             content.get(i).translate(assign_add, Num);
         }
         System.out.println("\tjmp    " + name + "." + Integer.toString(label) + ".out");
         System.out.println(name + "." + Integer.toString(label) + ".out:");
+
+        for(int i = save.size() - 1; i >= 0; i--) {
+            System.out.println("\tpop   " + tran_reg(save.get(i), assign_add));
+        }
 
 
         System.out.println("\tleave");

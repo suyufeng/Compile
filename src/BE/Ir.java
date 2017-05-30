@@ -19,8 +19,8 @@ public class Ir {
     }
     public String tran_reg(Address tmp, Map<Integer, True_address> map) {
         String[] a = new String[12];
-        a[1] = "rbx"; a[2] = "r13"; a[3] = "r14"; a[4] = "r8";
-        a[5] = "r9";a[6] = "r10";a[7] = "r11";a[8] = "r12";
+        a[1] = "r9"; a[2] = "r10"; a[3] = "r11"; a[4] = "r8";
+        a[5] = "rbx";a[6] = "r13";a[7] = "r14";a[8] = "r12";
         a[9] = "rsi"; a[10] = "rdi"; a[11] = "r15";
         if(tmp.globel != 0) {
             return "qword[globel." + Integer.toString(tmp.globel) + "]";
