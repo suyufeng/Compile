@@ -355,7 +355,7 @@ public class GetCode {
                 if(num != null) {
                     for(int l = 0; l < num.size(); l++) {
                         if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                            if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg > 5){
+                            if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg % 2 == 0){
                                 color2.put(assign_add.get(num.get(l)).reg, true);
                                 now.save.add(new Address(new Vregister(num.get(l))));
                             }
@@ -372,7 +372,7 @@ public class GetCode {
                     if(num != null) {
                         for(int l = 0; l < num.size(); l++) {
                             if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg <= 5){
+                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg % 2 == 1){
                                     color2.put(assign_add.get(num.get(l)).reg, true);
                                     CallIr.save.add(new Address(new Vregister(num.get(l))));
                                 }
@@ -387,7 +387,7 @@ public class GetCode {
                     if(num != null) {
                         for(int l = 0; l < num.size(); l++) {
                             if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg <= 5){
+                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg % 2 == 1){
                                     color2.put(assign_add.get(num.get(l)).reg, true);
                                     Malloc.save.add(new Address(new Vregister(num.get(l))));
                                 }
