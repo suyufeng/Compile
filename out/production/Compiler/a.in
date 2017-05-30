@@ -28,23 +28,3 @@ int main()
     println(toString(sum));
     return 0;
 }
-
-
-/*!! metadata:
-=== comment ===
-basicopt1-5100309127-hetianxing.mx
-=== input ===
-
-=== assert ===
-output
-=== timeout ===
-0.1
-=== output ===
-99850
-=== phase ===
-codegen pretest
-=== is_public ===
-True
-
-!!*/
-

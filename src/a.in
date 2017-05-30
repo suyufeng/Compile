@@ -1,50 +1,631 @@
-int main()
-{
-    int[][] a = new int[100][];
-    int i;
-	int j;
-    for (i = 0; i < 100; i++)
-        a[i] = new int[100];
-    int sum = 0;
+/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:33029,suspend=y,server=n -Dfile.encoding=UTF-8 -classpath /usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/cldrdata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/dnsns.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/icedtea-sound.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/jaccess.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/localedata.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/nashorn.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunec.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunjce_provider.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/sunpkcs11.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/ext/zipfs.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/management-agent.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar:/home/suyufeng/Compiler/out/production/Compiler:/home/suyufeng/下载/antlr-4.6-complete.jar:/home/suyufeng/idea-IU-171.3780.95/lib/idea_rt.jar Main
+Connected to the target VM, address: '127.0.0.1:33029', transport: 'socket'
+global  main
+extern scanf
+extern printf
+extern puts
+extern strlen
+extern memcpy
+extern sscanf
+extern sprintf
+extern malloc
+extern strcmp
+    section .bss
+stringbuffer:
+	resb 256
 
-    for (i = 0;i < 100;i++)
-        for (j = 0;j < 100;j++)
-            a[i][j] = 0;
-    int quotient;
-    int remainder;
-    for (i = 0;i < 100;i++)
-    	if (i > 20 && i < 80) {
-        	for (j = 0;j < 100;j++)
-            	if (j > 5 || i < 90) {
-                    quotient = j * 4 / 100;
-                    remainder = j * 4 % 100;
-                	a[i + quotient][remainder] = j + (100 - 1 + 1 - 1 + 1) / 2;
-                }
-    	}
+    section .data
+intbuffer:
+	dq 0
+format1:
+	db"%lld",0
+format2:
+	db"%lld ",10,0
+format3:
+	db"%s",0
+format4:
+	db"%s",10,0
+format: db  "%lld", 0
 
-    for (i = 0;i < 100;i++)
-        for (j = 0;j < 100;j++)
-            sum = sum + a[i][j];
-    println(toString(sum));
-    return 0;
-}
+    section .text
+main:
+	push   rbp
+	push   rbp
+	mov    rbp, rsp
+	sub    rsp, 0
+	push   rbx
+	push   r13
+	push   r14
+	push   r12
+
+	push   rcx
+	push   r10
+	push   r11
+	push   r8
+	push   rbp
+	mov    rdi,  100
+	add    rdi,  1
+	imul   rdi,  8
+	call   malloc
+	mov    rsi,  100
+	pop    rbp
+	pop    r15
+	mov    r8,  r15
+	pop    r15
+	mov    r11,  r15
+	pop    r15
+	mov    r10,  r15
+	pop    r15
+	mov    rcx,  r15
+	mov    qword[rax],  rsi
+	add    rax,  8
+	mov    rcx,  rax
+	mov    r10,  rcx
+	mov    rbx,  0
+Catch.1:
+	mov    rcx,  rbx
+	cmp    rcx,  100
+	setl   al
+	movzx  rax,  al
+	mov    rcx,  rax
+	cmp    rcx,  1
+	je     Catch.2
+	jmp    Catch.3
+Catch.2:
+	push   rcx
+	push   r10
+	push   r11
+	push   r8
+	push   rbp
+	mov    rdi,  100
+	add    rdi,  1
+	imul   rdi,  8
+	call   malloc
+	mov    rsi,  100
+	pop    rbp
+	pop    r15
+	mov    r8,  r15
+	pop    r15
+	mov    r11,  r15
+	pop    r15
+	mov    r10,  r15
+	pop    r15
+	mov    rcx,  r15
+	mov    qword[rax],  rsi
+	add    rax,  8
+	mov    rcx,  rax
+	mov    qword[r10 + 8 * rbx],  rcx
+Catch.4:
+	mov    rcx,  rbx
+	mov    rbx,  rbx
+	add    rbx,  1
+	jmp    Catch.1
+Catch.3:
+	mov    rcx,  0
+	mov    rbx,  0
+Catch.9:
+	mov    r13,  rbx
+	cmp    r13,  100
+	setl   al
+	movzx  rax,  al
+	mov    r13,  rax
+	cmp    r13,  1
+	je     Catch.10
+	jmp    Catch.11
+Catch.10:
+	mov    r13,  0
+Catch.5:
+	mov    r11,  r13
+	cmp    r11,  100
+	setl   al
+	movzx  rax,  al
+	mov    r11,  rax
+	cmp    r11,  1
+	je     Catch.6
+	jmp    Catch.7
+Catch.6:
+	mov    r11,  qword[r10 + 8 * rbx]
+	mov    rsi,  0
+	mov    qword[r11 + 8 * r13],  rsi
+Catch.8:
+	mov    r11,  r13
+	mov    r13,  r13
+	add    r13,  1
+	jmp    Catch.5
+Catch.7:
+Catch.12:
+	mov    r13,  rbx
+	mov    rbx,  rbx
+	add    rbx,  1
+	jmp    Catch.9
+Catch.11:
+	mov    rbx,  0
+Catch.27:
+	mov    r13,  rbx
+	cmp    r13,  100
+	setl   al
+	movzx  rax,  al
+	mov    r13,  rax
+	cmp    r13,  1
+	je     Catch.28
+	jmp    Catch.29
+Catch.28:
+	mov    r13,  rbx
+	cmp    r13,  20
+	setg   al
+	movzx  rax,  al
+	mov    r13,  rax
+	cmp    r13,  1
+	je     Catch.13
+	jmp    Catch.14
+Catch.13:
+	mov    r11,  rbx
+	cmp    r11,  80
+	setl   al
+	movzx  rax,  al
+	mov    r11,  rax
+	mov    r13,  r11
+	jmp    Catch.15
+Catch.14:
+	mov    r13,  0
+Catch.15:
+	cmp    r13,  1
+	je     Catch.25
+	jmp    Catch.26
+Catch.25:
+	mov    r13,  0
+Catch.21:
+	mov    r11,  r13
+	cmp    r11,  100
+	setl   al
+	movzx  rax,  al
+	mov    r11,  rax
+	cmp    r11,  1
+	je     Catch.22
+	jmp    Catch.23
+Catch.22:
+	mov    r11,  r13
+	cmp    r11,  5
+	setg   al
+	movzx  rax,  al
+	mov    r11,  rax
+	cmp    r11,  1
+	je     Catch.16
+	jmp    Catch.17
+Catch.16:
+	mov    r14,  1
+	jmp    Catch.18
+Catch.17:
+	mov    r11,  rbx
+	cmp    r11,  90
+	setl   al
+	movzx  rax,  al
+	mov    r11,  rax
+	mov    r14,  r11
+Catch.18:
+	cmp    r14,  1
+	je     Catch.19
+	jmp    Catch.20
+Catch.19:
+	mov    r14,  r13
+	mov    rax,  r14
+	imul   rax,  4
+	mov    r14,  rax
+	mov    r11,  r14
+	mov    r15,  100
+	mov    rax,  r11
+	cdq
+	idiv   r15
+	mov    r11,  rax
+	mov    r12,  r11
+	mov    r11,  r13
+	mov    rax,  r11
+	imul   rax,  4
+	mov    r11,  rax
+	mov    r14,  r11
+	mov    r15,  100
+	mov    rax,  r14
+	cdq
+	idiv   r15
+	mov    r14,  rdx
+	mov    r11,  r14
+	mov    r8,  rbx
+	add    r8,  r12
+	mov    r14,  qword[r10 + 8 * r8]
+	mov    r12,  100
+	sub    r12,  1
+	mov    r8,  r12
+	add    r8,  1
+	mov    r12,  r8
+	sub    r12,  1
+	mov    r8,  r12
+	add    r8,  1
+	mov    r12,  r8
+	mov    r15,  2
+	mov    rax,  r12
+	cdq
+	idiv   r15
+	mov    r12,  rax
+	mov    r8,  r13
+	add    r8,  r12
+	mov    qword[r14 + 8 * r11],  r8
+Catch.20:
+Catch.24:
+	mov    r11,  r13
+	mov    r13,  r13
+	add    r13,  1
+	jmp    Catch.21
+Catch.23:
+Catch.26:
+Catch.30:
+	mov    r13,  rbx
+	mov    rbx,  rbx
+	add    rbx,  1
+	jmp    Catch.27
+Catch.29:
+	mov    rbx,  0
+Catch.35:
+	mov    r13,  rbx
+	cmp    r13,  100
+	setl   al
+	movzx  rax,  al
+	mov    r13,  rax
+	cmp    r13,  1
+	je     Catch.36
+	jmp    Catch.37
+Catch.36:
+	mov    r13,  0
+Catch.31:
+	mov    r11,  r13
+	cmp    r11,  100
+	setl   al
+	movzx  rax,  al
+	mov    r11,  rax
+	cmp    r11,  1
+	je     Catch.32
+	jmp    Catch.33
+Catch.32:
+	mov    r14,  qword[r10 + 8 * rbx]
+	mov    r11,  rcx
+	add    r11,  qword[r14 + 8 * r13]
+	mov    rcx,  r11
+Catch.34:
+	mov    r11,  r13
+	mov    r13,  r13
+	add    r13,  1
+	jmp    Catch.31
+Catch.33:
+Catch.38:
+	mov    r13,  rbx
+	mov    rbx,  rbx
+	add    rbx,  1
+	jmp    Catch.35
+Catch.37:
+	push   rcx
+	push   r10
+	push   r11
+	push   r8
+	push   rbp
+	push   rcx
+	call   toString.0
+	add    rsp,  8
+	pop    rbp
+	pop    r8
+	pop    r11
+	pop    r10
+	pop    rcx
+	mov    rbx,  rax
+	push   rcx
+	push   r10
+	push   r11
+	push   r8
+	push   rbp
+	push   rbx
+	call   println.0
+	add    rsp,  8
+	pop    rbp
+	pop    r8
+	pop    r11
+	pop    r10
+	pop    rcx
+	mov    rcx,  rax
+	mov    rax,  0
+	jmp    main.0.out
+	jmp    main.0.out
+main.0.out:
+	pop   r12
+	pop   r14
+	pop   r13
+	pop   rbx
+	leave
+	pop    rbp
+	ret
+getInt.0:
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rax,0
+	mov rdi,format1
+	mov rsi,intbuffer
+	call scanf
+	mov rax,[intbuffer]
+	mov rsp,rbp
+	pop rbp
+	ret
+
+printInt.0:
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rsi,rdi
+	mov rax,0
+	mov rdi,format2
+	call printf
+	mov rsp,rbp
+	pop rbp
+	ret
+
+size.0:
+	push rbp
+	mov rbp,rsp
+	mov rdi, qword[rbp + 16]
+	mov rax,[rdi-8]
+	leave
+	ret
+
+print.0:
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rax,0
+	mov rsi,rdi
+	mov rdi,format3
+	call printf
+	mov rsp,rbp
+	pop rbp
+	ret
+
+println.0:
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	call puts
+	leave
+	ret
 
 
-/*!! metadata:
-=== comment ===
-basicopt1-5100309127-hetianxing.mx
-=== input ===
+transtring.0:
 
-=== assert ===
-output
-=== timeout ===
-0.1
-=== output ===
-99850
-=== phase ===
-codegen pretest
-=== is_public ===
-True
+	push rbp
+	mov rbp,rsp
+	call strlen
+	push rdi
+	mov rdi,rax
+	push rdi
+	add rdi,9
+	call malloc
+	pop rdi
+	mov [rax],rdi
+	add rax,8
+	mov rdx,rdi
+	add rdx,1
+	mov rdi,rax
+	pop rsi
+	sub rsp,8
+	push rax
+	call memcpy
+	pop rax
+	mov rsp,rbp
+	pop rbp
+	ret
 
-!!*/
+getString.0:
+	
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rax,0
+	mov rdi,format3
+	mov rsi,stringbuffer
+	call scanf
+	mov rdi,stringbuffer
+	call transtring.0
+	mov rsp,rbp
+	pop rbp
+	ret
 
+toString.0:
+
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rdx,rdi
+	mov rax,0
+	mov rdi,stringbuffer
+	mov rsi,format1
+	call sprintf
+	mov rdi,stringbuffer
+	call transtring.0
+	mov rsp,rbp
+	pop rbp
+	ret
+
+length.1:
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rax,[rdi-8]
+	leave
+	ret
+
+substring.1:
+
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 32]
+	mov rsi,qword[rbp + 16]
+	mov rdx,qword[rbp + 24]
+	push rdi
+	push rsi
+	mov rdi,rdx
+	sub rdi,rsi
+	add rdi,1
+	push rdi
+	add rdi,9
+	call malloc
+	pop rdx
+	mov [rax],rdx
+	add rax,8
+	pop rsi
+	pop rdi
+	add rsi,rdi
+	mov rdi,rax
+	push rdx
+	push rax
+	call memcpy
+	pop rax
+	pop rdx
+	mov qword[rax+rdx],0
+	mov rsp,rbp
+	pop rbp
+	ret
+
+parseInt.1:
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rsi,format1
+	mov rdx,intbuffer
+	mov rax,0
+	call sscanf
+	mov rax,[intbuffer]
+	leave
+	ret
+
+ord.1:
+	
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 24]
+	mov rsi,qword[rbp + 16]
+	mov rax,0
+	mov al,byte[rdi+rsi]
+	leave
+	ret
+
+Sadd.0:
+	
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rsi,qword[rbp + 24]
+	push rsi
+	mov rsi,rdi
+	mov rdi,stringbuffer
+	mov rdx,[rsi-8]
+	push rdx
+	call memcpy
+	pop rdi
+	pop rsi
+	add rdi,stringbuffer
+	mov rdx,[rsi-8]
+	add rdx,1
+	call memcpy
+	mov rdi,stringbuffer
+	call transtring.0
+	mov rsp,rbp
+	pop rbp
+	ret
+
+Slt.0:
+	
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rsi,qword[rbp + 24]
+	call strcmp
+	mov rdi,0
+	cmp rax,0
+	setl dil
+	mov rax,rdi
+	mov rsp,rbp
+	pop rbp
+	ret
+
+Sle.0:
+
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rsi,qword[rbp + 24]
+	call strcmp
+	mov rdi,0
+	cmp rax,0
+	setle dil
+	mov rax,rdi
+	mov rsp,rbp
+	pop rbp
+	ret
+
+Sgt.0:
+
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rsi,qword[rbp + 24]
+	call strcmp
+	mov rdi,0
+	cmp rax,0
+	setg dil
+	mov rax,rdi
+	mov rsp,rbp
+	pop rbp
+	ret
+
+Sge.0:
+
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rsi,qword[rbp + 24]
+	call strcmp
+	mov rdi,0
+	cmp rax,0
+	setge dil
+	mov rax,rdi
+	mov rsp,rbp
+	pop rbp
+	ret
+
+Seq.0:
+
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rsi,qword[rbp + 24]
+	call strcmp
+	mov rdi,0
+	cmp rax,0
+	sete dil
+	mov rax,rdi
+	mov rsp,rbp
+	pop rbp
+	ret
+
+Sne.0:
+
+	push rbp
+	mov rbp,rsp
+	mov rdi,qword[rbp + 16]
+	mov rsi,qword[rbp + 24]
+	call strcmp
+	mov rdi,0
+	cmp rax,0
+	setne dil
+	mov rax,rdi
+	mov rsp,rbp
+	pop rbp
+	ret
+Disconnected from the target VM, address: '127.0.0.1:33029', transport: 'socket'
+
+Process finished with exit code 0
