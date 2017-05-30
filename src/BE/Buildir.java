@@ -652,7 +652,7 @@ public class Buildir extends MplusBaseListener {
         hh.add(Cjump);
 
         hh.add(Body);
-        Malloc Malloc = new Malloc(new Address(new Vregister(++register_num)), x.get(0));
+        Malloc Malloc = new Malloc(new Address(new Vregister(++register_num)), x.get(1));
         Address ttt = new Address(z);
         ttt.imm1 = new Immediate(8);
         ttt.reg2 = Address.reg1;
