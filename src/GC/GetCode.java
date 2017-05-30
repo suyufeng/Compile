@@ -412,7 +412,7 @@ public class GetCode {
         for(int i = 0; i < function.size(); i++) {
             FunctionIr now = function.get(i);
             now.translate(assign_add, 0);
-           // System.out.print(" ");
+            //System.out.print(" ");
         }
         SystemFunction();
     }

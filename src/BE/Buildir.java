@@ -484,11 +484,11 @@ public class Buildir extends MplusBaseListener {
             return ;
         }
         ConstNode tmp = (ConstNode)AstNode.get(ctx);
-        Address now = new Address(new Vregister(++register_num));
-        int num;
-        Move Move = new Move();
-        Address Address = new Address();
         if(tmp.content.charAt(0) == 's') {
+            Address now = new Address(new Vregister(++register_num));
+            int num;
+            Move Move = new Move();
+            Address Address = new Address();
             String a = "";
             int strlen = tmp.content.length();
             for(int i = 6; i < strlen; i++) {
@@ -497,16 +497,19 @@ public class Buildir extends MplusBaseListener {
             Address.imm2 = new Immediate(Integer.parseInt(a));
             Address.imm1=  new Immediate(0);
             String2register.put(now, Integer.parseInt(a));
+            Move.left = now;
+            Move.right = Address;
+            ExprIr ExprIr = new ExprIr();
+            ExprIr.address = now;
+            ExprIr.content.add(new Temp(now));
+            ExprIr.content.add(Move);
+            reflict.put(AstNode.get(ctx), ExprIr);
         } else {
-            Address.imm2 = new Immediate(Integer.parseInt(tmp.content));
+            ExprIr ExprIr = new ExprIr();
+            ExprIr.address = new Address();
+            ExprIr.address.imm2 = new Immediate(Integer.parseInt(tmp.content));
+            reflict.put(AstNode.get(ctx), ExprIr);
         }
-        Move.left = now;
-        Move.right = Address;
-        ExprIr ExprIr = new ExprIr();
-        ExprIr.address = now;
-        ExprIr.content.add(new Temp(now));
-        ExprIr.content.add(Move);
-        reflict.put(AstNode.get(ctx), ExprIr);
     }
 
     @Override public void enterBinary_expr(MplusParser.Binary_exprContext ctx) {

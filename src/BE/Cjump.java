@@ -23,9 +23,17 @@ public class Cjump extends StmtIr {
     }
     @Override
     public void translate(Map<Integer, True_address> map, int Num) {
-        System.out.println("\tcmp    " + tran_reg(toadd(flag, 1, 2, map),map) + ",  1");
-        System.out.println("\tje     Catch." + yes.flag);
-        System.out.println("\tjmp    Catch." + no.flag);
+        String tmp = tran_reg(toadd(flag, 1, 2, map),map);
+        if(Character.isDigit(tmp.charAt(0))) {
+            System.out.println("\tmov    rax, " + tmp);
+            System.out.println("\tcmp    " + "rax" + ",  1");
+            System.out.println("\tje     Catch." + yes.flag);
+            System.out.println("\tjmp    Catch." + no.flag);
+        } else {
+            System.out.println("\tcmp    " + tmp + ",  1");
+            System.out.println("\tje     Catch." + yes.flag);
+            System.out.println("\tjmp    Catch." + no.flag);
+        }
     }
     @Override
     public List<Integer> use() {

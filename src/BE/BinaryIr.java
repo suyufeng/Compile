@@ -48,31 +48,55 @@ public class BinaryIr extends ExprIr{
             System.out.println("\tidiv   " + ri);
             System.out.println("\tmov    " + le + ",  " + "rdx");
         } else if(op.equals("<")) {
+            if(Character.isDigit(le.charAt(0))) {
+                System.out.println("\tmov    " + "rdx" + ",  " + le);
+                le = "rdx";
+            }
             System.out.println("\tcmp    " + le + ",  " + ri);
             System.out.println("\tsetl   al");
             System.out.println("\tmovzx  " + "rax" + ",  al");
             System.out.println("\tmov    " + le + ",  rax");
         } else if(op.equals("<=")) {
+            if(Character.isDigit(le.charAt(0))) {
+                System.out.println("\tmov    " + "rdx" + ",  " + le);
+                le = "rdx";
+            }
             System.out.println("\tcmp    " + le + ",  " + ri);
             System.out.println("\tsetle   al");
             System.out.println("\tmovzx  " + "rax" + ",  al");
             System.out.println("\tmov    " + le + ",  rax");
         } else if(op.equals(">")) {
+            if(Character.isDigit(le.charAt(0))) {
+                System.out.println("\tmov    " + "rdx" + ",  " + le);
+                le = "rdx";
+            }
             System.out.println("\tcmp    " + le + ",  " + ri);
             System.out.println("\tsetg   al");
             System.out.println("\tmovzx  " + "rax" + ",  al");
             System.out.println("\tmov    " + le + ",  rax");
         } else if(op.equals(">=")) {
+            if(Character.isDigit(le.charAt(0))) {
+                System.out.println("\tmov    " + "rdx" + ",  " + le);
+                le = "rdx";
+            }
             System.out.println("\tcmp    " + le + ",  " + ri);
             System.out.println("\tsetge  al");
             System.out.println("\tmovzx  " + "rax" + ",  al");
             System.out.println("\tmov    " + le + ",  rax");
         } else if(op.equals("==")) {
+            if(Character.isDigit(le.charAt(0))) {
+                System.out.println("\tmov    " + "rdx" + ",  " + le);
+                le = "rdx";
+            }
             System.out.println("\tcmp    " + le + ",  " + ri);
             System.out.println("\tsete   al");
             System.out.println("\tmovzx  " + "rax" + ",  al");
             System.out.println("\tmov    " + le + ",  rax");
         } else if(op.equals("!=")) {
+            if(Character.isDigit(le.charAt(0))) {
+                System.out.println("\tmov    " + "rdx" + ",  " + le);
+                le = "rdx";
+            }
             System.out.println("\tcmp    " + le + ",  " + ri);
             System.out.println("\tsetne   al");
             System.out.println("\tmovzx  " + "rax" + ",  al");

@@ -467,6 +467,7 @@ public class Buildast extends MplusBaseListener{
                 tt.name = "Sge";
             }
             AstNode.put(ctx, tt);
+            return ;
         } else {
             AstNode.put(ctx, tmp);
         }
