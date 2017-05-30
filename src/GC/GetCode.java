@@ -324,7 +324,6 @@ public class GetCode {
         function.get(label).content = global;
         if(Vregister_num < 800)
             Assign_true_reg();
-
         for(int i = 0; i < function.size(); i++) {
             FunctionIr now = function.get(i);
             for(int j = 0; j < now.content.size(); j++) {
