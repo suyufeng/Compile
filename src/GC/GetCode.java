@@ -154,7 +154,7 @@ public class GetCode {
             List<Integer> Out = out.get(i);
             for(int j = 0; j < Def.size(); j++) {
                 for(int l = 0; l < Out.size(); l++) {
-                    if(Def.get(j) == Out.get(l)) {
+                    if(Def.get(j).equals(Out.get(l))) {
                         continue;
                     }
                     adj1.get(Def.get(j)).add(Out.get(l));
@@ -167,7 +167,7 @@ public class GetCode {
             List<Integer> Use = use.get(i);
             for(int j = 0; j < Def.size(); j++) {
                 for(int l = 0; l < Use.size(); l++) {
-                    if(Def.get(j) == Use.get(l)) {
+                    if(Def.get(j).equals(use.get(l))) {
                         continue;
                     }
                     adj1.get(Def.get(j)).add(Use.get(l));
@@ -324,7 +324,7 @@ public class GetCode {
                         assign_add.put(num, new True_address(0, now.add_num));
                     }
                 }
-                //instruction.ToString();
+                //  instruction.ToString();
             }
         }
     }
