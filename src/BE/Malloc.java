@@ -29,7 +29,7 @@ public class Malloc extends ExprIr {
             String tmp = kk.tran_reg(kk, map);
             System.out.println("\tpush   " + tmp);
         }
-        int flag = ((Num + save.size()) / 8) % 2;
+        int flag = (Num / 8 + save.size()) % 2;
         if(flag == 1) {
             System.out.println("\tpush   rbp");
         }

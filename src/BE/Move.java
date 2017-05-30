@@ -25,12 +25,10 @@ public class Move extends StmtIr{
             String nowleft = tran_reg(now.a, assign_add);
             String nowright = tran_reg(now.b, assign_add);
             System.out.println("\tmov    " + nowleft + ",  "  + nowright);
-            System.out.println();
         } else {
             String nowleft = tran_reg(left, assign_add);
             String nowright = tran_reg(toreg(right, assign_add), assign_add);
             System.out.println("\tmov    " + nowleft + ",  "  + nowright);
-            System.out.println();
         }
     }
     @Override
@@ -38,21 +36,20 @@ public class Move extends StmtIr{
         System.out.println("Move  left:(" + left.oString() + ")  right:(" + right.oString() + ")");
     }
     public List<Integer> def() {
-        List<Integer> t = left.getnum();
-        if(t.size() == 1) {
-            return t;
+        if(left.isVregister()) {
+            return left.getnum();
         } else {
             return new ArrayList();
         }
     }
 
     public List<Integer> use() {
-        List<Integer> t = left.getnum();
-        if(t.size() == 2) {
-            return new Ir().fix(t, right.getnum());
+        if(!left.isVregister()) {
+            return new Ir().fix(left.getnum(), right.getnum());
         } else {
             return right.getnum();
         }
     }
+
 }
 

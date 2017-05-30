@@ -54,17 +54,15 @@ public class UnaryIr extends ExprIr {
         }
     }
     public List<Integer> def() {
-        List<Integer> num = dest.getnum();
-        if(num.size() == 1) {
-            return num;
+        if(dest.isVregister()) {
+            return dest.getnum();
         } else {
             return new ArrayList<>();
         }
     }
 
     public List<Integer> use() {
-        List<Integer> num = dest.getnum();
-        if(num.size() == 1) {
+        if(dest.isVregister()) {
             return right.getnum();
         } else {
             return fix(dest.getnum(), right.getnum());

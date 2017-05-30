@@ -38,6 +38,7 @@ public class FunctionIr extends Ir{
         Num = 8 + add_num;
         for(int i = 0; i < content.size(); i++) {
             content.get(i).translate(assign_add, Num);
+            System.out.println();
         }
         System.out.println("\tjmp    " + name + "." + Integer.toString(label) + ".out");
         System.out.println(name + "." + Integer.toString(label) + ".out:");

@@ -3,6 +3,7 @@ package BE;
 import GC.True_address;
 import org.antlr.v4.runtime.misc.Pair;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -96,10 +97,17 @@ public class BinaryIr extends ExprIr{
     }
     @Override
     public List<Integer> def() {
-        return address.getnum();
+        if(address.isVregister())
+            return address.getnum();
+        else
+            return new ArrayList<>();
     }
     @Override
     public List<Integer> use() {
-        return fix(left.getnum(), right.getnum());
+        List<Integer> a = fix(left.getnum(), right.getnum());
+        if(!address.isVregister()) {
+            a = fix(a, address.getnum());
+        }
+        return a;
     }
 }

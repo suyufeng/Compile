@@ -72,7 +72,7 @@ public class GetCode {
             }
             int flag = get_color(colormap);
             if(flag != -1) {
-     //           System.out.println(u + " " + flag);
+                //System.out.println(u + " " + flag);
                 assign_add.put(u, new True_address(flag, 0));
             }
         }
@@ -376,7 +376,7 @@ public class GetCode {
         for(int i = 0; i < function.size(); i++) {
             FunctionIr now = function.get(i);
             now.translate(assign_add, 0);
-            //System.out.print(" ");
+           // System.out.print(" ");
         }
         SystemFunction();
     }
