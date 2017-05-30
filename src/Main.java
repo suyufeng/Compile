@@ -148,10 +148,7 @@ public class Main {
         Buildir third_walk = new Buildir(second_walk.AstNode, ClassMap, second_walk.Classindex, second_walk.NameMap, second_walk.Classnum, second_walk.Haveselfpart);
         walker.walk(third_walk, tree);
 
-        if(third_walk.register_num > 800) {
-            return ;
-        }
-        GetCode forth_walk = new GetCode(third_walk.globel, third_walk.procedure, second_walk.pattern, third_walk.tt, third_walk.global);
+        GetCode forth_walk = new GetCode(third_walk.globel, third_walk.procedure, second_walk.pattern, third_walk.tt, third_walk.global, third_walk.register_num);
         forth_walk.prepare();
         forth_walk.work();
         // print LISP-style tree

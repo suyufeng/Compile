@@ -35,13 +35,16 @@ public class GetCode {
 
     Boolean[] used = new Boolean[10000000];
 
+    int Vregister_num;
+
     public GetCode() {}
-    public GetCode(List<Integer> globel, List<FunctionIr> function, List<String> pattern, Map<Pair<String, Integer>, List<Address>> tt, List<Ir> t1) {
+    public GetCode(List<Integer> globel, List<FunctionIr> function, List<String> pattern, Map<Pair<String, Integer>, List<Address>> tt, List<Ir> t1, int rege) {
         this.globel = globel;
         this.function = function;
         this.pattern = pattern;
         this.parameters = tt;
         this.global = t1;
+        this.Vregister_num = rege;
     }
 
     void SystemFunction() {
@@ -319,8 +322,8 @@ public class GetCode {
         }
         function.get(label).content.clear();
         function.get(label).content = global;
-
-        Assign_true_reg();
+        if(Vregister_num < 800)
+            Assign_true_reg();
 
         for(int i = 0; i < function.size(); i++) {
             FunctionIr now = function.get(i);
