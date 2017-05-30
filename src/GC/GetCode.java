@@ -112,19 +112,6 @@ public class GetCode {
             flag = false;
             for(int i = a.size() - 1; i >= 0; i--) {
                 List<Integer> edge = suf.get(i);
-                List<Integer> inset = in.get(i);
-                int in_num = inset.size();
-                List<Integer> inse = new Ir().del(out.get(i), def.get(i));
-                inset = new Ir().fix(inset, inse);
-                inset = new Ir().fix(inset, use.get(i));
-                in.remove(i);
-                in.put(i, inset);
-                if(inset.size() != in_num) {
-                    flag = true;
-                }
-             }
-            for(int i = a.size() - 1; i >= 0; i--) {
-                List<Integer> edge = suf.get(i);
                 List<Integer> outset = out.get(i);
                 int out_num = outset.size();
                 for(int j = 0; j < edge.size(); j++) {
@@ -137,6 +124,19 @@ public class GetCode {
                     flag = true;
                 }
             }
+            for(int i = a.size() - 1; i >= 0; i--) {
+                List<Integer> edge = suf.get(i);
+                List<Integer> inset = in.get(i);
+                int in_num = inset.size();
+                List<Integer> inse = new Ir().del(out.get(i), def.get(i));
+                inset = new Ir().fix(inset, inse);
+                inset = new Ir().fix(inset, use.get(i));
+                in.remove(i);
+                in.put(i, inset);
+                if(inset.size() != in_num) {
+                    flag = true;
+                }
+             }
         }
         List<Integer> all = new ArrayList<>();
         int Max = 0;
