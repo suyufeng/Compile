@@ -3,12 +3,16 @@
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/BE/Move.java" line="59" />
     <bookmark url="file://$PROJECT_DIR$/src/BE/Immediate.java" line="9" />
-    <bookmark url="file://$PROJECT_DIR$/src/BE/Buildir.java" line="647" />
+    <bookmark url="file://$PROJECT_DIR$/src/BE/Buildir.java" line="643" />
     <bookmark url="file://$PROJECT_DIR$/src/BE/CallIr.java" line="25" />
-    <bookmark url="file://$PROJECT_DIR$/src/GC/GetCode.java" line="408" />
+    <bookmark url="file://$PROJECT_DIR$/src/GC/GetCode.java" line="404" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="" />
+    <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/Buildir.java" afterPath="$PROJECT_DIR$/src/BE/Buildir.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GC/GetCode.java" afterPath="$PROJECT_DIR$/src/GC/GetCode.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -43,23 +47,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetCode.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GetCode.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GC/GetCode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="403" column="54" lean-forward="true" selection-start-line="403" selection-start-column="54" selection-end-line="403" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="56">
+              <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="a.in" pinned="false" current-in-tab="true">
+      <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="212" column="1" lean-forward="true" selection-start-line="212" selection-start-column="1" selection-end-line="212" selection-end-column="1" />
+            <state relative-caret-position="165">
+              <caret line="224" column="14" lean-forward="true" selection-start-line="224" selection-start-column="14" selection-end-line="224" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="semantic.bash" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/semantic.bash">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -108,11 +120,9 @@
       <file leaf-file-name="Buildir.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BE/Buildir.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="552" column="54" lean-forward="true" selection-start-line="552" selection-start-column="54" selection-end-line="552" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="112">
+              <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,11 +163,11 @@
       <find>getNEw</find>
       <find>Sy</find>
       <find>g</find>
-      <find>getnew</find>
       <find>num</find>
-      <find>&lt;&lt;</find>
       <find>rcx</find>
       <find>enterbinary</find>
+      <find>&lt;&lt;</find>
+      <find>getnew</find>
     </findStrings>
     <replaceStrings>
       <replace>_walk</replace>
@@ -224,14 +234,14 @@
         <option value="$PROJECT_DIR$/src/BE/CallIr.java" />
         <option value="$PROJECT_DIR$/src/BE/FunctionIr.java" />
         <option value="$PROJECT_DIR$/src/FE/CST/Buildast.java" />
-        <option value="$PROJECT_DIR$/src/BE/Buildir.java" />
         <option value="$PROJECT_DIR$/src/BE/BinaryIr.java" />
         <option value="$PROJECT_DIR$/src/BE/Ir.java" />
         <option value="$PROJECT_DIR$/src/BE/Jump.java" />
         <option value="$PROJECT_DIR$/src/BE/Move.java" />
         <option value="$PROJECT_DIR$/src/BE/Address.java" />
-        <option value="$PROJECT_DIR$/src/GC/GetCode.java" />
         <option value="$PROJECT_DIR$/src/a.in" />
+        <option value="$PROJECT_DIR$/src/BE/Buildir.java" />
+        <option value="$PROJECT_DIR$/src/GC/GetCode.java" />
       </list>
     </option>
   </component>
@@ -908,12 +918,12 @@
       <workItem from="1496087409988" duration="1253000" />
       <workItem from="1496108769640" duration="20697000" />
       <workItem from="1496132964739" duration="1134000" />
-      <workItem from="1496134654403" duration="19066000" />
+      <workItem from="1496134654403" duration="19429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="351612000" />
+    <option name="totallyTimeSpent" value="351975000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -925,7 +935,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="74" y="-11" width="1847" height="1092" extended-state="7" />
+    <frame x="74" y="-11" width="1847" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1073,13 +1083,6 @@
         <state relative-caret-position="112">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/semantic.bash">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1279,16 +1282,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/Buildir.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="552" column="54" lean-forward="true" selection-start-line="552" selection-start-column="54" selection-end-line="552" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BE/Ir.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -1345,20 +1338,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GC/GetCode.java">
+    <entry file="file://$PROJECT_DIR$/src/a.in">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="403" column="54" lean-forward="true" selection-start-line="403" selection-start-column="54" selection-end-line="403" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="165">
+          <caret line="224" column="14" lean-forward="true" selection-start-line="224" selection-start-column="14" selection-end-line="224" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/a.in">
+    <entry file="file://$PROJECT_DIR$/semantic.bash">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="212" column="1" lean-forward="true" selection-start-line="212" selection-start-column="1" selection-end-line="212" selection-end-column="1" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BE/Buildir.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GC/GetCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
           <folding />
         </state>
       </provider>

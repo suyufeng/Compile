@@ -1,10 +1,6 @@
 package GC;
 
 import BE.*;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import com.sun.xml.internal.ws.api.pipe.NextAction;
-import jdk.nashorn.internal.codegen.CompilerConstants;
-import jdk.nashorn.internal.ir.BinaryNode;
 import org.antlr.v4.runtime.misc.Pair;
 
 import java.util.*;

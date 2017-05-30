@@ -6,19 +6,15 @@ import FE.AST.Stmt.ForNode;
 import FE.AST.Stmt.IfNode;
 import FE.AST.Stmt.WhileNode;
 import FE.AST.Type;
-import FE.CST.Checkconflict;
 import FE.CST.MplusBaseListener;
 import FE.CST.MplusParser;
 import FE.AST.*;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import jdk.nashorn.internal.ir.BinaryNode;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.Pair;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 import org.antlr.v4.runtime.tree.TerminalNode;
-import org.omg.CORBA.NO_IMPLEMENT;
 
 import java.util.*;
 
