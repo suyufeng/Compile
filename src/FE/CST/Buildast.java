@@ -484,6 +484,54 @@ public class Buildast extends MplusBaseListener{
                 int num = Integer.parseInt(le) % Integer.parseInt(ri);
                 ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
                 AstNode.put(ctx, tt);
+            } else if(t.equals("+")) {
+                String le = ((ConstNode)left).content;
+                String ri = ((ConstNode)right).content;
+                int num = Integer.parseInt(le) + Integer.parseInt(ri);
+                ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
+                AstNode.put(ctx, tt);
+            } else if(t.equals("-")) {
+                String le = ((ConstNode)left).content;
+                String ri = ((ConstNode)right).content;
+                int num = Integer.parseInt(le) - Integer.parseInt(ri);
+                ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
+                AstNode.put(ctx, tt);
+            } else if(t.equals("/")) {
+                String le = ((ConstNode)left).content;
+                String ri = ((ConstNode)right).content;
+                int num = Integer.parseInt(le) / Integer.parseInt(ri);
+                ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
+                AstNode.put(ctx, tt);
+            } else if(t.equals("&")) {
+                String le = ((ConstNode)left).content;
+                String ri = ((ConstNode)right).content;
+                int num = Integer.parseInt(le) & Integer.parseInt(ri);
+                ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
+                AstNode.put(ctx, tt);
+            } else if(t.equals("|")) {
+                String le = ((ConstNode)left).content;
+                String ri = ((ConstNode)right).content;
+                int num = Integer.parseInt(le) | Integer.parseInt(ri);
+                ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
+                AstNode.put(ctx, tt);
+            } else if(t.equals("^")) {
+                String le = ((ConstNode)left).content;
+                String ri = ((ConstNode)right).content;
+                int num = Integer.parseInt(le) ^ Integer.parseInt(ri);
+                ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
+                AstNode.put(ctx, tt);
+            } else if(t.equals("<<")) {
+                String le = ((ConstNode)left).content;
+                String ri = ((ConstNode)right).content;
+                int num = Integer.parseInt(le) << Integer.parseInt(ri);
+                ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
+                AstNode.put(ctx, tt);
+            } else if(t.equals(">>")) {
+                String le = ((ConstNode)left).content;
+                String ri = ((ConstNode)right).content;
+                int num = Integer.parseInt(le) >> Integer.parseInt(ri);
+                ConstNode tt = new ConstNode(left.type, "11", Integer.toString(num));
+                AstNode.put(ctx, tt);
             }
         }
     }
