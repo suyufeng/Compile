@@ -1,5 +1,8 @@
 package BE;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by suyufeng on 17-5-20.
  */
@@ -16,4 +19,14 @@ public class ExprIr extends Ir{
         }
         t.content.clear();
     }
+    @Override
+    public List<Integer> def() {
+        return new ArrayList<>();
+    }
+
+    @Override
+    public List<Integer> use() {
+        return new ArrayList<>();
+    }
+
 }

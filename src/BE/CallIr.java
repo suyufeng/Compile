@@ -34,14 +34,14 @@ public class CallIr extends ExprIr {
         if((Num + num * 8) % 16 != 0) {
             System.out.println("\tpush   rbp");
         }
-        for(int i = num - 1; i >= 0; i--) {
+        for(int i = para.size() - 1; i >= 0; i--) {
             Address now = para.get(i);
             Address kk = now.toreg(now, assign_add);
             String tmp = kk.tran_reg(kk, assign_add);
             System.out.println("\tpush   " + tmp);
         }
         System.out.println("\tcall   " + name + "." + Integer.toString(label));
-        System.out.println("\tadd    rsp,  " + Integer.toString(num * 8));
+        System.out.println("\tadd    rsp,  " + Integer.toString(para.size() * 8));
 
         if((Num + num * 8) % 16 != 0) {
             System.out.println("\tpop    rbp");

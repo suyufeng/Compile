@@ -69,7 +69,7 @@ public class GetCode {
             }
             int flag = get_color(colormap);
             if(flag != -1) {
-      //          System.out.println(u + " " + flag);
+  //              System.out.println(u + " " + flag);
                 assign_add.put(u, new True_address(flag, 0));
             }
         }
@@ -97,6 +97,7 @@ public class GetCode {
             def.put(i, this_def);
             use.put(i, this_use);
             suf.put(i, this_suf);
+          //  System.out.println(i + " " + this_def + " " + this_use);
             in.put(i, new ArrayList<>());
             out.put(i, new ArrayList<>());
         }
