@@ -5,11 +5,14 @@
     <bookmark url="file://$PROJECT_DIR$/src/BE/Immediate.java" line="9" />
     <bookmark url="file://$PROJECT_DIR$/src/BE/Buildir.java" line="647" />
     <bookmark url="file://$PROJECT_DIR$/src/BE/CallIr.java" line="25" />
-    <bookmark url="file://$PROJECT_DIR$/src/GC/GetCode.java" line="381" />
+    <bookmark url="file://$PROJECT_DIR$/src/GC/GetCode.java" line="375" />
     <bookmark url="file://$PROJECT_DIR$/src/a.in" line="0" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="" />
+    <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GC/GetCode.java" afterPath="$PROJECT_DIR$/src/GC/GetCode.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetCode.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GetCode.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GC/GetCode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="113" column="34" lean-forward="true" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
+            <state relative-caret-position="-6720">
+              <caret line="129" column="69" lean-forward="false" selection-start-line="129" selection-start-column="69" selection-end-line="129" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -66,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="a.in" pinned="false" current-in-tab="true">
+      <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="29232">
@@ -165,10 +168,10 @@
       <find>Sy</find>
       <find>g</find>
       <find>enterbinary</find>
-      <find>&lt;&lt;</find>
       <find>getnew</find>
       <find>rcx</find>
       <find>num</find>
+      <find>&lt;&lt;</find>
     </findStrings>
     <replaceStrings>
       <replace>_walk</replace>
@@ -241,8 +244,8 @@
         <option value="$PROJECT_DIR$/src/BE/Buildir.java" />
         <option value="$PROJECT_DIR$/src/BE/Ir.java" />
         <option value="$PROJECT_DIR$/src/BE/BinaryIr.java" />
-        <option value="$PROJECT_DIR$/src/GC/GetCode.java" />
         <option value="$PROJECT_DIR$/src/a.in" />
+        <option value="$PROJECT_DIR$/src/GC/GetCode.java" />
       </list>
     </option>
   </component>
@@ -919,12 +922,12 @@
       <workItem from="1496087409988" duration="1253000" />
       <workItem from="1496108769640" duration="20697000" />
       <workItem from="1496132964739" duration="1134000" />
-      <workItem from="1496134654403" duration="15786000" />
+      <workItem from="1496134654403" duration="16002000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="348332000" />
+    <option name="totallyTimeSpent" value="348548000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1354,21 +1357,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GC/GetCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="113" column="34" lean-forward="true" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/a.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29232">
           <caret line="1044" column="0" lean-forward="false" selection-start-line="1044" selection-start-column="0" selection-end-line="1044" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GC/GetCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6720">
+          <caret line="129" column="69" lean-forward="false" selection-start-line="129" selection-start-column="69" selection-end-line="129" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
