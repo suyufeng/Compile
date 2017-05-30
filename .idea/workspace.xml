@@ -5,12 +5,15 @@
     <bookmark url="file://$PROJECT_DIR$/src/BE/Immediate.java" line="9" />
     <bookmark url="file://$PROJECT_DIR$/src/BE/Buildir.java" line="632" />
     <bookmark url="file://$PROJECT_DIR$/src/BE/CallIr.java" line="25" />
-    <bookmark url="file://$PROJECT_DIR$/src/GC/GetCode.java" line="381" />
-    <bookmark url="file://$PROJECT_DIR$/src/a.in" line="13" />
+    <bookmark url="file://$PROJECT_DIR$/src/GC/GetCode.java" line="367" />
+    <bookmark url="file://$PROJECT_DIR$/src/a.in" line="46" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Compiler/a.in" afterPath="$PROJECT_DIR$/out/production/Compiler/a.in" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/FunctionIr.java" afterPath="$PROJECT_DIR$/src/BE/FunctionIr.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GC/GetCode.java" afterPath="$PROJECT_DIR$/src/GC/GetCode.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/a.in" afterPath="$PROJECT_DIR$/src/a.in" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,7 +33,7 @@
       <file leaf-file-name="Move.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BE/Move.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
+            <state relative-caret-position="608">
               <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
               <folding />
             </state>
@@ -40,7 +43,7 @@
       <file leaf-file-name="BinaryIr.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BE/BinaryIr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
+            <state relative-caret-position="440">
               <caret line="110" column="17" lean-forward="false" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
               <folding />
             </state>
@@ -50,7 +53,7 @@
       <file leaf-file-name="GetCode.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GC/GetCode.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
+            <state relative-caret-position="237">
               <caret line="327" column="45" lean-forward="false" selection-start-line="327" selection-start-column="45" selection-end-line="327" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -59,21 +62,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FunctionIr.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FunctionIr.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BE/FunctionIr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+            <state relative-caret-position="28">
+              <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="a.in" pinned="false" current-in-tab="false">
+      <file leaf-file-name="a.in" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/a.in">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="1288">
+              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -82,7 +85,7 @@
       <file leaf-file-name="CallIr.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BE/CallIr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
+            <state relative-caret-position="112">
               <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
               <folding />
             </state>
@@ -115,7 +118,7 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
+            <state relative-caret-position="1578">
               <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
               <folding />
             </state>
@@ -245,10 +248,10 @@
         <option value="$PROJECT_DIR$/src/BE/Move.java" />
         <option value="$PROJECT_DIR$/src/BE/Address.java" />
         <option value="$PROJECT_DIR$/src/BE/Buildir.java" />
-        <option value="$PROJECT_DIR$/src/BE/CallIr.java" />
-        <option value="$PROJECT_DIR$/src/GC/GetCode.java" />
         <option value="$PROJECT_DIR$/src/a.in" />
         <option value="$PROJECT_DIR$/src/BE/FunctionIr.java" />
+        <option value="$PROJECT_DIR$/src/BE/CallIr.java" />
+        <option value="$PROJECT_DIR$/src/GC/GetCode.java" />
       </list>
     </option>
   </component>
@@ -925,12 +928,12 @@
       <workItem from="1496087409988" duration="1253000" />
       <workItem from="1496108769640" duration="20697000" />
       <workItem from="1496132964739" duration="1134000" />
-      <workItem from="1496134654403" duration="5300000" />
+      <workItem from="1496134654403" duration="6501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="337846000" />
+    <option name="totallyTimeSpent" value="339047000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1302,22 +1305,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/Move.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/BinaryIr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="110" column="17" lean-forward="false" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BE/Buildir.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2455">
@@ -1325,14 +1312,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/CallIr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1346,15 +1325,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
+        <state relative-caret-position="1578">
           <caret line="149" column="0" lean-forward="true" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BE/BinaryIr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="110" column="17" lean-forward="false" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BE/Move.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BE/FunctionIr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BE/CallIr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GC/GetCode.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
+        <state relative-caret-position="237">
           <caret line="327" column="45" lean-forward="false" selection-start-line="327" selection-start-column="45" selection-end-line="327" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1364,16 +1375,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/a.in">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BE/FunctionIr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="49" column="34" lean-forward="false" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+        <state relative-caret-position="1288">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>

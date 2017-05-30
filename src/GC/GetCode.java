@@ -112,6 +112,19 @@ public class GetCode {
             flag = false;
             for(int i = a.size() - 1; i >= 0; i--) {
                 List<Integer> edge = suf.get(i);
+                List<Integer> inset = in.get(i);
+                int in_num = inset.size();
+                List<Integer> inse = new Ir().del(out.get(i), def.get(i));
+                inset = new Ir().fix(inset, inse);
+                inset = new Ir().fix(inset, use.get(i));
+                in.remove(i);
+                in.put(i, inset);
+                if(inset.size() != in_num) {
+                    flag = true;
+                }
+             }
+            for(int i = a.size() - 1; i >= 0; i--) {
+                List<Integer> edge = suf.get(i);
                 List<Integer> outset = out.get(i);
                 int out_num = outset.size();
                 for(int j = 0; j < edge.size(); j++) {
@@ -124,19 +137,6 @@ public class GetCode {
                     flag = true;
                 }
             }
-            for(int i = a.size() - 1; i >= 0; i--) {
-                List<Integer> edge = suf.get(i);
-                List<Integer> inset = in.get(i);
-                int in_num = inset.size();
-                List<Integer> inse = new Ir().del(out.get(i), def.get(i));
-                inset = new Ir().fix(inset, inse);
-                inset = new Ir().fix(inset, use.get(i));
-                in.remove(i);
-                in.put(i, inset);
-                if(inset.size() != in_num) {
-                    flag = true;
-                }
-             }
         }
         List<Integer> all = new ArrayList<>();
         int Max = 0;
@@ -326,20 +326,6 @@ public class GetCode {
             Assign_true_reg();
         for(int i = 0; i < function.size(); i++) {
             FunctionIr now = function.get(i);
-            {
-                List<Integer> num = tt.get(new Pair<String, Integer>(now.name, now.label));
-                Map<Integer, Boolean> color2 = new HashMap<>();
-                if (num != null) {
-                    for (int l = 0; l < num.size(); l++) {
-                        if (assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                            if (!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg >= 4) {
-                                color2.put(assign_add.get(num.get(l)).reg, true);
-                                now.save.add(new Address(new Vregister(num.get(l))));
-                            }
-                        }
-                    }
-                }
-            }
             for(int j = 0; j < now.content.size(); j++) {
                 Ir instruction = now.content.get(j);
                 if(instruction instanceof CallIr) {
@@ -349,7 +335,7 @@ public class GetCode {
                     if(num != null) {
                         for(int l = 0; l < num.size(); l++) {
                             if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg <= 4){
+                                if(!color2.containsKey(assign_add.get(num.get(l)).reg)){
                                     color2.put(assign_add.get(num.get(l)).reg, true);
                                     CallIr.save.add(new Address(new Vregister(num.get(l))));
                                 }
@@ -364,7 +350,7 @@ public class GetCode {
                     if(num != null) {
                         for(int l = 0; l < num.size(); l++) {
                             if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg <= 4){
+                                if(!color2.containsKey(assign_add.get(num.get(l)).reg)){
                                     color2.put(assign_add.get(num.get(l)).reg, true);
                                     Malloc.save.add(new Address(new Vregister(num.get(l))));
                                 }
