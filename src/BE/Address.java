@@ -39,7 +39,7 @@ public class Address extends Ir{
             imm2 = new Immediate(x.imm2);
         globel = x.globel;
     }
-    boolean isVregister() {
+    public boolean isVregister() {
         if(this.reg2 == null && this.imm1 == null && this.imm2 == null && this.reg1 != null && globel == 0) {
             return true;
         } else {
@@ -52,6 +52,34 @@ public class Address extends Ir{
         } else {
             return false;
         }
+    }
+    boolean Vregister_equal(Vregister t1, Vregister t2) {
+        if(t1 == null && t2 == null) {
+            return true;
+        }
+        if(t1 == null || t2 == null) {
+            return false;
+        }
+        return t1.num == t2.num;
+    }
+
+    boolean Imm_equal(Immediate t1, Immediate t2) {
+        if(t1 == null && t2 == null) {
+            return true;
+        }
+        if(t1 == null || t2 == null) {
+            return false;
+        }
+        return t1.num == t2.num;
+    }
+
+    public boolean equal(Address now) {
+        if(Vregister_equal(reg1, now.reg1) && Vregister_equal(reg2, now.reg2)) {
+            if(Imm_equal(imm1, now.imm1) && Imm_equal(imm2, now.imm2)) {
+                return true;
+            }
+        }
+        return false;
     }
     @Override
     public void ToString()  {

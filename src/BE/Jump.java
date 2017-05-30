@@ -10,7 +10,7 @@ import java.util.Map;
  * Created by suyufeng on 17-5-22.
  */
 public class Jump extends StmtIr {
-    Catch yes;
+    public Catch yes;
     public Jump(Catch x) {
         yes = x;
     }
@@ -20,6 +20,9 @@ public class Jump extends StmtIr {
     }
     @Override
     public void translate(Map<Integer, True_address> map, int Num) {
+        if(skip == true) {
+            return ;
+        }
         System.out.println("\tjmp    Catch." + yes.flag);
     }
     @Override

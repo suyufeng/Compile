@@ -13,6 +13,7 @@ import java.util.Map;
  */
 public class Ir {
     public List<Ir> content = new ArrayList();
+    public Boolean skip = false;
     String[] a = new String[]{"", "rsi", "rdi", "r15"};
     public void translate(Map<Integer, True_address> assign_add, int Num) {
 

@@ -12,7 +12,7 @@ import java.util.Map;
  * Created by suyufeng on 17-5-20.
  */
 public class Move extends StmtIr{
-    Address left, right;
+    public Address left, right;
     public Move(Address left, Address right) {
         this.left = new Address(left);
         this.right = new Address(right);
@@ -20,6 +20,9 @@ public class Move extends StmtIr{
     public Move() {}
     @Override
     public void translate(Map<Integer, True_address> assign_add, int Num) {
+        if(skip) {
+            return ;
+        }
         if(left.globel == 0) {
             Pair<Address, Address> now = fuck_divert(left, right, assign_add);
             String nowleft = tran_reg(now.a, assign_add);
@@ -33,6 +36,9 @@ public class Move extends StmtIr{
     }
     @Override
     public void ToString() {
+        if(skip) {
+            return ;
+        }
         System.out.println("Move  left:(" + left.oString() + ")  right:(" + right.oString() + ")");
     }
     public List<Integer> def() {

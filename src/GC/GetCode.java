@@ -2,6 +2,7 @@ package GC;
 
 import BE.*;
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.sun.xml.internal.ws.api.pipe.NextAction;
 import jdk.nashorn.internal.codegen.CompilerConstants;
 import jdk.nashorn.internal.ir.BinaryNode;
 import org.antlr.v4.runtime.misc.Pair;
@@ -241,6 +242,38 @@ public class GetCode {
     public void Assign_true_reg() {
         for(int i = 0; i < function.size(); i++) {
             tt.put(new Pair<String, Integer>(function.get(i).name, function.get(i).label), build_graph(function.get(i).content, parameters.get(new Pair<String, Integer>(function.get(i).name, function.get(i).label))));
+            List<Ir> now = function.get(i).content;
+            for(int j = 0; j + 1 < now.size(); j++) {
+                Ir cur = now.get(j);
+                Ir nxt = now.get(j + 1);
+                if(cur instanceof Move && nxt instanceof Move) {
+                    Move Cur_move = (Move)cur;
+                    Move Nxt_move = (Move)nxt;
+                    if(Cur_move.left.equal(Nxt_move.right)){
+                        if(Cur_move.left.isVregister()) {
+                            List<Integer> OU = out.get(j + 1);
+                            boolean flag = true;
+                            for(int l = 0; l < OU.size(); l++) {
+                                if(OU.get(l).equals(Cur_move.left.reg1.num)) {
+                                    flag = false;
+                                    break;
+                                }
+                            }
+                            if(flag) {
+                                Nxt_move.right = Cur_move.right;
+                                Cur_move.skip = true;
+                            }
+                        }
+                    }
+                }
+                if(cur instanceof Jump && nxt instanceof Catch) {
+                    Jump Cur_Jump = (Jump)cur;
+                    Catch Nxt_Jump = (Catch) nxt;
+                    if(Cur_Jump.yes.flag == Nxt_Jump.flag) {
+                        Cur_Jump.skip = true;
+                    }
+                }
+            }
         }
     }
 
