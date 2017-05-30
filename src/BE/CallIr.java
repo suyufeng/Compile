@@ -26,13 +26,19 @@ public class CallIr extends ExprIr {
         int num = save.size() + para.size() + 1;
         Move Move = new Move();
         for(int i = 0; i < save.size(); i++) {
+            Address now = save.get(i);
+            Address kk = now.toadd(now, 1, 2, assign_add);
+            String tmp = kk.tran_reg(kk, assign_add);
             System.out.println("\tpush   " + tran_reg(save.get(i), assign_add));
         }
         if((Num + num * 8) % 16 != 0) {
             System.out.println("\tpush   rbp");
         }
         for(int i = para.size() - 1; i >= 0; i--) {
-            System.out.println("\tpush   " + tran_reg(para.get(i), assign_add));
+            Address now = para.get(i);
+            Address kk = now.toadd(now, 1, 2, assign_add);
+            String tmp = kk.tran_reg(kk, assign_add);
+            System.out.println("\tpush   " + tmp);
         }
         System.out.println("\tcall   " + name + "." + Integer.toString(label));
         System.out.println("\tadd    rsp,  " + Integer.toString(para.size() * 8));

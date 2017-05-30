@@ -204,13 +204,19 @@ public class GetCode {
         int i = -1;
         while(true) {
             if (i + 1 == queue.size()) {
+                int Max_num = 0, Maxid = -1;
                 for(int j = 0; j < all.size(); j++) {
                     int to = all.get(j);
                     if(!used[to]) {
-                        used[to] = true;
-                        queue.add(to);
-                        break;
+                        if(adj1.get(to).size() > Max_num) {
+                            Max_num = adj1.get(to).size();
+                            Maxid = to;
+                        }
                     }
+                }
+                if(Maxid != -1) {
+                    used[Maxid] = true;
+                    queue.add(Maxid);
                 }
                 if(i + 1== queue.size()) {
                     break;
