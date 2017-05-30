@@ -21,7 +21,7 @@ public class GetCode {
     Map<Pair<String, Integer>, List<Integer>> tt = new HashMap<>();
     SystemFunction Sfunction = new SystemFunction();
 
-    Map<Integer, List<Integer>> need_protect = new HashMap<>();
+    Map<Pair<String, Integer>, List<Address>> parameters = new HashMap<>();
 
     Map<Integer, List<Integer>> def = new HashMap<>();
     Map<Integer, List<Integer>> use = new HashMap<>();
@@ -40,6 +40,7 @@ public class GetCode {
         this.globel = globel;
         this.function = function;
         this.pattern = pattern;
+        this.parameters = tt;
         this.global = t1;
     }
 
@@ -68,13 +69,13 @@ public class GetCode {
             }
             int flag = get_color(colormap);
             if(flag != -1) {
-                //System.out.println(u + " " + flag);
+            //    System.out.println(u + " " + flag);
                 assign_add.put(u, new True_address(flag, 0));
             }
         }
     }
 
-    List<Integer> build_graph(List<Ir> a) {
+    List<Integer> build_graph(List<Ir> a, List<Address> b) {
         List<Ir> fix = new ArrayList<>();
         def.clear();use.clear();in.clear();out.clear();
 
@@ -105,7 +106,7 @@ public class GetCode {
                 break;
             }
             flag = false;
-            for(int i = a.size() - 1; i > 0; i--) {
+            for(int i = a.size() - 1; i >= 0; i--) {
                 List<Integer> edge = suf.get(i);
                 List<Integer> inset = in.get(i);
                 int in_num = inset.size();
@@ -118,7 +119,7 @@ public class GetCode {
                     flag = true;
                 }
              }
-            for(int i = a.size() - 1; i > 0; i--) {
+            for(int i = a.size() - 1; i >= 0; i--) {
                 List<Integer> edge = suf.get(i);
                 List<Integer> outset = out.get(i);
                 int out_num = outset.size();
@@ -177,23 +178,38 @@ public class GetCode {
                 }
             }
         }
-
+        if(a.size() > 0) {
+            for (int i = 0; i < b.size(); i++) {
+                List<Integer> pattern = in.get(0);
+                for (int j = 0; j < pattern.size(); j++) {
+                    if(pattern.get(j).equals(b.get(i).reg1.num)) {
+                        continue;
+                    }
+                    adj1.get(b.get(i).reg1.num).add(pattern.get(j));
+                    adj1.get(pattern.get(j)).add(b.get(i).reg1.num);
+                    adj2.get(b.get(i).reg1.num).add(pattern.get(j));
+                    adj2.get(pattern.get(j)).add(b.get(i).reg1.num);
+                }
+            }
+        }
 
         List<Integer> queue = new ArrayList<>();
-        for(int i = 1; i <= Max; i++) {
-            used[i] = false;
-            if(adj1.get(i).size() <= ColorNum) {
-                used[i] = true;
-                queue.add(i);
+        for(int i = 0; i < all.size(); i++) {
+            int to = all.get(i);
+            used[to] = false;
+            if(adj1.get(to).size() <= ColorNum) {
+                used[to] = true;
+                queue.add(to);
             }
         }
         int i = -1;
         while(true) {
             if (i + 1 == queue.size()) {
-                for(int j = 1; j <= Max; j++) {
-                    if(!used[j]) {
-                        used[j] = true;
-                        queue.add(j);
+                for(int j = 0; j < all.size(); j++) {
+                    int to = all.get(j);
+                    if(!used[to]) {
+                        used[to] = true;
+                        queue.add(to);
                         break;
                     }
                 }
@@ -221,7 +237,7 @@ public class GetCode {
 
     public void Assign_true_reg() {
         for(int i = 0; i < function.size(); i++) {
-            tt.put(new Pair<String, Integer>(function.get(i).name, function.get(i).label), build_graph(function.get(i).content));
+            tt.put(new Pair<String, Integer>(function.get(i).name, function.get(i).label), build_graph(function.get(i).content, parameters.get(new Pair<String, Integer>(function.get(i).name, function.get(i).label))));
         }
     }
 
