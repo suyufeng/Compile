@@ -84,11 +84,15 @@ public class BinaryIr extends ExprIr{
         } else if(op.equals("^")) {
             System.out.println("\txor    " + le + ",  " + ri);
         } else if(op.equals("<<")) {
+            System.out.println("\tpush   rcx");
             System.out.println("\tmov    " + "rcx" + ",  " + ri);
             System.out.println("\tshl    " + le + ",  cl");
+            System.out.println("\tpop    rcx");
         } else if(op.equals(">>")) {
+            System.out.println("\tpush   rcx");
             System.out.println("\tmov    " + "rcx" + ",  " + ri);
             System.out.println("\tsar    " + le + ",  cl");
+            System.out.println("\tpop    rcx");
         }
     }
     @Override

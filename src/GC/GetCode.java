@@ -15,7 +15,7 @@ public class GetCode {
     List<Integer> globel = new ArrayList<>();
     List<String> pattern = new ArrayList<>();
     List<FunctionIr> function = new ArrayList<>();
-    int ColorNum = 8;
+    int ColorNum = 9;
     List<Ir> global = new ArrayList<>();
     Map<Integer, True_address> assign_add = new HashMap<>();
     Map<Pair<String, Integer>, List<Integer>> tt = new HashMap<>();
@@ -307,9 +307,9 @@ public class GetCode {
         System.out.println("format: db  \"%lld\", 0");
         System.out.println("");
 
-        assign_add.put(10000001, new True_address(9, 0));
-        assign_add.put(10000002, new True_address(10, 0));
-        assign_add.put(10000003, new True_address(11, 0));
+        assign_add.put(10000001, new True_address(10, 0));
+        assign_add.put(10000002, new True_address(11, 0));
+        assign_add.put(10000003, new True_address(12, 0));
         int label = 0;
         for(int i = 0; i < function.size(); i++) {
             if(function.get(i).name.equals("main") && function.get(i).label == 0) {
@@ -332,7 +332,7 @@ public class GetCode {
                 if(num != null) {
                     for(int l = 0; l < num.size(); l++) {
                         if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                            if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg > 4){
+                            if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg > 5){
                                 color2.put(assign_add.get(num.get(l)).reg, true);
                                 now.save.add(new Address(new Vregister(num.get(l))));
                             }
@@ -349,7 +349,7 @@ public class GetCode {
                     if(num != null) {
                         for(int l = 0; l < num.size(); l++) {
                             if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg <= 4){
+                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg <= 5){
                                     color2.put(assign_add.get(num.get(l)).reg, true);
                                     CallIr.save.add(new Address(new Vregister(num.get(l))));
                                 }
@@ -364,7 +364,7 @@ public class GetCode {
                     if(num != null) {
                         for(int l = 0; l < num.size(); l++) {
                             if(assign_add.containsKey(num.get(l)) && assign_add.get(num.get(l)).reg != 0) {
-                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg <= 4){
+                                if(!color2.containsKey(assign_add.get(num.get(l)).reg) && assign_add.get(num.get(l)).reg <= 5){
                                     color2.put(assign_add.get(num.get(l)).reg, true);
                                     Malloc.save.add(new Address(new Vregister(num.get(l))));
                                 }
