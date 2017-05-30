@@ -30,15 +30,16 @@ public class FunctionIr extends Ir{
         System.out.println("\tmov    rbp, rsp");
         System.out.println("\tsub    rsp, " + Integer.toString(add_num));
 
+        for(int i = 0; i < save.size(); i++) {
+            System.out.println("\tpush   " + tran_reg(save.get(i), assign_add));
+        }
+
         for(int i = 0; i < para.size(); i++) {
             System.out.println("\tmov    r15" + ",  qword[rbp + " + Integer.toString((i + 2) * 8) + "]");
             String left = tran_reg(toadd(para.get(i), 1, 2, assign_add), assign_add);
             System.out.println("\tmov    " + left + ",  r15");
         }
 
-        for(int i = 0; i < save.size(); i++) {
-            System.out.println("\tpush   " + tran_reg(save.get(i), assign_add));
-        }
 
         System.out.println("");
         Num = 8 + add_num + save.size() * 8;
