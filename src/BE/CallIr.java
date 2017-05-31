@@ -34,12 +34,15 @@ public class CallIr extends ExprIr {
         if((Num + num * 8) % 16 != 0) {
             System.out.println("\tpush   rbp");
         }
+        int nu = 1;
         for(int i = para.size() - 1; i >= 0; i--) {
             Address now = para.get(i);
-            Address kk = now.toadd(now, 1, 2, assign_add);
+            Address kk = now.toreg(now, assign_add);
             String tmp = kk.tran_reg(kk, assign_add);
-            System.out.println("\tpush   " + tmp);
+            System.out.println("\tmov   " + "qword[rsp - " + nu * 8 + "]" + ",  " + tmp);
+            nu++;
         }
+        System.out.println("\tsub    rsp,  " + Integer.toString(para.size() * 8));
         System.out.println("\tcall   " + name + "." + Integer.toString(label));
         System.out.println("\tadd    rsp,  " + Integer.toString(para.size() * 8));
 
