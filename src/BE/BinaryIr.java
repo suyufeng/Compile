@@ -62,7 +62,7 @@ public class BinaryIr extends ExprIr{
                 System.out.println("\tmov    " + le + ",  " + "rax");
             }
         } else if(op.equals("%")) {
-            if(Character.isDigit(ri.charAt(0)) || ri.charAt(0) == 'q') {
+            if(Character.isDigit(ri.charAt(0)) ||  ri.charAt(0) == 'q') {
                 System.out.println("\tmov    r15" + ",  " + ri);
                 ri = "r15";
             }

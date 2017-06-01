@@ -9,7 +9,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="41104b23-8f73-4762-993a-bd69dadc515b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/BE/BinaryIr.java" afterPath="$PROJECT_DIR$/src/BE/BinaryIr.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -42,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/src/BE/BinaryIr.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="593">
-              <caret line="64" column="49" lean-forward="false" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+              <caret line="64" column="50" lean-forward="false" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -956,12 +955,12 @@
       <workItem from="1496163404595" duration="10109000" />
       <workItem from="1496242362845" duration="1338000" />
       <workItem from="1496303663746" duration="2589000" />
-      <workItem from="1496326909652" duration="376000" />
+      <workItem from="1496326909652" duration="633000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371969000" />
+    <option name="totallyTimeSpent" value="372226000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -1419,7 +1418,7 @@
     <entry file="file://$PROJECT_DIR$/src/BE/BinaryIr.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="593">
-          <caret line="64" column="49" lean-forward="false" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+          <caret line="64" column="50" lean-forward="false" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
           <folding />
         </state>
       </provider>
