@@ -49,19 +49,35 @@ public class BinaryIr extends ExprIr{
                 System.out.println("\tmov    r15" + ",  " + ri);
                 ri = "r15";
             }
-            System.out.println("\tmov    " + "rax" + ",  " + le);
-            System.out.println("\tcdq");
-            System.out.println("\tidiv   " + ri);
-            System.out.println("\tmov    " + le + ",  " + "rax");
+            if(Character.isDigit(ri.charAt(1))) {
+                ri += 'D';
+                System.out.println("\tmov    " + "rax" + ",  " + le);
+                System.out.println("\tcdq");
+                System.out.println("\tidiv   " + ri);
+                System.out.println("\tmov    " + le + ",  " + "rax");
+            } else {
+                System.out.println("\tmov    " + "rax" + ",  " + le);
+                System.out.println("\tcdq");
+                System.out.println("\tidiv   " + ri);
+                System.out.println("\tmov    " + le + ",  " + "rax");
+            }
         } else if(op.equals("%")) {
             if(Character.isDigit(ri.charAt(0))) {
                 System.out.println("\tmov    r15" + ",  " + ri);
                 ri = "r15";
             }
-            System.out.println("\tmov    " + "rax" + ",  " + le);
-            System.out.println("\tcdq");
-            System.out.println("\tidiv   " + ri);
-            System.out.println("\tmov    " + le + ",  " + "rdx");
+            if(Character.isDigit(ri.charAt(1))) {
+                ri += 'D';
+                System.out.println("\tmov    " + "rax" + ",  " + le);
+                System.out.println("\tcdq");
+                System.out.println("\tidiv   " + ri);
+                System.out.println("\tmov    " + le + ",  " + "rdx");
+            } else {
+                System.out.println("\tmov    " + "rax" + ",  " + le);
+                System.out.println("\tcdq");
+                System.out.println("\tidiv   " + ri);
+                System.out.println("\tmov    " + le + ",  " + "rdx");
+            }
         } else if(op.equals("<")) {
             if(Character.isDigit(le.charAt(0))) {
                 System.out.println("\tmov    " + "rdx" + ",  " + le);
